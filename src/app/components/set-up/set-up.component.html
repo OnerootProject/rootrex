@@ -1,0 +1,41 @@
+<div class="set-up unlock-metamask-bg" [ngClass]="fadeFlag">
+    <div class="set-up-content unlock-metamask-color">
+        <p class="setUp-title">{{'SetUp.Setup' | translate}}<span class="iconfont icon-close" (click)="close()"></span></p>
+        <div class="setUp-cny">
+            <div class="cny-word setUp-font1">{{'SetUp.Currency' | translate}}：</div>
+            <div class="select-box setUp-color" (click)="slideDownCurrency()">{{setCurrency}}
+                <span class="iconfont icon-sanjiaoxing-down icon-down"></span>
+                <div class="down-box hover_bgColor">
+                    <p (click)="setCurrency='CNY'">CNY</p>
+                    <p (click)="setCurrency='USD'">USD</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="setUp-language">
+            <div class="cny-word setUp-font1">{{'SetUp.Language' | translate}}：</div>
+            <div class="select-box setUp-color" (click)="slideDownLanguage()">{{setLang === 'zh'?'简体中文':setLang==='en'?'English':'한국어'}}
+                <span class="iconfont icon-sanjiaoxing-down icon-down"></span>
+                <div class="down-box hover_bgColor">
+                    <p (click)="setLang='zh'">简体中文</p>
+                    <p (click)="setLang='en'">English</p>
+                    <p (click)="setLang='kr'">한국어</p>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="setUp-theme">
+            <div class="cny-word setUp-font1">{{'SetUp.Theme' | translate}}：</div>
+            <div class="theme_box">
+                <div class="theme_word setUp-font1" (click)="setTheme='dark'">
+                    <input type="radio" name="radio"  [checked]="setTheme == 'dark'"><span>{{'SetUp.Dark' | translate}}</span>
+                </div>
+                <div class="theme_word setUp-font1" (click)="setTheme='light'">
+                    <input type="radio" name="radio" [checked]="setTheme == 'light'"><span>{{'SetUp.Light' | translate}}</span>
+                </div>
+            </div>
+        </div>
+        <button class="btn" (click)="setting()">{{'Common.Ok' | translate}}</button>
+    </div>
+</div>
+<div class="mask"></div>

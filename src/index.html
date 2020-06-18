@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-124028678-4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        localStorage.getItem('current-user-address') ? gtag('set', {'user_id': localStorage.getItem('current-user-address')}) : ''; // 使用已登录的 user_id 来设置用户 ID。
+        gtag('config', 'UA-124028678-4', {'send_page_view': false});
+    </script>
+    <meta charset="utf-8">
+    <title></title>
+    <base href="/">
+    <meta name="viewport" content="width=100%">
+    <link rel="icon" type="image/x-icon" href="./assets/image/favicon.ico">
+    <link rel="stylesheet" href="./assets/iconfont/iconfont.css?v=2.2.5">
+    <link rel="stylesheet" href="./assets/swiper/swiper.min.css?v=2.2.5">
+    <script src="./assets/jquery.min.js?v=2.2.5"></script>
+    <script src="./assets/trading/charting_library.min.js?v=2.2.5"></script>
+    <script src="./assets/trading/datafeed/udf/datafeed.js?v=2.2.5"></script>
+    <script src="./assets/swiper/swiper.min.js?v=2.2.5"></script>
+    <!-- Start of onerootsupport Zendesk Widget script -->
+    <!--<script id="ze-snippet"-->
+            <!--src="https://static.zdassets.com/ekr/snippet.js?key=0b8319f0-4780-4174-b52a-b54b92f52abd"></script>-->
+    <!-- End of onerootsupport Zendesk Widget script -->
+</head>
+<body>
+<root></root>
+<!-- Matomo -->
+<script type="text/javascript">
+    var _paq = _paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+        var u = "//piwik.icoroot.com/";
+        _paq.push(['setTrackerUrl', u + 'piwik.php']);
+        _paq.push(['setSiteId', '7']);
+        var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+        g.type = 'text/javascript';
+        g.async = true;
+        g.defer = true;
+        g.src = u + 'piwik.js';
+        s.parentNode.insertBefore(g, s);
+    })();
+</script>
+<!-- End Matomo Code -->
+</body>
+</html>

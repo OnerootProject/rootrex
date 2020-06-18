@@ -1,0 +1,46 @@
+@import '~assets/scss/tool';
+@font-face {
+  font-family: 'icon';
+  font-weight: normal;
+  font-style: normal;
+  src: url('/assets/fonts/icomoon.ttf?i1m0d4') format('truetype'),
+    url('/assets/fonts/icomoon.woff?i1m0d4') format('woff'),
+    url('/assets/fonts/icomoon.svg?i1m0d4#icomoon') format('svg');
+}
+
+i {
+  font-family: 'icon' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+i[class^='i']::before {
+  color: $blue-gem;
+}
+
+.i1::before {
+  content: '\e900';
+}
+
+.i2::before {
+  content: '\e901';
+}
+
+.i3::before {
+  content: '\e902';
+}
+
+.i4::before {
+  content: '\e903';
+}
+
+.i5::before {
+  content: '\e904';
+  color: $neon-blue;
+}

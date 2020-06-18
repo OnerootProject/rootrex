@@ -1,0 +1,29 @@
+.notice-details{
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .notice-details-content{
+        width: 100%;
+        padding: 0 60px 50px;
+        overflow: hidden;
+        .notice-details-title{
+            margin: 50px 0;
+            font-size: 16px;
+            .iconfont{
+                font-size: 12px;
+            }
+        }
+        .introduce-title{
+            font-size: 22px;
+            font-weight: bold;
+        }
+        .notice-details-introduce{
+            p{
+                margin-top: 30px;
+                margin-bottom: 0;
+                font-size: 12px;
+                line-height: 26px;
+            }
+        }
+    }
+}

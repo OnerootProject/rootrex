@@ -1,0 +1,41 @@
+.rootrex-popup {
+  min-width: 240px;
+  max-width: 300px;
+  height: 60px;
+  font-size: 14px;
+  text-align: center;
+  position: fixed;
+  margin: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: table;
+  p{
+      margin: 0;
+      display: table-cell;
+      vertical-align: middle;
+      line-height: 20px;
+  }
+}
+
+.fadeIn{
+  animation: fadeIn 300ms;
+}
+
+.fadeOut{
+  animation: fadeOut 30000ms;
+}
+
+@keyframes fadeIn{
+  from {opacity: 0}
+  to {opacity: 1}
+}
+
+@keyframes fadeOut{
+  from {opacity: 1}
+  to {opacity: 0}
+}

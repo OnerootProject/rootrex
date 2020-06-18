@@ -1,0 +1,301 @@
+.transfer-accounts {
+  width: 400px;
+  min-height: 516px !important;
+  max-height: 540px;
+  background: #222E5D;
+  padding: 30px;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 22;
+
+  .title {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+
+    .left {
+      width: 95%;
+      float: left;
+      font-size: 18px;
+      font-weight: bold;
+      color: #FFF;
+    }
+
+    .right {
+      width: 5%;
+      float: right;
+      text-align: center;
+      font-size: 16px;
+      color: #FFF;
+      cursor: pointer;
+      margin-top: -1px;
+    }
+
+  }
+
+  .content {
+    width: 100%;
+    height: auto;
+    line-height: 20px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #AAB2C0;
+
+    .balance{
+      width: 200px;
+      height: auto;
+      position: relative;
+      margin: 20px auto;
+      padding-left: 20px;
+      span{
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      div{
+        p{
+          margin: 0;
+          font-size: 12px;
+        }
+      }
+    }
+    .current-wallet{
+      width: 100%;
+      height: auto;
+      p{
+        font-size: 12px;
+        margin: 0;
+        &:nth-of-type(2){
+          margin-top: 10px;
+          padding-left: 5px;
+        }
+      }
+    }
+
+
+    .turn-out{
+      height: 70px;
+      margin-top: 15px;
+      position: relative;
+      div{
+        &:nth-of-type(1){
+          float: left;
+        }
+        &:nth-of-type(2){
+          float: right;
+        }
+      }
+      input{
+        width: 340px;
+        height: 40px;
+        outline: none;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        background: #0D1539;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: #E8E9EA;
+        border: #0E1537 1px solid;
+        border-radius: 2px;
+
+        &:focus{
+          border: #00CEFF 1px solid;
+        }
+
+        &.balanceError{
+          background: #352b5d;
+          border: #D8195A 1px solid;
+        }
+      }
+    }
+
+    .transfer-amount{
+      height: 70px;
+      margin-top: 15px;
+      position: relative;
+      div{
+        font-size: 12px;
+      }
+      input{
+        width: 340px;
+        height: 40px;
+        outline: none;
+        position: absolute;
+        top: 30px;
+        left: 0;
+        background: #0D1539;
+        font-size: 14px;
+        padding-left: 20px;
+        padding-right: 20px;
+        color: #E8E9EA;
+        border: #0E1537 1px solid;
+        border-radius: 2px;
+
+        &:focus{
+          border: #00CEFF 1px solid;
+        }
+
+        &.balanceError{
+          background: #352b5d;
+          border: #D8195A 1px solid;
+        }
+      }
+
+      .unit{
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        color: #AAB2C0;
+        position: absolute;
+        top: 30px;
+        right: 0;
+      }
+    }
+
+    .message{
+      height: 40px;
+      margin-top: 10px;
+
+      .message-list{
+
+        font-size: 12px;
+
+        &.error{
+          text-align: left;
+          color: #D8195A;
+        }
+
+        
+      }
+    }
+
+    .gas{
+      height: 60px;
+      margin-top: 15px;
+
+
+      .gas-price{
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .gas-slider{
+        overflow: hidden;
+        width: 100%;
+        height: 15px;
+        input[type=range]{
+          -webkit-appearance: none; /*清除系统默认样式*/
+          -moz-appearance: none;
+          width: 100%;
+          //   background: linear-gradient(#00CEFF, #00CEFF) no-repeat, #175E8E;
+          background-size: 50% 100%;
+          height: 3px;
+          outline: none;
+          padding: 0;
+          margin: 6px 0 0 0 ;
+          display: block;
+          @-moz-document url-prefix() {
+            height: 100%!important;
+            background: transparent!important;
+            height: 100%!important;
+            margin: 0!important;
+          }
+        }
+
+        input[type=range]::-webkit-slider-thumb{
+          -webkit-appearance: none; /*清除系统默认样式*/
+          height: 15px;/*拖动块高度*/
+          width: 15px;/*拖动块宽度*/
+          background: #00CEFF;/*拖动块背景*/
+          border-radius: 50%; /*外观设置为圆形*/
+          border: none;
+        }
+
+        input[type=range]::-moz-range-thumb{
+          -moz-appearance: none;
+          height: 15px;/*拖动块高度*/
+          width: 15px;/*拖动块宽度*/
+          background: #00CEFF;/*拖动块背景*/
+          border-radius: 50%; /*外观设置为圆形*/
+          border: none;
+        }
+
+      }
+    }
+
+  }
+
+  .buttons {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    text-align: center;
+
+    button{
+      width: 340px;
+      height: 40px;
+      font-size: 14px;
+      color: #FFF;
+      border: 0;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      transition: opacity 300ms,background 300ms;
+
+      &:hover{
+        // background: #1DE297;
+      }
+
+      &.disable{
+        opacity: 0.5;
+      }
+
+    }
+
+  }
+
+}
+// 遮罩层
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+.fadeIn {
+  animation: fadeIn 300ms;
+}
+
+.fadeOut {
+  animation: fadeOut 300ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1
+  }
+  to {
+    opacity: 0
+  }
+}

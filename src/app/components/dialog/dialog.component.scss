@@ -1,0 +1,109 @@
+.rootrex-dialog {
+  width: 400px;
+  height: 240px;
+  padding: 30px;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+
+  .title {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+
+    .left {
+      width: 95%;
+      float: left;
+      font-size: 18px;
+    }
+
+    .right {
+      width: 5%;
+      float: right;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  }
+
+  .content {
+    width: 100%;
+    min-height: 70px;
+    line-height: 20px;
+    margin-top: 10px;
+    font-size: 12px;
+  }
+
+  .buttons {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    text-align: right;
+    position: absolute;
+    bottom: 20px;
+    right: 32px;
+
+    button {
+      padding: 0 10px;
+      height: 24px;
+      font-size: 12px;
+      margin-left: 20px;
+      border-radius: 2px;
+      border: 0;
+      cursor: pointer;
+
+      &.normal{
+        background: #00CEFF;
+        color: #FFFFFF;
+      }
+
+      &.red{
+        background: transparent;
+        color: #CCCCCC;
+      }
+    }
+  }
+
+}
+
+// 遮罩层
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 29;
+}
+
+.fadeIn {
+  animation: fadeIn 300ms;
+}
+
+.fadeOut {
+  animation: fadeOut 300ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1
+  }
+  to {
+    opacity: 0
+  }
+}

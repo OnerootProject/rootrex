@@ -1,0 +1,11 @@
+<div class="rootrex-dialog unlock-metamask-bg" [ngClass]="fadeFlag">
+   <div class="title unlock-metamask-color">
+      <div class="left">{{config.title}}</div>
+      <div class="right" (click)="onThisDialogClose()">X</div>
+   </div>
+   <div class="content dialog_font2">{{config.content}}</div>
+   <div class="buttons dialog_font2">
+      <button  class="btn" *ngFor="let i of config.buttons" (click)="onButtonClick(i.handle)" [ngClass]="i.color">{{i.text}}</button>
+   </div>
+</div>
+<div class="mask"></div>

@@ -1,0 +1,16 @@
+{
+  "name": "service",
+  "version": "0.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "nodemon ."
+  },
+  "author": "1",
+  "dependencies": {
+    "fastify": "^1.2.1",
+    "fastify-mongodb": "^0.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.3"
+  }
+}

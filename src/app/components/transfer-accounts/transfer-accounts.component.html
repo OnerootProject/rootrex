@@ -1,0 +1,47 @@
+<div class="transfer-accounts" [ngClass]="fadeFlag">
+   <div class="title">
+      <div class="left"><span class="down-color">转账</span> <span>RNT</span> 至其他钱包</div>
+      <div class="right" (click)="onThisDialogClose()"><span class="iconfont icon-close"></span></div>
+   </div>
+   <div class="content">
+      <div class="balance down-color">
+         <span class="iconfont icon-weibiaoti-"></span>
+         <div>
+             <p>这不是充值功能，而是转账功能！</p>
+             <p>您正在将资产转移到其他钱包！</p>
+             <p>如果您想充值，请点击“充值”按钮</p>
+         </div>
+      </div>
+      <div class="current-wallet">
+        <p class="market-font2">当前钱包</p>
+        <p class="notice-font2">0x49706323fEA9FbfCcAbc47EcAF1435b1172C80a5</p>
+      </div>
+      <div class="turn-out">
+          <div class="market-font2">转出至钱包</div><div class="notice-font2">钱包余额: 74574551788.52 RNT</div>
+         <input type="text" [ngClass]="{'balanceError':balanceError}" placeholder="请输入转出目标钱包" #input (click)="input.focus()" />
+      </div>
+      <div class="message" *ngIf="false" >
+         <div class="message-list error" *ngIf="balanceError">您的钱包可用余额不足</div>
+      </div>
+      <div class="transfer-amount">
+            <div class="market-font2">转账金额</div>
+           <input type="text" [ngClass]="{'balanceError':balanceError}" placeholder="输入转账金额" #input />
+           <div class="unit" (click)="input.focus()">RNT</div>
+        </div>
+      <div class="gas">
+         <div class="gas-price">
+            <div class="left market-font2">Gas价格: 100 GWEI</div>
+            <div class="right notice-font2">Gas费≈0.005416 ETH</div>
+         </div>
+         <div class="gas-slider">
+            <input type="range" [ngStyle]="{'background-size': rangeValue*100 + '% 100%'}" max="1" min="0" step="0.01" [(ngModel)]="rangeValue" />
+         </div>
+      </div>
+   </div>
+   <div class="buttons">
+      <button class="down-bgColor">申请提现</button>
+   </div>
+</div>
+<div class="mask">
+
+</div>

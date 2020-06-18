@@ -1,0 +1,38 @@
+.notice-box{
+    width: 100%;
+}
+.service-agreement{
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .service-content{
+        width: 100%;
+        height: auto;
+        padding: 30px 40px;
+        h3{
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0;
+        }
+        h4{
+            margin-top: 30px;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        h5{
+            margin-top: 30px;
+            margin-bottom: 0;
+            font-size: 14px;
+        }
+        h6{
+            margin-top: 20px;
+            margin-bottom: 0;
+            font-size: 12px;
+            line-height: 20px;
+            
+        }
+        /deep/ a{
+            color: #00CEFF !important;
+        }
+    }
+}

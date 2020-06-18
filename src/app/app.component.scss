@@ -1,0 +1,72 @@
+@import '~assets/scss/tool'; // 需要使用颜色的地方添加上这句话
+i[class^='i']::before {
+  font-size: font(26);
+}
+
+.header {
+  width: 100%;
+  height: 60px;
+  margin-bottom: -60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 222;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+.router-content{
+  min-height: 100%;
+  padding-top: 60px;
+  padding-bottom: 160px;
+}
+.footer {
+  width: 100%;
+  height: 160px;
+  margin-top: -160px;
+}
+
+/deep/ .no-data{
+  width: 100%;
+  height: 40px !important;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+}
+
+/deep/ .loading{
+  	width: 100%;
+    height: 40px !important;
+    text-align: center;
+    line-height: 40px;
+   	.loading_box{
+		display: inline-block;
+		font-size: 12px;
+		position: relative;
+        // padding-left: 20px;
+        .loading_img{
+            background-size: auto 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            // position: absolute;
+			// top: 12px;
+            left: 0;
+            float: left;
+            margin-top: 13.5px;
+            margin-right: 5px;
+			width: 13px;
+            height: 13px;
+            // background-color: red;
+            animation: rotation 1s linear infinite;
+            -webkit-transform-origin: center center;
+            -ms-transform-origin: center center;
+            transform-origin: center center;
+			@keyframes rotation {
+				from { transform: rotate(0deg)}
+				to { transform: rotate(360deg)}
+			}
+        }
+   	}
+}

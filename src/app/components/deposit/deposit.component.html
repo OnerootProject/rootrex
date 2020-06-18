@@ -1,0 +1,39 @@
+<div class="rootrex-dialog dialog_bg" [ngClass]="fadeFlag">
+   <div class="title dialog_font1">
+      <div class="left"><span class="up-color">{{'Asset.Deposit' | translate}}</span> {{config.tokenName}}</div>
+      <div class="right" (click)="onThisDialogClose()">X</div>
+   </div>
+   <div class="content dialog_font2">
+      <div class="balance">
+         <div class="wallet">
+            <div class="left">{{'Asset.WalletBalance' | translate}}:</div>
+            <div class="right dialog_font3"><span class="line_ dialog_font2" *ngIf='loadingFlag'>-</span><span *ngIf='!loadingFlag' (click)="setDepositAmount()">{{ balanceMetamask | toFixed:8 | zero}}</span> {{config.tokenName}}</div>
+         </div>
+         <div class="rootrex">
+            <div class="left">{{'Asset.RootrexAvailableBalance' | translate}}:</div>
+            <div class="right dialog_font3"><span class="dialog_font2">{{ balanceRootrex | toFixed:8 | zero }}</span> {{config.tokenName}}</div>
+         </div>
+      </div>
+      <div class="depositAmount">
+         <input #input type="text" class="input_color" [ngClass]="{'balanceError':balanceError}" placeholder="{{'Asset.EnterTheDepositAmount' | translate}}" [(ngModel)]="depositNumber" (keydown)="onInputKeyDown($event)" (keyup)="checkBalance()" (ngModelChange)="onModelChange(input.value)" />
+         <div class="unit" (click)="input.focus()">{{config.tokenName}}</div>
+      </div>
+      <div class="message">
+         <div class="message-list error" *ngIf="balanceError">{{'Asset.InsufficientFunds' | translate}}</div>
+         <div class="message-list info"></div>
+      </div>
+      <div class="gas">
+         <div class="gas-price">
+            <div class="left">{{'Asset.GasPrice' | translate}}: {{calculatorPrice()}} GWEI</div>
+            <div class="right">{{'Asset.GasFee' | translate}} &lt; {{calculatorGas()}} ETH</div>
+         </div>
+         <div class="gas-slider">
+            <input type="range" [ngStyle]="{'background-size': rangeValue*33 + '% 100%'}" max="3" min="0.01" step="0.01" [(ngModel)]="rangeValue" />
+         </div>
+      </div>
+   </div>
+   <div class="buttons">
+      <button class="up-bgColor white-color" (click)="onDepositClick()">{{'Asset.Deposit' | translate}}</button>
+   </div>
+</div>
+<div class="mask" (click)="onThisDialogClose()"></div>

@@ -1,0 +1,187 @@
+p{
+    margin: 0;
+}
+// paag1
+.pageOne{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .cell_left{
+        text-align: left;
+        margin-top: -10%;
+        h2{
+            margin: 0;
+            padding-bottom: 60px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #848CAD;
+            width: 50%;
+        }
+        
+        h5{
+            font-size: 16px;
+            line-height: 30px;
+            height: 136px;
+            color: #60698D;
+            width: 50%;
+        }
+        .download_box{
+            overflow: hidden;
+        }
+    }
+    .cell_right{
+        float: left;
+        width: 50%;
+        height: 90%;
+        background-size: cover;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+    }
+}
+
+.download{
+    width: 100%;
+    margin-top: 50%;
+    
+}
+.pageEight{
+    height: 910px !important;
+}
+
+// 内容模块样式
+.container{
+    height: 100%;
+}
+.download_btn{
+    display: block;
+    height: 80px;
+    padding: 0 20px;
+    float: left;
+    border: 1px solid #000;
+    border-radius: 8px;
+    margin-right: 20px;
+    width: 200px;
+    &:nth-last-of-type(1){
+        margin-right: 0;
+    }
+    img{
+        float: left;
+        margin-right: 15px;
+        margin-top: 20px;
+    }
+    .download_btn_words{
+        float: left;
+        p{
+            &:nth-of-type(1){
+                font-size: 14px;
+                margin-top: 14px;
+                margin-bottom: 5px;
+            }
+            &:nth-of-type(2){
+                font-size: 24px;
+            }
+            &.google{
+                font-size: 20px !important;
+            }
+        }
+    }
+}
+.content-table{
+    width: 100%;
+    height: 100%;
+    display: table;
+    text-align: center;
+    background-size: 55%;
+    background-position: 120% 50%;
+    background-repeat: no-repeat;
+    .content-cell{
+        display: table-cell;
+        vertical-align: middle;
+        overflow: hidden;
+        width: 100%;
+        .float_word{
+            width: 50%;
+            float: left;
+            text-align: left;
+            h5{
+                margin: 0 0 60px;
+                font-size: 28px;
+            }
+            p{
+                font-size: 14px;
+                line-height: 30px;
+                margin: 0 0 30px;
+                &:nth-last-of-type(1){
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .float_img{
+            width: 50%;
+            float: left;
+            text-align: center;
+        }
+    }
+}
+
+// page2
+.pageTwo,.pageThree,.pageFour,.pageFive,.pageSix,.pageSeven{
+    overflow: hidden;
+    margin: 300px 0;
+    .float_word,.float_img{
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+    .float_img{
+        padding: 0 100px;
+    }
+} 
+.pageTwo{
+    margin-top: 0;
+    padding-top: 200px;
+}
+    
+// page8
+.pageEight{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    .app_kline{
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        text-align: center;
+        overflow: hidden;
+        h1{
+            margin-top: 80px;
+            margin-bottom: 30px;
+            font-size: 36px;
+        }
+        p{
+            width: 850px;
+            display: inline-block;
+            font-size: 16px;
+            line-height: 30px;
+        }
+    }
+    .download_bottom{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 180px;
+        text-align: center;
+        .download_btn{
+            display: inline-block;
+            float: none;
+            text-align: left;
+            margin-top: 50px;
+            width: 200px;
+        }
+    }
+}

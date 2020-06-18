@@ -1,0 +1,50 @@
+<div class="notice-box">
+    <notice></notice>
+</div>
+<div class="assets-history">
+    <div class="container">
+        <div class="assets-history-content history-content-bg">
+            <div class="assets-history-title history-font1">
+                {{'Header.AssetsHistory' | translate}}
+                <div class="warn">
+                    <img src="./assets/image/warn.png" alt="">{{'Asset.DepositCallbackContent' | translate}}
+                </div>
+            </div>
+            <div class="assets-history-search">
+                <div class="history-bg search-color">
+                        <span class="iconfont icon-unie036 history-font2"></span>
+                    <input type="text" placeholder="{{'Common.Search' | translate}}" class="history-font1 bor_color" [(ngModel)]="tokenName" (keyup)="onTokenNameChange()">
+                </div>
+            </div>
+            <ul class="assets-history-lists">
+                <li class="history-font2">
+                    <div>{{'Asset.Date' | translate}}</div>
+                    <div>Tx</div>
+                    <div>{{'Asset.ActionType' | translate}}</div>
+                    <div>{{'Asset.Coin' | translate}}</div>
+                    <div>{{'Rootrex.Amount' | translate}}</div>
+                    <div>{{'Asset.GasFee' | translate}}</div>
+                    <div>{{'Common.Status' | translate}}</div>
+                </li>
+                <nounlockinstall *ngIf="!metamaskService.isLogin()"></nounlockinstall>
+                <loading *ngIf="metamaskService.isLogin() && loadingFlag"></loading>
+                <nodata *ngIf="metamaskService.isLogin() && !loadingFlag && assetHistoryData && assetHistoryData.length === 0"></nodata>
+                <li *ngFor="let i of assetHistoryData" class="assetList">
+                    <div class="history-font5">{{i.created_at | timestamp }}</div>
+                    <div class="history-font5" (click)="goToEthScan(i.tx)">{{i.tx || '_' | tx}}</div>
+                    <div [ngClass]="{'up-color': i.type == 0, 'down-color': i.type == 1, 'history-font5': i.type == 2}">{{(i.type==='0'?'Asset.Deposit':i.type==='1'?'Asset.Withdraw':i.type==='2'?'Asset.SystemRefund':i.type==='3'?'Asset.ForceWithdraw':'') | translate}}</div>
+                    <div class="history-font3">
+                        <!-- <p class="assets-bgToken"><img src="{{i.logo}}" /></p> -->
+                        {{i.tokenName}}
+                    </div>
+                    <div class="history-font4">{{i.tokenAmount | toFixed:8 }}</div>
+                    <div class="history-font4">{{(i.type==='1'?i.gasTokenFee:i.gasFee) | toFixed:8 }} {{i.type==='1'?i.tokenName:'ETH'}}</div>
+                    <div [ngClass]="{'error': i.status == '-1', 'history-font6': i.status == '0' || i.status=='2', 'success': i.status == '1'}">{{('Asset.HistoryStatus:'+i.status) | translate}}{{i.status=='2'?(' '+i.confirmInfo):''}}</div>
+                </li>
+            </ul>
+        </div>
+        <div class="page-box">
+            <paginator [currentPage]="currentPage" [pageSize]="pageSize" [totalRow]="totalRow" (onCurrentPageChange)="onPageChange($event)" (onPageSizeChange)="onSizeChange($event)" *ngIf="totalRow"></paginator>
+        </div>
+    </div>
+</div>

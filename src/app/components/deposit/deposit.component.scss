@@ -1,0 +1,249 @@
+.rootrex-dialog {
+  width: 400px;
+  height: 388px;
+  padding: 30px;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 22;
+
+  .title {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+
+    .left {
+      width: 95%;
+      float: left;
+      font-size: 18px;
+    }
+
+    .right {
+      width: 5%;
+      float: right;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  }
+
+  .content {
+    width: 100%;
+    height: 243px;
+    line-height: 20px;
+    margin-top: 10px;
+    font-size: 12px;
+    .wallet .right{
+        span{
+            cursor: pointer;
+            text-decoration: underline;
+            &.line_{
+              text-decoration: none;
+            }
+        }
+    }
+
+    &>div>div>div.left{
+      width: 50%;
+      height: 20px;
+      line-height: 14px;
+      font-size: 12px;
+      text-align: left;
+      float:left;
+    }
+
+    &>div>div>div.right{
+      width: 50%;
+      height: 20px;
+      line-height: 14px;
+      font-size: 12px;
+      text-align: right;
+      float:right;
+    }
+
+    .balance{
+      height: 40px;
+      margin-top: 20px;
+
+      .wallet{
+
+      }
+
+      .rootrex{
+
+      }
+    }
+
+    .depositAmount{
+      height: 40px;
+      margin-top: 15px;
+      position: relative;
+
+      input{
+        width: 340px;
+        height: 40px;
+        outline: none;
+        position: absolute;
+        font-size: 14px;
+        padding-left: 20px;
+        border: rgba(14, 21, 55, 0) 1px solid;
+        border-radius: 2px;
+
+        // &.balanceError{
+        //   background: #352b5d;
+        //   border: #D8195A 1px solid;
+        // }
+      }
+
+      .unit{
+        width: auto;
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        position: absolute;
+        right: 10px;
+      }
+
+    }
+
+    .message{
+      height: 40px;
+      margin-top: 15px;
+
+      .message-list{
+
+        font-size: 12px;
+
+        &.error{
+          text-align: left;
+        }
+
+        &.info{
+          text-align: right;
+        }
+      }
+    }
+
+    .gas{
+      height: 60px;
+      margin-top: 15px;
+
+      .gas-price{
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .gas-slider{
+        overflow: hidden;
+        width: 100%;
+        height: 15px;
+        input[type=range]{
+          -webkit-appearance: none; /*清除系统默认样式*/
+          -moz-appearance: none;
+          width: 100%;
+        //   background: linear-gradient(#00CEFF, #00CEFF) no-repeat, #175E8E;
+          background-size: 50% 100%;
+          height: 3px;
+          outline: none;
+          padding: 0;
+          margin: 6px 0 0 0 ;
+          display: block;
+          @-moz-document url-prefix() {
+            height: 100%!important;
+            background: transparent!important;
+            height: 100%!important;
+            margin: 0!important;
+          }
+        }
+
+        input[type=range]::-webkit-slider-thumb{
+          -webkit-appearance: none; /*清除系统默认样式*/
+          height: 15px;/*拖动块高度*/
+          width: 15px;/*拖动块宽度*/
+        //   background: #00CEFF;/*拖动块背景*/
+          border-radius: 50%; /*外观设置为圆形*/
+          border: none;
+        }
+
+        input[type=range]::-moz-range-thumb{
+          -moz-appearance: none;
+          height: 15px;/*拖动块高度*/
+          width: 15px;/*拖动块宽度*/
+        //   background: #00CEFF;/*拖动块背景*/
+          border-radius: 50%; /*外观设置为圆形*/
+          border: none;
+        }
+
+      }
+    }
+
+  }
+
+  .buttons {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    text-align: center;
+
+    button{
+      width: 340px;
+      height: 40px;
+      font-size: 14px;
+      border: 0;
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      transition: opacity 300ms,background 300ms;
+
+
+      &.disable{
+        opacity: 0.5;
+      }
+
+    }
+
+  }
+
+}
+// 遮罩层
+.mask{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+.fadeIn {
+  animation: fadeIn 300ms;
+}
+
+.fadeOut {
+  animation: fadeOut 300ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1
+  }
+  to {
+    opacity: 0
+  }
+}

@@ -1,0 +1,13 @@
+<div class="notice notice-bg">
+    <div class="container">
+        <div class="notice-left notice-font1" (click)="goToNoticeCenter()">{{'Header.Notice' | translate}}</div>
+        <div class="notice_active">
+            <ul>
+                <li class="notice-center notice-font2" *ngFor="let i of noticeDataList">
+                    <a routerLink="/notice/detail/{{i.pid}}" target="_blank">{{i.title}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="notice-right notice-font3" (click)="goToNoticeCenter()">{{'Common.More' | translate}}</div>
+    </div>
+</div>

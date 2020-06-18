@@ -1,0 +1,15 @@
+@function font($px) {
+  @return $px * 0.05263157894736842 + rem;
+}
+
+@function rem($px) {
+  @return $px * 0.03125 * 2 + rem; 
+}
+
+// @function font($px) {
+//   @return $px + px;
+// }
+
+// @function rem($px) {
+//   @return $px + px; 
+// }

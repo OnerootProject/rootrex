@@ -1,0 +1,35 @@
+<div class="footer">
+	<div class="container footer-font">
+		<ul class="footer-border-color">
+			<li><a routerLink="help/rootrex">{{'Footer.AboutRootrex' | translate}}</a></li>
+			<li><a routerLink="about/service">{{'Footer.Terms' | translate}}</a></li>
+			<!--<li><a routerLink="about/privacy">{{'Footer.Privacy' | translate}}</a></li>-->
+			<!--<li><a routerLink="about/rate">{{'Footer.Fees' | translate}}</a></li>-->
+			<li><a href="{{languageService.get()==='zh'?'https://goo.gl/forms/lnOEQfL8OZVPhmah1':'https://goo.gl/forms/unBwP5n8ZRClMz1h2'}}" target="_blank">{{'Footer.ApplyToList' | translate}}</a></li>
+			<!--<li><a routerLink="about/contact">{{'Footer.Contact' | translate}}</a></li>-->
+            <!-- <div class="download-color">{{'Common.DownloadClient' | translate}}</div> -->
+            <a href="http://suo.im/4AkdHq" target="_blank"><span class="iconfont icon-twitter"></span></a>
+            <a href="http://suo.im/5jj05M" target="_blank"><span class="iconfont icon-weibo"></span></a>
+            <div>
+                <span class="iconfont icon-weixin"></span>
+                <div class="top_box">
+                    <div>
+                        <img src="./assets/image/weixin1.png" alt="">
+                        <p>{{'Footer.CustomerSupport' | translate}}</p>
+                    </div>
+                    <div>
+                        <img src="./assets/image/weixin2.png" alt="">
+                        <p>{{'Footer.CustomerSupports' | translate}}</p>
+                    </div>
+                </div>
+            </div>
+		</ul>
+		<div class="footer-state">
+			© 2017-2018 Rootrex.com All Rights Reserved
+			<div>
+                <a href="https://www.oneroot.io" target="_blank">官网</a>
+				<span>{{'Common.Version' | translate}} {{version}}</span>
+				{{'Footer.DataSource' | translate}} - <a href="https://www.r1protocol.com/" target="view_window" class="footer-font2">{{'Common.R1Protocol' | translate}}</a></div>
+		</div>
+	</div>
+</div>

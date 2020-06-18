@@ -1,0 +1,134 @@
+<div id="main" class="bg">
+    <!-- banner -->
+    <div class="bannerBox" >
+        <div class="swiper-container"*ngIf="bannerListData&&bannerListData.length>0">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide banner" [ngClass]="{'swiper-no-swiping':bannerListData.length <2 }" *ngFor="let i of bannerListData" [style.background-image]="'url('+i.cover+')'">
+                    <a href="{{i.link}}" target="_blank"></a>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <!-- Notice -->
+    <div class="notice-box">
+        <notice></notice>
+    </div>
+    <div class="container">
+        <div class="market">
+            <!-- Search -->
+            <div class="market-search search-color">
+                <span class="iconfont icon-unie036 search-icon"></span>
+                <input type="text" placeholder="{{'Common.Search' | translate}}" class="search-font" [(ngModel)]="tokenName"
+                       (keyup)="onTokenNameChange()"/>
+            </div>
+            <div class="market-download download-color" (click)="onDownloadClick()">{{'Common.DownloadClient' | translate}}</div>
+            <!-- Market -->
+            <div class="market-lists index-market-bg">
+                <div class="market-lists-choice-container">
+                    <div class="market-lists-choice index-border-color">
+                        <span class="index-white-color" [ngClass]="{'activated':tickerService.getTab()==='fav'}" (click)="activated('fav')">
+                            <b class="iconfont icon-xing1 icon_start_left"></b>
+                            {{'Symbol.Marked' | translate}}
+                        </span>
+                        <span class="index-white-color" *ngFor="let i of baseTokenListData" [ngClass]="{'activated':tickerService.getTab()===i}" (click)="activated(i)">{{i}}</span>
+                    </div>
+                </div>
+                <ul>
+                    <div class="home_lists_title_container">
+                        <li class="home_lists_title index-border-color index-market-font">
+                            <div class="home_market" (click)="sortBy('tokenName');">
+                                <span>{{'Symbol.Pair' | translate}}
+                                    <span *ngIf="tickerService.getColumn() == 'tokenName'">
+                                        <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="home_market_price">
+                                <span class="home_market_price_words" (click)="sortBy('price');">{{'Symbol.MarketPrice' | translate}}
+                                    <span *ngIf="tickerService.getColumn() == 'price'">
+                                        <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="home_up_down">
+                                <span (click)="sortBy('rise');">{{'Symbol.24hChange' | translate}}
+                                    <span *ngIf="tickerService.getColumn() == 'rise'">
+                                        <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="home_height_price">
+                                <span class="home_height_price_words" (click)="sortBy('highPrice24h');">{{'Symbol.24hHigh' | translate}}{{tickerService.getTab()==='fav'?'':'('+tickerService.getTab()+')'}}
+                                    <span *ngIf="tickerService.getColumn() == 'highPrice24h'">
+                                        <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="home_low_price">
+                                <span class="home_low_price_words" (click)="sortBy('lowPrice24h');">{{'Symbol.24hLow' | translate}}{{tickerService.getTab()==='fav'?'':'('+tickerService.getTab()+')'}}
+                                    <span *ngIf="tickerService.getColumn() == 'lowPrice24h'">
+                                        <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="home_volume">
+                                <span (click)="sortBy('tradeBaseAmount');">{{'Symbol.24hVolume' | translate}}{{tickerService.getTab()==='fav'?'':'('+tickerService.getTab()+')'}}
+                                    <span *ngIf="tickerService.getColumn() == 'tradeBaseAmount'">
+                                        <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                    </span>
+                                </span>
+                            </div>
+                        </li>
+                    </div>
+                    <nounlockinstall *ngIf="!metamaskService.isLogin() && tickerService.getTab()==='fav'"></nounlockinstall>
+                    <loading *ngIf="(metamaskService.isLogin() || tickerService.getTab()!=='fav') && loadingFlag"></loading>
+                    <nodata *ngIf="(metamaskService.isLogin() || tickerService.getTab()!=='fav') && !loadingFlag && symbolListShowData && symbolListShowData.length === 0"></nodata>
+                    <div class="symbolList" *ngFor="let i of symbolListShowData">
+                        <span class="iconfont icon-xingxu"
+                            [ngClass]="{'icon-xing1':i.isFavorite===1||i.isFavorite==='1'}"
+                            (click)="setSymbolFav(i);"></span>
+                        <li class="index-border-color" (click)="goToTrade(i.symbol)">
+                            <div class="home_market index-font1" (click)="goToTrade(i.symbol)">
+                                {{i.tokenName}}<span class="index-ETH-font"> / {{i.baseName}}</span>
+                            </div>
+                            <div class="home_market_price index-font3">
+                                <span [ngClass]="{'up-color': i.price > i.lastPrice, 'down-color': i.price < i.lastPrice, 'normal-color': i.price == i.lastPrice}">
+                                    {{i.price | toFixed:i.priceScale}}
+                                </span>
+                                {{convertPriceToLegalCurrency(i.price,i.baseName) || 0 | toFixed:8 | number: '1.4-4' }} {{assetService.getCurrency()}}
+                            </div>
+                            <div class="home_up_down" [ngClass]="{'up-color': i.rise > 0, 'down-color': i.rise < 0, 'normal-color': i.rise == 0}">
+                                {{i.rise | percent }}
+                            </div>
+                            <div class="home_height_price index-font2">
+                                <span class="home_height_price_1">{{i.highPrice24h | toFixed:i.priceScale}}</span>
+                                <span class="index-font3">{{ convertPriceToLegalCurrency(i.highPrice24h,i.baseName) || 0 | toFixed:8 | number: '1.4-4'}} <span>{{assetService.getCurrency()}}</span></span>
+                            </div>
+                            <div class="home_low_price index-font2">
+                                <span class="home_low_price_1">{{i.lowPrice24h | toFixed:i.priceScale}}</span>
+                                <span class="index-font3">{{ convertPriceToLegalCurrency(i.lowPrice24h,i.baseName) || 0 | toFixed:8 | number: '1.4-4'}} <span>{{assetService.getCurrency()}}</span></span>
+                            </div>
+                            <div class="home_volume index-font2">
+                                <span class="home_volume_1">{{i.tradeBaseAmount | toFixed:4 | thousandsSeparated}}</span>
+                                <span class="home_volume_2 index-font3">{{ convertPriceToLegalCurrency(i.tradeBaseAmount,i.baseName) || 0 | toFixed:8 | number: '1.4-4'}}
+                                    <span>{{assetService.getCurrency()}}</span>
+                                </span>
+                            </div>
+                        </li>
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

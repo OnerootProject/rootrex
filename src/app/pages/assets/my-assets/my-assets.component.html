@@ -1,0 +1,104 @@
+<div class="notice-box">
+    <notice></notice>
+</div>
+<div class="assets">
+    <div class="container">
+        <div class="assets-container">
+            <div class="assets-title assets-content-bg">
+                <div class="assets-font1">{{'Asset.MyAssets' | translate}}</div>
+                <div>
+                    <span class="assets-font2">≈ {{ isTotalHide?'****':(totalETH | toFixed:8 | zero) }}</span>
+                    <span class="assets-font2">ETH</span>
+                    <span class="assets-font3" (click)="setAssetHideStatus()">{{(isTotalHide?'Asset.ShowAssets':'Asset.HideAssets') | translate}}</span>
+                </div>
+                <div class="assets-font4">{{ isTotalHide?'********':(totalETH*exchangeRate['ETH'] | toFixed:8 | number: '1.4-4' | zero ) }}
+                    {{currency}}
+                </div>
+            </div>
+            <div class="assets-content assets-content-bg">
+                <div class="assets-content-title">
+                    <div class="assets-search search-color assets-bg">
+                        <span class="iconfont icon-unie036 assets-font5"></span>
+                        <input type="text" placeholder="{{'Common.Search' | translate}}" class="assets-font1" [(ngModel)]="tokenName"
+                               (keyup)="onTokenNameOrIsHideChange()">
+                    </div>
+                    <label class="assets-check assets-font5">
+                        <input type="checkbox" (change)="onTokenNameOrIsHideChange()" [(ngModel)]="isHide">{{'Asset.HideZeroAssets' | translate}}
+                    </label>
+                </div>
+                <nounlockinstall *ngIf="!metamaskService.isLogin()"></nounlockinstall>
+                <loading *ngIf="metamaskService.isLogin() && loadingFlag"></loading>
+                <nodata *ngIf="metamaskService.isLogin() && !loadingFlag && assetListShowData && assetListShowData.length === 0"></nodata>
+                <ul class="assets-lists">
+                    <li class="assets-font5">
+                        <div class="assets_token_name" (click)="sortBy('tokenName')">{{'Asset.Coin' | translate}}
+                          <span *ngIf="assetService.getColumn() == 'tokenName'">
+                              <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !assetService.getAsc()}"></b>
+                              <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': assetService.getAsc()}"></b>
+                          </span>
+                        </div>
+                        <div class="assets_balance" (click)="sortBy('walletBalance')">
+                            <div class="break_box" (click)="getAllTokenBalance($event)"></div>{{'Asset.WalletBalance' | translate}}
+                            <span *ngIf="assetService.getColumn() == 'walletBalance'">
+                                <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !assetService.getAsc()}"></b>
+                                <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': assetService.getAsc()}"></b>
+                            </span>
+                        </div>
+                        <div class="assets_amount" (click)="sortBy('tokenAmount')">{{'Asset.RootrexAvailable' | translate}}
+                          <span *ngIf="assetService.getColumn() == 'tokenAmount'">
+                              <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !assetService.getAsc()}"></b>
+                              <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': assetService.getAsc()}"></b>
+                          </span>
+                        </div>
+                        <div class="assets_frozen" (click)="sortBy('frozenAmount')">{{'Asset.RootrexFrozen' | translate}}
+                          <span *ngIf="assetService.getColumn() == 'frozenAmount'">
+                              <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !assetService.getAsc()}"></b>
+                              <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': assetService.getAsc()}"></b>
+                          </span>
+                        </div>
+                        <div class="assets_value" (click)="sortBy('totalAmount')">{{'Asset.Value' | translate}}(ETH)
+                          <span *ngIf="assetService.getColumn() == 'totalAmount'">
+                              <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !assetService.getAsc()}"></b>
+                              <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': assetService.getAsc()}"></b>
+                          </span>
+                        </div>
+                        <!-- <div class="assets_value_cny" (click)="sortBy('totalAmount')">{{'Asset.Value' | translate}}(CNY)
+                            <span *ngIf="assetService.getColumn() == 'totalAmount'">
+                                <b class="iconfont icon-down- index-market-font" [ngClass]="{'icon-light': !assetService.getAsc()}"></b>
+                                <b class="iconfont icon-up- index-market-font" [ngClass]="{'icon-light': assetService.getAsc()}"></b>
+                            </span>
+                        </div> -->
+                        <div class="assets_operation">{{'Common.Operation' | translate}}</div>
+                    </li>
+                    <li *ngFor="let i of assetListShowData" class="assetList">
+                        <div class="assets_token_name assets-font2">
+                            <!-- <p class="assets-bgToken"><img [src]="i.logo"/></p> -->
+                            {{i.tokenName}}
+                        </div>
+                        <div class="assets_balance assets-font5">
+                            <div class="break_box" [ngClass]="{'rotation':i.isRefresh}" (click)="getTokenBalance(metamaskService.getDefaultAccount(),i)"></div>
+                            <span>{{i.walletBalance | toFixed:8}}</span>
+                        </div>
+                        <div class="assets_amount assets-font3">{{i.tokenAmount | toFixed:8}}</div>
+                        <div class="assets_frozen assets-font3">{{i.frozenAmount | toFixed:8}}</div>
+                        <div class="assets_value assets-font3">{{i.totalAmount | toFixed:8 }}</div>
+                        <!-- <div class="assets_value_cny assets-font3">{{i.totalAmount | toFixed:8 }}</div> -->
+                        <div class="assets_operation assets_operation_color">
+                            <div class="assets-btnDeal" [ngStyle]="{'color':i.tradeList.length?'':'#777A81','cursor':i.tradeList.length?'':'auto'}"
+                                 (click)="i.tradeList.length?i.isExpand=!i.isExpand:i.isExpand=false">{{'Rootrex.Trade' | translate}}
+                                <ul class="deal_baseName" *ngIf="i.isExpand">
+                                    <li *ngFor="let j of i.tradeList" (click)="gotoTrade(i.tokenName,j.baseName)">
+                                        {{j.baseName}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div (click)="onDepositClick(i)">{{'Asset.Deposit' | translate}}</div>
+                            <div (click)="onWithdrawClick(i)">{{'Asset.Withdraw' | translate}}</div>
+                        </div>
+                    </li>
+                    <li class="clear"></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

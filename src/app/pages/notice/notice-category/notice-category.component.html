@@ -1,0 +1,16 @@
+<div class="notice-center">
+    <div class="container">
+        <div class="notice-center-content notice-center-bg">
+            <div class="notice-center-title notice-center-font1">{{(noticeType == 1?'Notice.NewCoinList':'Notice.LatestAnnouncement') | translate}}</div>
+            <ul class="notice-center-container">
+                <li class="notice-center-border notice-center-words" (click)="goToNoticeDetail(i.pid)" *ngFor="let i of noticeListData">
+                    <span class="notice-center-font1">{{i.title}}</span>
+                    <span class="notice-center-font2">{{i.created_at | timestamp:'YYYY-MM-DD' }}</span>
+                </li>
+            </ul>
+        </div>
+        <div class="page-box">
+            <paginator [currentPage]="currentPage" [pageSize]="pageSize" [totalRow]="totalRow" (onCurrentPageChange)="onPageChange($event)" (onPageSizeChange)="onSizeChange($event)" ></paginator>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="notice-details">
+    <div class="container">
+        <div class="notice-details-content notice-details-bg">
+            <div class="notice-details-title notice-details-font1">
+                <span (click)="gotoNoticeCenter()" style="cursor:pointer;">{{'Notice.NoticeCenter' | translate}}</span>
+                <span class="iconfont icon-next"></span>
+                <span (click)="gotoNoticeCategory(noticeData?.category)" style="cursor:pointer;">{{(noticeData?.category==='1'?'Notice.NewCoinList':noticeData?.category==='2'?'Notice.LatestAnnouncement':'-') | translate}}</span>
+            </div>
+            <div class="introduce-title notice-details-font2">{{noticeData?.title}}</div>
+            <div class="notice-details-introduce notice-details-font3">
+                <p [innerHTML]="noticeData?.content"></p>
+                <p>{{noticeData?.created_at | timestamp:'YYYY-MM-DD HH:mm' }}</p>
+            </div>
+        </div>
+    </div>
+</div>

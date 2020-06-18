@@ -1,0 +1,11 @@
+<div class="notice-box">
+    <notice></notice>
+</div>
+<div class="order">
+    <div class="container">
+        <order-list [orderList]="orderData" [loadingFlag]="loadingFlag" [type]="status" [symbol]="''" (onTypeChange)="onOrderTypeChange($event)" (onSearchClick)="onOrderSearchClick($event)"></order-list>
+        <div class="page-box">
+            <paginator [currentPage]="currentPage" [pageSize]="pageSize" [totalRow]="totalRow" (onCurrentPageChange)="onPageChange($event)" (onPageSizeChange)="onSizeChange($event)" *ngIf="totalRow"></paginator>
+        </div>
+    </div>
+</div>

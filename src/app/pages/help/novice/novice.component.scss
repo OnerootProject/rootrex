@@ -1,0 +1,240 @@
+.notice-box{
+    width: 100%;
+}
+// .navLeft{
+    .container{
+        position: relative;
+        .newhand-left{
+            list-style: none;
+            padding: 0;
+            float: left;
+            overflow: hidden;
+             height: 100%;
+            .anchor{
+                width: 200px;
+                max-width: 100%;
+                border-radius: 2px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 14px;
+                margin: 10px 0;
+                padding-left: 20px;
+                cursor: pointer;
+            }
+            .newhand-title{
+                font-size: 22px;
+                font-weight: bold;
+                margin: 60px 0 30px;
+                padding-left: 20px;
+                cursor: default;
+            }
+        }
+        .scroll_box{
+            transition: all 300ms ease-in-out;
+            &.overScroll{
+                height: 49%;
+                overflow-y: scroll;
+            }
+        }
+        .fixed{
+            position: fixed;
+            top: 30px;
+        }
+        .ovy{
+            height: 70%;
+            overflow: hidden;
+            .scroll_box{
+                height: 80%;
+                overflow-y: scroll;
+            }
+        }
+
+    }
+// }
+.newhand{
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .newhand-content{
+        width: 100%;
+        padding: 0 40px 50px;
+        overflow: hidden;
+
+        .newhand-right{
+            padding-left: 273px;
+            width: 100%;
+            padding-top: 121px;
+            .risk-hints{
+                width: 100%;
+                .words-module{
+                    margin-bottom: 80px;
+                    padding-right: 100px;
+                    p{
+                        margin-top: 20px;
+                        margin-bottom: 20px;
+                        &.help-font4{
+                            height: 40px;
+                            line-height: 40px;
+                            font-size: 22px;
+                        }
+                        &.help-font2{
+                            font-size: 12px;
+                            line-height: 26px;
+                        }
+                        /deep/ a{
+                            text-decoration: none;
+                            color: #00CEFF;
+                        }
+                    }
+                    .help-img1{
+                        width: 240px;
+                        height: auto;
+                        img{
+                            display: block;
+                            max-width: 100%;
+                            box-shadow: 0 10px 20px 0 rgba(0,0,0,.2);
+                        }
+                    }
+                    .help-img2{
+                        width: 360px;
+                        height: auto;
+                        img{
+                            display: block;
+                            max-width: 100%;
+                            box-shadow: 0 10px 20px 0 rgba(0,0,0,.2);
+                        }
+                    }
+                    .help-img3{
+                        width: 400px;
+                        height: auto;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: 100% 100%;
+                        img{
+                            display: block;
+                            max-width: 100%;
+                            margin-left: -25px;
+                        }
+                    }
+                    .help-img4{
+                        width: 690px;
+                        height: auto;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        background-position: 100% 100%;
+                        img{
+                            display: block;
+                            max-width: 100%;
+                            margin-left: -25px;
+                        }
+                    }
+                    .download-title{
+                        font-size: 16px !important;
+                        margin: 20px 0;
+                    }
+                    .download{
+                        width: 800px;
+                        height: auto;
+                        margin:  0 auto;
+                        overflow: hidden;
+                        .download-icon{
+                            width: 150px;
+                            height: 150px;
+                            float: left;
+                            text-align: center;
+                            cursor: pointer;
+                            background-color: inherit;
+                            border: 2px solid rgba(20, 30, 70, 0);
+                            border-radius: 2px;
+                            overflow: hidden;
+                            img{
+                                width: 80px;
+                                height: 80px;
+                                margin-top: 22px;
+                            }
+                            span{
+                                display: block;
+                                font-size: 14px;
+                                padding-top: 8px;
+                                background-color: inherit;
+                                width: 100%;
+                                height: auto;
+                                border: none;
+                            }
+                            &:nth-of-type(1){
+                                margin-right: 175px;
+                            }
+                            &:nth-of-type(3){
+                                float: right;
+                            }
+                        }
+                        .clrome_box{
+                            height: 180px !important;
+                        }
+                        .download-address{
+                            width: 100%;
+                            height: 80px;
+                            line-height: 80px;
+                            font-size: 14px;
+                            margin-top: 170px;
+                            padding: 0 20px;
+                            /deep/ a{
+                                text-decoration: none;
+                                color: #00CEFF;
+                            }
+                            &>div{
+                                float: left;
+                                line-height: 0;
+                                width: 55%;
+                                p{
+                                    margin: 0;
+                                    line-height: 20px;
+                                    &:nth-of-type(1){
+                                        padding-top: 15px;
+                                    }
+                                    &:nth-of-type(2){
+                                        padding-top: 10px;
+                                    }
+                                    &:nth-of-type(3){
+                                        padding-top: 10px;
+                                    }
+                                    &:nth-of-type(4){
+                                        padding-top: 10px;
+                                    }
+                                }
+                            }
+                            &>p{
+                                float: left;
+                                margin: 0 30px;
+                                line-height: 180px;
+                            }
+                            .gooleplay_a{
+                                display: block;
+                                float: left;
+                                line-height: 0;
+                                padding-top: 57.5px;
+                                img{
+                                    height: 50px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Deposit_box{
+    height: 380px !important;
+    margin-left: -25px;
+    
+}
+.withdraw_box{
+    height: 300px !important;
+    margin-left: -25px;
+}
+.buy-sell_box{
+    height: 460px !important;
+    margin-left: -25px;
+}

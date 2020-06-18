@@ -1,0 +1,1643 @@
+// 切换颜色
+.dark{
+    // 复制
+   /deep/ .rootrex-popup{
+       color: #FFF;
+       background-color: #222E5D;
+   }
+   // 中间内容背景
+   /deep/ .bg{
+     background-color: #0D1539 !important;
+   }
+   // 切换激活状态
+   /deep/ .activated{
+       color: #00CEFF !important;
+       border-bottom: 2px solid #00CEFF !important;
+   }
+   // 切换hover
+   /deep/ .active_hover:hover{
+       color: #00CEFF;
+   }
+   // 选中状态
+   /deep/ .active-bg{
+       background-color: #2D3B72;
+   }
+   // 无数据
+   /deep/ .no-data{
+       background-color: #222E5D;
+       color: #AAB2C0;
+   }
+   // loading
+   /deep/ .loading{
+       background-color: #222E5D;
+       color: #AAB2C0;
+   }
+   // input
+   /deep/ input[type='text'], /deep/ input[type='string']{
+       &:hover {
+           border-color: #60698D !important;
+       }
+       &:focus {
+           border-color: #00CEFF !important;
+       }
+   }
+   // 下载app按钮
+   /deep/ .download-color{
+       color: #fff;
+       background-color: #0064FF;
+       &:hover{
+           background-color:#2F81FF ;
+       }
+   }
+   // 搜索框
+   /deep/ .search-color{
+       background-color: #141E46;
+       border-color: #141E46 !important;
+   }
+   /deep/ .search-font{
+       color: #E8E9EA;
+   }
+   /deep/ .search-icon{
+       color: #AAB2C0;
+   }
+   /deep/ .market-search input::placeholder{
+       color: #AAB2C0;
+   }
+   // 涨跌颜色
+   /deep/ .up-color{
+       color: #01C57B !important;
+   }
+   /deep/ .down-color{
+       color: #D8195A !important;
+   }
+   /deep/ .normal-color{
+       color: #AAB2C0 !important;
+   }
+   /deep/ .down-color-bg{
+       background-color: #D8195A;
+   }
+   /deep/ .up-color-bg{
+       background-color: #01C57B;
+   }
+   // header
+   /deep/ .header-bg{
+       background-color: #0D1539;
+   }
+   /deep/ .header-font{
+       color: #E8E9EA;
+   }
+   /deep/ .header-font2{
+       color: #AAB2C0;
+   }
+   /deep/ .metamask-color{
+       color: #00CEFF;
+   }
+   /deep/ .cny_bg{
+       background-color: #fff;
+   }
+   /deep/ .usd ul li:hover,
+   /deep/ .language ul li:hover,
+   /deep/ .skin ul li:hover,
+   /deep/ .drop-down li:hover{
+       background-color: #222E5D;
+   }
+   /deep/ .drop-down li{
+       color: #AAB2C0 !important;
+   }
+   /deep/ .skin_dark{
+       background-color: #00CEFF !important;
+   }
+   /deep/ .skin_light{
+       background-color: #fff !important;
+   }
+   // footer
+   /deep/ .footer-bg{
+       background-color: #060D2F;
+   }
+   /deep/ .footer-font{
+       color: #A6B2C4;
+   }
+   /deep/ .footer-font2{
+       color: #00CEFF;
+   }
+   /deep/ .footer-border-color{
+       border-color: rgba(170, 178, 192, 0.3) !important;
+   }
+   // 公告
+   /deep/ .notice-bg{
+       background-color: #141E46;
+   }
+   /deep/ .notice-font1{
+       color: #00CEFF;
+   }
+   /deep/ .notice-font2{
+       color: #E8E9EA;
+   }
+   /deep/ .notice-font3{
+       color: #97A3B4;
+   }
+   /deep/ .notice-font4{
+       color: #00CEFF;
+   }
+   /deep/ .notice-center a:hover, /deep/ .notice-right:hover{
+       color: #00CEFF;
+   }
+   // 公告中心
+   /deep/ .notice-center-bg{
+       background-color: #141E46;
+   }
+   /deep/ .notice-center-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .notice-center-font2{
+       color: #AAB2C0;
+   }
+   /deep/ .notice-center-font3{
+       color: #AAB2C0;
+   }
+   /deep/ .notice-center-border{
+       border-color: #222E5D !important;
+   }
+   /deep/ .notice-center-words:hover{
+       background-color: #222E5D;
+   }
+   // 公告详情
+   /deep/ .notice-details-bg{
+       background-color: #141E46;
+   }
+   /deep/ .notice-details-font1{
+       color: #00CEFF;
+   }
+   /deep/ .notice-details-font2{
+       color: #E8E9EA;
+   }
+   /deep/ .notice-details-font3{
+       color: #AAB2C0;
+   }
+   // 首页
+   /deep/ .index-market-bg{
+       background-color: #141E46;
+       border-color: #141E46 !important;
+   }
+   /deep/ .index-border-color{
+       border-color: #222E5D !important;
+   }
+   /deep/ .index-white-color{
+       color: #fff;
+   }
+   /deep/ .index-market-font{
+       color: #60698D;
+   }
+   /deep/ .index-upDown-color{
+       color: #fff;
+   }
+   /deep/ .index-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .index-ETH-font{
+       color: #60698D;
+   }
+   /deep/ .index-font2{
+       color: #AAB2C0;
+   }
+   /deep/ .index-font3{
+       color: #60698D;
+   }
+   /deep/ .index-deal-btn{
+       color: #fff;
+       background-color: #00CEFF;
+       &:hover{
+           background-color: #41DBFF;
+       }
+   }
+   /deep/ .market-download:hover{
+       background-color: #2F81FF;
+   }
+   /deep/ .symbolList:hover{
+       background-color: #222E5D;
+   }
+   /deep/ .market-lists-choice span:hover{
+       color: #00CEFF;
+   }
+   /deep/ .icon-xingxu {
+       color: #97A3B4;
+    }
+   /deep/ .icon-xing1 {
+       color: #00CEFF;
+   }
+   /deep/ .icon-light {
+       color: #00CEFF;
+   }
+   // 交易界面
+    /deep/ .min_hint{
+       background-color: #222E5D;
+   }
+   /deep/ .interrupt{
+        background-color: rgba(20, 30, 70, 0.85);
+        color: #60698D;
+   }
+   /deep/ .up-bgColor{
+       background-color: #01C57B;
+       position: relative;
+       &:after{
+           // content: '...';
+           position: absolute;
+           width: 100%;
+           height: 100%;
+           top: 0;
+           left: 0;
+           text-indent: 3em;
+           font-weight: normal;
+           opacity: 0;
+       }
+       &:hover{
+           background-color: #1DE297;
+       }
+       &:hover:after{
+           opacity: 1!important;
+       }
+   }
+   /deep/ .down-bgColor{
+       background-color: #D8195A;
+       &:hover{
+           background-color: #F03676;
+       }
+   }
+   /deep/ .up-bgColor2{
+       background-color: rgba(1, 197, 123, 0.1);
+   }
+   /deep/ .down-bgColor2{
+       background-color: rgba(216, 25, 90, 0.1);
+   }
+   /deep/ .deal-bg{
+       background-color: #0D1539;
+   }
+   /deep/ .deal-content-bg{
+       background-color: #141E46;
+   }
+   /deep/ .deal-title-left-bg{
+       background-color: #0064FF;
+   }
+   /deep/ .deal-title-center-bg{
+       background-color: #141E46;
+   }
+   /deep/ .deal-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .deal-font2{
+       color: #97A3B4;
+   }
+   /deep/ .deal-font3{
+       color: #fff;
+   }
+   /deep/ .deal-font4{
+       color: #AAB2C0;
+   }
+   /deep/ .deal-font5{
+       color: #60698D;
+   }
+   /deep/ .deal-font7{
+       color: #97A3B4;
+   }
+   /deep/ .deal-font9{
+       color: #AAB2C0;
+   }
+   /deep/ .deal-border-color{
+       border-color: #222E5D !important;
+   }
+   /deep/ .deal-market-search input::placeholder{
+       color: #AAB2C0;
+   }
+   /deep/ .symbolListShowData:hover{
+       background-color: #222E5D;
+   }
+   /deep/ .scroll_color{
+       &::-webkit-scrollbar-track
+       {
+           background-color: #141E46;
+       }
+       &::-webkit-scrollbar
+       {
+           width: 5px;
+           background-color: #141E46;
+       }
+       &::-webkit-scrollbar-thumb
+       {
+           background-color: #222E5D;
+       }
+   }
+   /deep/ .scroll_color2{
+    &::-webkit-scrollbar-track
+    {
+        background-color: #222E5D;
+    }
+    &::-webkit-scrollbar
+    {
+        width: 5px;
+        background-color: #222E5D;
+    }
+    &::-webkit-scrollbar-thumb
+    {
+        background-color: #141E46;
+    }
+}
+   /deep/ .hoverText{
+       &:hover{
+         color: #00CEFF!important;
+       }
+   }
+   /deep/ .deal_input{
+       color: #AAB2C0;
+   }
+   // 委托
+   /deep/ .entrust-contentBg{
+       background-color: #0D1539 !important;
+       p:hover{
+           background-color: #222E5D !important;
+       }
+   }
+   /deep/ .entrust-bg{
+       background-color: #141E46;
+   }
+   /deep/ .entrust-border-color{
+       border-color: #222E5D !important;
+   }
+   /deep/ .entrust-font1{
+       color: #fff;
+   }
+   /deep/ .entrust-font2{
+       color: #AAB2C0;
+   }
+   /deep/ .entrust-font3{
+       color: #97A3B4;
+   }
+   /deep/ .entrust-font4{
+       color: #00CEFF;
+   }
+   /deep/ .entrust-font5{
+       color: #E8E9EA;
+   }
+   /deep/ .entrust-font6{
+       color: #60698D;
+   }
+   /deep/ .deal-font8{
+       color: #97A3B4;
+   }
+   /deep/ .tokenName-search input::placeholder{
+       color: #60698D;
+   }
+   /deep/ .btnBg{
+       background-color: #00CEFF !important;
+   }
+   /deep/ .orderList:hover{
+       background-color: #222E5D;
+   }
+    //委托详情
+    /deep/ .entrust_details_bg{
+        background-color: #222E5D;
+    }
+    /deep/ .entrust_details_title_bg{
+        background-color: #0064FF;
+    }    
+    /deep/ .entrust_left_bg{
+        background-color: #141E46;
+    }
+    /deep/ .entrust_font1{
+        color: #97A3B4;
+    }
+    /deep/ .entrust_font2{
+        color: #fff;
+    }
+    /deep/ .entrust_font3{
+        color: #E8E9EA;
+    }
+    /deep/ .entrust_font4{
+        color: #00CEFF;
+    }
+    /deep/ .cancel_order:hover{
+        border-color: #00CEFF !important;
+    }
+    /deep/ .order_loading, /deep/ .order_noData{
+        background-color: #141E46 !important;
+    }
+   // rootrex介绍
+   /deep/ .rootrex-content-bg{
+       background-color: #141E46;
+   }
+   /deep/ .rootrex-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .rootrex-font2{
+       color: #97A3B4;
+   }
+   /deep/ .rootrex-font3{
+       color: #97A3B4;
+   }
+   // 新手帮助
+   /deep/ .help-content-bg{
+       background-color: #141E46;
+   }
+   /deep/ .help-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .help-font2{
+       color: #AAB2C0;
+   }
+   /deep/ .help-font3{
+       color: #fff;
+   }
+   /deep/ .help-font4{
+       color: #E8E9EA;
+   }
+   /deep/ .download-BgBorder{
+       background-color: #002257 !important;
+       border-color: #0064FF !important;
+   }
+   /deep/ .download-Bg{
+       background-color: #002257;
+   }
+   /deep/ .anchor:hover{
+    background-color: #0064FF;
+    color: #E8E9EA !important;
+   }
+   // 下载APP
+   /deep/ .download_pageBg{
+       background-color: #0D1539;
+   }
+   /deep/ .download_bg{
+       background-color: #0D1539;
+   }
+   /deep/ .download_font1{
+       color: #A1A9C9;
+   }
+   /deep/ .download_font2{
+        color: #60698D;
+    }
+    /deep/ .download_font3{
+        color: #C3C9E2;
+    }
+    /deep/ .download_font4{
+        color: #848CAD;
+    }
+    /deep/ .download_font5{
+        color: #848CAD;
+    }
+    /deep/ .download_btnColor{
+        border-color: #60698D !important;
+        background-color: rgba(0, 0, 0, 0);
+    }
+    /deep/ .download_bottom{
+        background-color: rgba(6, 13, 47, 0.8);
+    }
+   // 资产历史
+   /deep/ .history-bg{
+       background-color: #0D1539;
+   }
+   /deep/ .history-content-bg{
+       background-color: #141E46;
+   }
+   /deep/ .history-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .history-font2{
+       color: #60698D;
+   }
+   /deep/ .history-font3{
+       color: #fff;
+   }
+   /deep/ .history-font4{
+       color: #97A3B4;
+   }
+   /deep/ .history-font5{
+       color: #AAB2C0;
+   }
+   /deep/ .history-font6{
+       color: #E8E9EA;
+   }
+   /deep/ .assets-history-search input::placeholder{
+       color: #60698D;
+   }
+   /deep/ .btn-recharge{
+       color: #00CEFF;
+   }
+   /deep/ .btn-put{
+       color: #0064FF;
+   }
+   /deep/ .error{
+       color: #D12844;
+   }
+   /deep/ .success{
+       color: #00CEFF;
+   }
+   // 我的资产
+   /deep/ .assets-bg{
+       background-color: #0D1539;
+   }
+   /deep/ .assets-content-bg{
+       background-color: #141E46;
+   }
+   /deep/ .assets-font1{
+       color: #E8E9EA;
+   }
+   /deep/ .assets-font2{
+       color: #fff;
+   }
+   /deep/ .assets-font3{
+       color: #AAB2C0;
+   }
+   /deep/ .assets-font4{
+       color: #97A3B4;
+   }
+   /deep/ .assets-font5{
+       color: #60698D;
+   }
+   /deep/ .assets-search input::placeholder{
+       color: #60698D;
+   }
+   /deep/ .assets-bgToken{
+       background-color: #fff !important;
+   }
+   /deep/ .assets_operation_color{
+       color: #00CEFF;
+       &:hover{
+           color: #41DBFF !important;
+       }
+   }
+   /deep/ .deal_baseName{
+        background-color: #0D1539;
+        color: #AAB2C0;
+        li:hover{
+            background-color: #222E5D;
+        }
+   }
+   
+   /deep/ .white-color{
+       color: #fff;
+   }
+   /deep/ .border-color{
+       border-color: #222E5D !important;
+   }
+   /deep/ .border-color2{
+       border-color: #00CEFF !important;
+   }
+   /deep/ .btn{
+       color: #fff;
+       background-color: #00CEFF;
+   }
+   /deep/ .footer-border{
+       border-color: #AAB2C0 !important;
+   }
+  /deep/ .assetList:hover{
+   background-color: #222E5D;
+  }
+
+   // trade
+   /deep/ .blue-color{
+       background-color: #0064FF;
+   }
+  /deep/ .newhand-left{
+    .anchor{
+      &:hover{
+        background-color: #0064FF;
+        color: #E8E9EA !important;
+      }
+    }
+  }
+   /deep/ .up-bgColor{
+       background-color: #01C57B;
+   }
+   /deep/ .down-bgColor{
+       background-color: #D8195A;
+   }
+   /deep/ .up-bgColor2{
+       background-color: rgba(1, 197, 123, 0.1);
+   }
+   /deep/ .down-bgColor2{
+       background-color: rgba(216, 25, 90, 0.1);
+   }
+   /deep/ .input-border{
+       border-color: #60698D !important;
+   }
+   // 分页
+   /deep/ .page{
+       color: #fff;
+       &:hover{
+           background: rgba(0, 206, 255, 0.5);
+       }
+   }
+   /deep/ .paginator{
+       color: #AAB2C0;
+   }
+   /deep/ .first-page, /deep/ .last-page {
+       color: #AAB2C0;
+   }
+   /deep/ .current-page input, /deep/ .page-size input{
+       background-color: #060D2F;
+       color: #AAB2C0;
+   }
+   /deep/ .page-box{
+       margin-top: 20px;
+       padding: 10px 0;
+       background-color: rgba(0, 0, 0, 0);
+   }
+   // 安装MetaMask
+   /deep/ .rootrex-dialog-bg{
+       background: #222E5D;
+   }
+   /deep/ .MetaMask_color1{
+       color: #fff;
+   }
+   /deep/ .MetaMask_color2{
+       color: #AAB2C0;
+   }
+   /deep/ .MetaMask_color3{
+       color: #00CEFF;
+   }
+   /deep/ .MetaMask_border1{
+       border-color: #242f5a !important;
+   }
+   /deep/ .MetaMask_border2{
+       border-color: #0064FF !important;
+   }
+   /deep/ .MetaMask_bg{
+       background: #002257;
+   }
+   /deep/ .current_color{
+       background: #002257;
+       border: #0064FF 2px solid !important;
+   }
+   // 解锁MetaMask
+   /deep/ .unlock-metamask-bg{
+       background: #222E5D;
+   }
+   /deep/ .unlock-metamask-color{
+       color: #fff;
+   }
+    // 充值和提现弹窗
+    /deep/ .dialog_bg{
+        background-color: #222E5D;
+    }
+    /deep/ .dialog_font1{
+        color: #fff;
+    }
+    /deep/ .dialog_font2{
+        color: #AAB2C0;
+    }
+    /deep/ .dialog_font3{
+        color: #E8E9EA;
+    }
+    /deep/ .balanceError{
+        background: #352b5d;
+        border: #D8195A 1px solid;
+    }
+    /deep/ .input_color{
+        color: #E8E9EA;
+        background: #0D1539;
+    }
+    /deep/ .error{
+        color: #D8195A;
+    }
+    /deep/ .info{
+        color: #00CEFF;
+    }
+    /deep/ input[type=range]{
+        background: linear-gradient(#00CEFF, #00CEFF) no-repeat, #175E8E;
+    }
+    /deep/ input[type=range]::-webkit-slider-thumb{
+        background: #00CEFF;
+    }
+    /deep/ input[type=range]::-moz-range-thumb{
+        background: #00CEFF;
+    }
+    // 设置
+    /deep/ .setUp-font1{
+        color: #AAB2C0;
+    }
+    /deep/ .setUp-color{
+        background-color: #0C2330;
+        border-color: #60698D !important;
+    }
+    /deep/ .btn{
+        background-color: #00CEFF;
+        color: #fff;
+    }
+    /deep/ .hover_bgColor{
+        border-color: #60698D !important;
+        p:hover{
+            background-color: #222E5D;
+        }
+    }
+
+
+
+}
+
+.light{
+   // 复制
+   /deep/ .rootrex-popup{
+       background-color: #E8E9EA;
+       color: #60698D;
+   }
+   // 中间内容背景
+   /deep/ .bg{
+     background-color: #EEEFEF;
+   }
+   // 切换激活状态
+   /deep/ .activated{
+       color: #0064FF !important;
+       border-bottom: 2px solid #0064FF !important;
+   }
+   // 切换hover
+   /deep/ .active_hover:hover{
+       color: #0064FF;
+   }
+   // 下载app按钮
+   /deep/ .download-color{
+       color: #fff;
+       background-color: #0064FF;
+       &:hover{
+           background-color: #2F81FF !important;
+       }
+   }
+   // 无数据
+   /deep/ .no-data{
+       background-color: #E8E9EA;
+       color: #60698D;
+   }
+   // loading
+   /deep/ .loading{
+       background-color: #E8E9EA;
+       color: #60698D;
+   }
+   // input
+   /deep/ input[type='text'], /deep/ input[type='string']{
+       &:hover {
+           border-color: #60698D !important;
+       }
+       &:focus {
+           border-color: #0064FF !important;
+       }
+   }
+   // 搜索框
+   /deep/ .search-color{
+       background-color: #fff;
+       border-color: #E8E9EA !important;
+   }
+   /deep/ .search-font{
+       color: #002257;
+   }
+   /deep/ .search-icon{
+       color: #AAB2C0;
+   }
+   /deep/ .market-search input::placeholder{
+       color: #AAB2C0;
+   }
+   // 涨跌颜色
+   /deep/ .up-color{
+       color: #01C57B !important;
+   }
+   /deep/ .down-color{
+       color: #D8195A !important;
+   }
+   /deep/ .normal-color{
+       color: #AAB2C0 !important;
+   }
+   // header
+   /deep/ .header-bg{
+       background-color: #0D1539;
+       /deep/ .activated{
+           color: #00CEFF !important;
+           border-bottom: 2px solid #00CEFF !important;
+       }
+   }
+   /deep/ .header-font{
+       color: #E8E9EA;
+   }
+   /deep/ .metamask-color{
+       color: #00CEFF;
+   }
+   /deep/ .cny_bg{
+       background-color: #fff;
+   }
+   /deep/ .usd ul li:hover,
+   /deep/ .language ul li:hover,
+   /deep/ .skin ul li:hover,
+   /deep/ .drop-down li:hover{
+       background-color: #222E5D;
+   }
+   /deep/ .drop-down li{
+       color: #A6B2C4 !important;
+   }
+   /deep/ .skin_dark{
+       background-color: #00CEFF !important;
+   }
+   /deep/ .skin_light{
+       background-color: #fff !important;
+   }
+   // footer
+   /deep/ .footer-bg{
+       background-color: #060D2F;
+   }
+   /deep/ .footer-font{
+       color: #A6B2C4;
+   }
+   /deep/ .footer-font2{
+       color: #00CEFF;
+   }
+   /deep/ .footer-border-color{
+       border-color: rgba(170, 178, 192, 0.3) !important;
+   }
+   // 公告
+   /deep/ .notice-bg{
+       background-color: #fff;
+   }
+   /deep/ .notice-font1{
+       color: #0064FF;
+   }
+   /deep/ .notice-font2{
+       color: #002257;
+   }
+   /deep/ .notice-font3{
+       color: #002257;
+   }
+   /deep/ .notice-font4{
+       color: #0064FF;
+   }
+   /deep/ .notice-center a:hover, /deep/ .notice-right:hover{
+       color: #0064FF;
+   }
+   // 公告中心
+   /deep/ .notice-center-bg{
+       background-color: #fff;
+   }
+   /deep/ .notice-center-font1{
+       color: #002257;
+   }
+   /deep/ .notice-center-font2{
+       color: #60698D;
+   }
+   /deep/ .notice-center-font3{
+       color: #AAB2C0;
+   }
+   /deep/ .notice-center-border{
+       border-color: #E8E9EA !important;
+   }
+   /deep/ .notice-center-words:hover{
+       background-color: #E8E9EA;
+   }
+   // 公告详情
+   /deep/ .notice-details-bg{
+       background-color: #fff;
+   }
+   /deep/ .notice-details-font1{
+       color: #0064FF;
+   }
+   /deep/ .notice-details-font2{
+       color: #60698D;
+   }
+   /deep/ .notice-details-font3{
+       color: #60698D;
+   }
+   // 首页
+   /deep/ .index-market-bg{
+       background-color: #fff;
+       border-color: #E8E9EA !important;
+   }
+   /deep/ .index-border-color{
+       border-color: #E8E9EA !important;
+   }
+   /deep/ .index-white-color{
+       color: #60698D;
+   }
+   /deep/ .index-market-font{
+       color: #97A3B4;
+   }
+   /deep/ .index-upDown-color{
+       color: #E8E9EA;
+   }
+   /deep/ .index-font1{
+       color: #002257;
+   }
+   /deep/ .index-ETH-font{
+       color: #AAB2C0;
+   }
+   /deep/ .index-font2{
+       color: #002257;
+   }
+   /deep/ .index-font3{
+       color: #97A3B4;
+   }
+   /deep/ .index-deal-btn{
+       color: #fff;
+       background-color: #00CEFF;
+   }
+   /deep/ .market-download:hover{
+       background-color: #E8E9EA;
+   }
+   /deep/ .symbolList:hover{
+       background-color: #E8E9EA;
+   }
+   /deep/ .market-lists-choice span:hover{
+       color: #0064FF;
+   }
+   /deep/ .icon-xingxu {
+       color: #97A3B4;
+    }
+   /deep/ .icon-xing1 {
+       color: #0064FF;
+   }
+   /deep/ .icon-light {
+       color: #0064FF;
+    }
+   // 交易界面
+    /deep/ .min_hint{
+        background-color: #E8E9EA;
+    }
+   /deep/ .interrupt{
+        background-color: rgba(170, 178, 192, 0.8);
+        color: #60698D;
+    }
+   /deep/ .up-bgColor{
+       background-color: #01C57B;
+       &:hover{
+           background-color: #1DE297;
+       }
+   }
+   /deep/ .down-bgColor{
+       background-color: #D8195A;
+       &:hover{
+           background-color: #F03676;
+       }
+   }
+   /deep/ .up-bgColor2{
+       background-color: rgba(1, 197, 123, 0.1);
+   }
+   /deep/ .down-bgColor2{
+       background-color: rgba(216, 25, 90, 0.1);
+   }
+   /deep/ .deal-bg{
+       background-color: #EEEFEF;
+   }
+   /deep/ .deal-content-bg{
+       background-color: #FFF;
+   }
+   /deep/ .deal-title-left-bg{
+       background-color: #0064FF;
+   }
+   /deep/ .deal-title-center-bg{
+       background-color: #141E46;
+   }
+   /deep/ .deal-font1{
+       color: #002257;
+   }
+   /deep/ .deal-font2{
+       color: #97A3B4;
+   }
+   /deep/ .deal-font3{
+       color: #002257;
+   }
+   /deep/ .deal-font4{
+       color: #AAB2C0;
+   }
+   /deep/ .deal-font5{
+       color: #60698D;
+   }
+   /deep/ .deal-border-color{
+       border-color: #E8E9EA !important;
+   }
+   /deep/ .deal-market-search input::placeholder{
+       color: #AAB2C0;
+   }
+   /deep/ .deal-font7{
+       color: #60698D;
+   }
+   /deep/ .deal-font8{
+       color: #60698D;
+   }
+   /deep/ .deal-font9{
+       color: #60698D;
+   }
+   /deep/ .white-color{
+       color: #fff;
+   }
+   /deep/ .scroll_color{
+       &::-webkit-scrollbar-track
+       {
+           background-color: #fff;
+       }
+       &::-webkit-scrollbar
+       {
+           width: 5px;
+           background-color: #fff;
+       }
+       &::-webkit-scrollbar-thumb
+       {
+           background-color: #E8E9EA;
+       }
+   }
+   /deep/ .symbolListShowData:hover{
+       background-color: #E8E9EA;
+   }
+   /deep/ .hoverText{
+       &:hover{
+         color: #0064FF !important;
+       }
+   }
+   /deep/ .btn_hover{
+       background-color: #E8E9EA !important;
+   }
+   /deep/ .deal_input{
+       background-color: #F7F8F9 !important;
+       color: #002257;
+   }
+   // 委托
+   /deep/ .entrust-contentBg{
+       background-color: #E8E9EA !important;
+       p:hover{
+           background-color: #DBDDDE !important;
+       }
+   }
+   /deep/ .btnBg{
+       background-color: #0064FF !important;
+       color: #fff !important;
+   }
+   /deep/ .entrust-bg{
+       background-color: #fff;
+   }
+   /deep/ .entrust-border-color{
+       border-color: #E8E9EA !important;
+   }
+   /deep/ .entrust-font1{
+       color: #60698D;
+   }
+   /deep/ .entrust-font2{
+       color: #60698D;
+   }
+   /deep/ .entrust-font3{
+       color: #60698D;
+   }
+   /deep/ .orderList:hover{
+       background-color: #E8E9EA;
+   }
+   //委托详情
+   /deep/ .entrust_details_bg{
+        background-color: #fff;
+    }
+    /deep/ .entrust_details_title_bg{
+        background-color: #EDF0F5;
+    }    
+    /deep/ .entrust_left_bg{
+        background-color: #fff;
+    }
+    /deep/ .entrust_font1{
+        color: #97A3B4;
+    }
+    /deep/ .entrust_font2{
+        color: #002257;
+    }
+    /deep/ .entrust_font3{
+        color: #60698D;
+    }
+    /deep/ .entrust_font4{
+        color: #0064FF;
+    }
+    /deep/ .cancel_order:hover{
+        border-color: #0064FF !important;
+    }
+   // rootrex介绍
+   /deep/ .rootrex-content-bg{
+       background-color: #fff;
+   }
+   /deep/ .rootrex-font1{
+       color: #002257;
+   }
+   /deep/ .rootrex-font2{
+       color: #97A3B4;
+   }
+   /deep/ .rootrex-font3{
+       color: #60698D;
+   }
+   // 新手帮助
+   /deep/ .blue-color{
+       background-color: #0064FF;
+       color: #E8E9EA !important;
+   }
+   /deep/ .help-content-bg{
+       background-color: #fff;
+   }
+   /deep/ .help-font1{
+       color: #002257;
+   }
+   /deep/ .help-font2{
+       color: #60698D;
+   }
+   /deep/ .help-font3{
+       color: #60698D;
+   }
+   /deep/ .help-font4{
+       color: #60698D;
+   }
+   /deep/ .download-BgBorder{
+       background-color: #E8E9EA !important;
+       border-color: #0064FF !important;
+   }
+   /deep/ .download-Bg{
+       background-color: #E8E9EA;
+   }
+   /deep/ .anchor:hover{
+    background-color: #0064FF;
+    color: #E8E9EA !important;
+   }
+   // 下载APP
+   /deep/ .download_pageBg{
+        background-color: #fff;
+    }
+    /deep/ .download_bg{
+        background-color: #F7F7F7;
+    }
+    /deep/ .download_font1{
+        color: #4B516A;
+    }
+    /deep/ .download_font2{
+        color: #60698D;
+    }
+    /deep/ .download_font3{
+        color: #4D5164;
+    }
+    /deep/ .download_font4{
+        color: #848CAD;
+    }
+    /deep/ .download_font5{
+        color: #4D5164;
+    }
+    /deep/ .download_btnColor{
+        border-color: #60698D !important;
+        background-color: rgba(39, 53, 110, 0.1);
+    }
+    /deep/ .download_bottom{
+        background-color: rgba(255, 255, 255, 0.8);
+    }
+    // 资产历史
+   /deep/ .history-bg{
+       background-color: #fff;
+   }
+   /deep/ .history-content-bg{
+       background-color: #fff;
+   }
+   /deep/ .history-font1{
+       color: #002257;
+   }
+   /deep/ .history-font2{
+       color: #60698D;
+   }
+   /deep/ .history-font3{
+       color: #60698D;
+   }
+   /deep/ .history-font4{
+       color: #97A3B4;
+   }
+   /deep/ .history-font5{
+       color: #AAB2C0;
+   }
+   /deep/ .history-font6{
+       color: #60698D;
+   }
+   /deep/ .assets-history-search input::placeholder{
+       color: #60698D;
+   }
+   /deep/ .btn-recharge{
+       color: #00CEFF;
+   }
+   /deep/ .btn-put{
+       color: #0064FF;
+   }
+   /deep/ .error{
+       color: #D12844;
+   }
+   /deep/ .success{
+       color: #00CEFF;
+   }
+   /deep/ .bor_color{
+       border-color: #AAB2C0 !important;
+   }
+   // 我的资产
+   /deep/ .assets-bg{
+       background-color: #fff;
+   }
+   /deep/ .assets-content-bg{
+       background-color: #fff;
+   }
+   /deep/ .assets-font1{
+       color: #002257;
+   }
+   /deep/ .assets-font2{
+       color: #60698D;
+   }
+   /deep/ .assets-font3{
+       color: #60698D;
+   }
+   /deep/ .assets-font4{
+       color: #97A3B4;
+   }
+   /deep/ .assets-font5{
+       color: #002257;
+   }
+   /deep/ .assets-search input::placeholder{
+       color: #60698D;
+   }
+   /deep/ .assets-bgToken{
+       background-color: #EFF2F5 !important;
+   }
+   /deep/ .assets_operation_color{
+    color: #0064FF;
+    &:hover{
+        color: #2F81FF !important;
+    }
+}
+/deep/ .deal_baseName{
+     background-color: #E8E9EA;
+     color: #60698D;
+     li:hover{
+         background-color: #DBDDDE;
+     }
+}
+  
+   
+ /deep/ .assetList:hover{
+   background-color: #E8E9EA;
+ }
+   // 分页
+   /deep/ .page{
+       color: #60698D;
+       &:hover{
+           background: #E8E9EA;
+       }
+   }
+   /deep/ .paginator{
+       color: #60698D;
+   }
+   /deep/ .first-page, /deep/ .last-page {
+       color: #60698D;
+   }
+   /deep/ .current-page input, /deep/ .page-size input{
+       background-color: #E8E9EA;
+       color: #60698D;
+   }
+   /deep/ .page-box{
+       margin-top: 20px;
+       background-color: #fff;
+   }
+   // 安装MetaMask
+   /deep/ .rootrex-dialog-bg{
+       background: #fff;
+   }
+   /deep/ .MetaMask_color1{
+       color: #60698D;
+   }
+   /deep/ .MetaMask_color2{
+       color: #AAB2C0;
+   }
+   /deep/ .MetaMask_color3{
+       color: #00CEFF;
+   }
+   /deep/ .MetaMask_border1{
+       border-color: #242f5a !important;
+   }
+   /deep/ .MetaMask_border2{
+       border-color: #0064FF !important;
+   }
+   /deep/ .MetaMask_bg{
+       background: #E8E9EA;
+   }
+   /deep/ .current_color{
+       background: #E8E9EA;
+       border: #0064FF 2px solid !important;
+   }
+   // 解锁MetaMask
+   /deep/ .unlock-metamask-bg{
+       background: #fff;
+   }
+   /deep/ .unlock-metamask-color{
+       color: #60698D;
+   }
+   // 充值和提现弹窗
+    /deep/ .dialog_bg{
+        background-color: #fff;
+    }
+    /deep/ .dialog_font1{
+        color: #002257;
+    }
+    /deep/ .dialog_font2{
+        color: #60698D;
+    }
+    /deep/ .dialog_font3{
+        color: #002257;
+    }
+    /deep/ .balanceError{
+        background: #352b5d;
+        border: #D8195A 1px solid;
+    }
+    /deep/ .input_color{
+        color: #002257;
+        background: #E8E9EA;
+    }
+    /deep/ .error{
+        color: #D8195A;
+    }
+    /deep/ .info{
+        color: #0064FF;
+    }
+    /deep/ input[type=range]{
+        background: linear-gradient(#0064FF) no-repeat, #E8E9EA;
+    }
+    /deep/ input[type=range]::-webkit-slider-thumb{
+        background: #0064FF;
+    }
+    /deep/ input[type=range]::-moz-range-thumb{
+        background: #0064FF;
+    }
+
+    /deep/ .symbolListShowData:hover{
+		background-color: #E8E9EA;
+    }
+    /deep/ .hoverText{
+        &:hover{
+          color: #0064FF !important;
+        }
+    }
+    /deep/ .btn_hover{
+        background-color: #E8E9EA !important;
+    }
+    /deep/ .deal_input{
+        background-color: #F7F8F9 !important;
+        color: #002257;
+    }
+	// 委托
+	/deep/ .entrust-contentBg{
+		background-color: #E8E9EA !important;
+		p:hover{
+			background-color: #DBDDDE !important;
+		}
+	}
+	/deep/ .btnBg{
+		background-color: #0064FF !important;
+		color: #fff !important;
+	}
+	/deep/ .entrust-bg{
+		background-color: #fff;
+	}
+	/deep/ .entrust-border-color{
+		border-color: #E8E9EA !important;
+	}
+	/deep/ .entrust-font1{
+		color: #60698D;
+	}
+	/deep/ .entrust-font2{
+		color: #60698D;
+	}
+	/deep/ .entrust-font3{
+		color: #60698D;
+	}
+	/deep/ .entrust-font4{
+		color: #0064FF;
+	}
+	/deep/ .orderList:hover{
+		background-color: #E8E9EA;
+	}
+	// rootrex介绍
+	/deep/ .rootrex-content-bg{
+		background-color: #fff;
+	}
+	/deep/ .rootrex-font1{
+		color: #002257;
+	}
+	/deep/ .rootrex-font2{
+		color: #97A3B4;
+	}
+	/deep/ .rootrex-font3{
+		color: #60698D;
+	}
+	// 新手帮助
+	/deep/ .blue-color{
+		background-color: #0064FF;
+		color: #E8E9EA !important;
+	}
+    /deep/ .newhand-left{
+      .anchor{
+        &:hover{
+          background-color: #0064FF;
+          color: #E8E9EA !important;
+        }
+      }
+    }
+	/deep/ .help-content-bg{
+		background-color: #fff;
+	}
+	/deep/ .help-font1{
+		color: #002257;
+	}
+	/deep/ .help-font2{
+		color: #60698D;
+	}
+	/deep/ .help-font3{
+		color: #60698D;
+	}
+	/deep/ .help-font4{
+		color: #60698D;
+	}
+	/deep/ .download-BgBorder{
+		background-color: #E8E9EA !important;
+		border-color: #0064FF !important;
+	}
+	/deep/ .download-Bg{
+		background-color: #E8E9EA;
+	}
+	// 资产历史
+	/deep/ .history-bg{
+		background-color: #fff;
+	}
+	/deep/ .history-content-bg{
+		background-color: #fff;
+	}
+	/deep/ .history-font1{
+		color: #002257;
+	}
+	/deep/ .history-font2{
+		color: #60698D;
+	}
+	/deep/ .history-font3{
+		color: #60698D;
+	}
+	/deep/ .history-font4{
+		color: #97A3B4;
+	}
+	/deep/ .history-font5{
+		color: #AAB2C0;
+	}
+	/deep/ .history-font6{
+		color: #60698D;
+	}
+	/deep/ .assets-history-search input::placeholder{
+		color: #60698D;
+	}
+	/deep/ .btn-recharge{
+		color: #00CEFF;
+	}
+	/deep/ .btn-put{
+		color: #0064FF;
+	}
+	/deep/ .error{
+		color: #D12844;
+	}
+	/deep/ .success{
+		color: #00CEFF;
+	}
+	// 我的资产
+	/deep/ .assets-bg{
+		background-color: #fff;
+	}
+	/deep/ .assets-content-bg{
+		background-color: #fff;
+	}
+	/deep/ .assets-font1{
+		color: #002257;
+	}
+	/deep/ .assets-font2{
+		color: #60698D;
+	}
+	/deep/ .assets-font3{
+		color: #60698D;
+	}
+	/deep/ .assets-font4{
+		color: #97A3B4;
+	}
+	/deep/ .assets-font5{
+		color: #002257;
+	}
+	/deep/ .assets-search input::placeholder{
+		color: #60698D;
+	}
+	/deep/ .assets-bgToken{
+		background-color: #EFF2F5 !important;
+	}
+	
+  /deep/ .assetList:hover{
+    background-color: #E8E9EA;
+  }
+	// 分页
+	/deep/ .page{
+		color: #60698D;
+		&:hover{
+			background: #E8E9EA;
+		}
+	}
+	/deep/ .paginator{
+		color: #60698D;
+	}
+	/deep/ .first-page, /deep/ .last-page {
+		color: #60698D;
+	}
+	/deep/ .current-page input, /deep/ .page-size input{
+		background-color: #E8E9EA;
+		color: #60698D;
+	}
+	/deep/ .page-box{
+		margin-top: 20px;
+		background-color: #fff;
+	}
+	// 安装MetaMask
+	/deep/ .rootrex-dialog-bg{
+		background: #fff;
+	}
+	/deep/ .MetaMask_color1{
+		color: #60698D;
+	}
+	/deep/ .MetaMask_color2{
+		color: #AAB2C0;
+	}
+	/deep/ .MetaMask_color3{
+		color: #00CEFF;
+	}
+	/deep/ .MetaMask_border1{
+		border-color: #242f5a !important;
+	}
+	/deep/ .MetaMask_border2{
+		border-color: #0064FF !important;
+	}
+	/deep/ .MetaMask_bg{
+		background: #E8E9EA;
+	}
+	/deep/ .current_color{
+		background: #E8E9EA;
+		border: #0064FF 2px solid !important;
+	}
+	// 解锁MetaMask
+	/deep/ .unlock-metamask-bg{
+		background: #fff;
+	}
+	/deep/ .unlock-metamask-color{
+		color: #60698D;
+    }
+    // 设置
+    /deep/ .setUp-font1{
+        color: #60698D;
+    }
+    /deep/ .setUp-color{
+        background-color: #E8E9EA;
+        border-color: #AAB2C0 !important;
+    }
+    /deep/ .btn{
+        background-color: #00CEFF;
+        color: #fff;
+    }
+    /deep/ .hover_bgColor{
+        border-color: #AAB2C0 !important;
+        p:hover{
+            background-color: #DBDDDE;
+        }
+    }
+	/deep/ .scrollBeautiful{
+		&::-webkit-scrollbar-track
+		{
+			background-color: #fff;
+		}
+		&::-webkit-scrollbar
+		{
+			width: 5px;
+			background-color: #fff;
+		}
+		&::-webkit-scrollbar-thumb
+		{
+			background-color: #E8E9EA;
+		}
+		@-moz-document url-prefix() {
+			&{
+				.scrollBar{
+					background: #E8E9EA;
+				}
+			}
+		}
+
+	}
+	/deep/ .iconDown{
+		color: #AAB2C0;
+	}
+    /deep/ .kLineSwitch{
+      .k-line{
+        &:before{
+          color: #e0e0e0!important;
+        }
+        &:after{
+          color: #e0e0e0!important;
+        }
+      }
+    }
+
+    /deep/ .deep-line{
+      color: #f00!important;
+      &.nodata:before{
+        color: #e0e0e0!important;
+      }
+    }
+
+}

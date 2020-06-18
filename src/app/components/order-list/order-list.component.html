@@ -1,0 +1,61 @@
+<!-- 交易状态 -->
+<div class="entrust-lists entrust-bg">
+    <div class="deal-state-title entrust-border-color entrust-font1">
+        <span class="active_hover" [ngClass]="{'activated':!type}" (click)="onTypeChangeClick(0)">{{'Header.OpenOrders' | translate}}</span>
+        <span class="active_hover" [ngClass]="{'activated':type}" (click)="onTypeChangeClick(1)">{{'Header.OrderHistory' | translate}}</span>
+        <div class="search-box" *ngIf="showSearch">
+            <div class="tokenName-search entrust-contentBg">
+                <span class="iconfont icon-unie036 entrust-font6"></span>
+                <input type="text" placeholder="{{'Common.Search' | translate}}" class="entrust-font5" [(ngModel)]="tokenName" (keypress)="onSearchKeyPress($event)">
+            </div>
+            <div class="entrust-font2">/</div>
+            <div class="select-box entrust-contentBg entrust-font6" (click)="slideDownSelect()">
+                {{baseName}}<span class="iconfont icon-sanjiaoxing-down icon-down entrust-font6"></span>
+                <div class="down-box entrust-contentBg entrust-font2">
+                    <p (click)="baseName=''">{{'Common.All' | translate}}</p>
+                    <p (click)="baseName=i" *ngFor="let i of baseTokenListData">{{i}}</p>
+                    <!--<p (click)="baseName='NEO'">NEO</p>-->
+                </div>
+            </div>
+            <div class="search-btn entrust-font1 btnBg" (click)="onSymbolSearchClick()">{{'Common.Search' | translate}}</div>
+            <div class="reset-btn entrust-font2" (click)="onResetClick()">{{'Common.Reset' | translate}}</div>
+        </div>
+        <span class="entrust-font2" *ngIf="!type&&orderList&&orderList.length" (click)="cancelAll()">{{'Rootrex.CancelAll' | translate}}</span>
+    </div>
+    <ul class="deal-state-lists">
+        <li class="deal_state_title entrust-font2">
+            <div>{{'Rootrex.OrderDate' | translate}}</div>
+            <div>{{'Rootrex.Type' | translate}}</div>
+            <div>{{'Symbol.Pair' | translate}}</div>
+            <div>{{'Rootrex.OrderPrice' | translate}}</div>
+            <div>{{'Rootrex.AvgPrice' | translate}}</div>
+            <div>{{'Rootrex.OrderAmount' | translate}}</div>
+            <div>{{'Rootrex.TradeAmount' | translate}}</div>
+            <div>{{'Rootrex.TradeVol' | translate}}</div>
+            <div>{{'Common.Status' | translate}}</div>
+            <div>{{'Common.Operation' | translate}}</div>
+        </li>
+        <nounlockinstall *ngIf="!metamaskService.isLogin()"></nounlockinstall>
+        <loading *ngIf="metamaskService.isLogin() && loadingFlag"></loading>
+        <nodata *ngIf="metamaskService.isLogin() && !loadingFlag && orderList && orderList.length === 0"></nodata>
+        <div class="orderList" *ngFor="let i of orderList">
+            <li class="entrust-font3">
+                <div>{{i.created_at | timestamp }}</div>
+                <div [ngClass]="{'up-color': i.type == 0, 'down-color': i.type == 1}">{{(i.type==='0'?'Rootrex.LimitBuy':i.type==='1'?'Rootrex.LimitSell':'???') | translate}}</div>
+                <div>
+                    <span class="entrust-font1">{{i.tokenName}}</span><span> / {{i.baseName}}</span>
+                </div>
+                <div>{{i.calUnitPrice | toFixed:8}}</div>
+                <div>{{i.avgUnitPrice | toFixed:8}}</div>
+                <div>{{i.calTokenAmount | trimZero}}</div>
+                <div>{{i.calTokenSuccess | trimZero}}</div>
+                <div>{{i.calBaseSuccess | toFixed:8}} {{i.baseName}}</div>
+                <div>{{('Rootrex.OrderStatus:'+i.status) | translate}}</div>
+                <div>
+                    <span class="entrust-font4" (click)="onOrderDetailClick(i.id,i.symbol)">{{'Common.Detail' | translate}}</span>
+                    <span (click)="onWithdrawalClick(i.orderId,i.symbol)" *ngIf="!type&&i.status=='0'">{{'Rootrex.Cancel' | translate}}</span>
+                </div>
+            </li>
+        </div>
+    </ul>
+</div> 

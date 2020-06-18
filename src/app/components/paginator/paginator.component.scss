@@ -1,0 +1,78 @@
+.paginator{
+  overflow: hidden;
+  padding: 10px 20px;
+  .page{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin: 0 5px;
+    float: left;
+    font-size: 12px;
+    border-radius: 2px;
+    transition: background 500ms;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+
+  .icon{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    margin: 0 5px;
+    float: left;
+    text-align: center;
+  }
+
+  .first-page, .last-page {
+    width: auto;
+    span{
+      font-size: 14px;
+    }
+      background-color: rgba(0, 0, 0, 0) !important;
+  }
+  .first-page{
+    margin-left: 0;
+    span{
+      margin-left: 25px;
+    }
+  }
+  .last-page span{
+    margin-right: 25px;
+  }
+
+  .current{
+    background: #00CEFF !important;
+  }
+  .current-page{
+    float: left;
+    margin-left: 20px;
+	  input{
+		width: 50px;
+		height: 24px;
+		border: none;
+		outline: none;
+		border-radius: 2px;
+		margin: 0 10px;
+		text-align: center;
+		overflow: hidden;
+	  }
+	  span{
+		  cursor: pointer;
+	  }
+  }
+  .page-size{
+	  float: right;
+	  input{
+		  width: 40px;
+		  height: 24px;
+		  border: none;
+		  outline: none;
+		  border-radius: 2px;
+		  margin: 0 10px;
+		  text-align: center;
+		  overflow: hidden;
+	  }
+  }
+}

@@ -1,0 +1,9 @@
+<div class="paginator">
+    <div class="first-page page" (click)="setCurrentPage(1)">{{'Paginator.First' | translate}}</div>
+    <div class="icon" (click)="setCurrentPage(currentPage-1)" [ngStyle]="{'disabled':currentPage===1,'cursor':currentPage!==1?'pointer':''}"><span class="iconfont icon-sanjiaoxing-left"></span></div>
+    <div class="page" [ngClass]="{ 'current': i===currentPage }" *ngFor="let i of middlePages" (click)="setCurrentPage(i)">{{i}}</div>
+    <div class="icon" (click)="setCurrentPage(currentPage+1)" [ngStyle]="{'disabled':currentPage===totalPage,'cursor':currentPage!==totalPage?'pointer':''}"><span class="iconfont icon-sanjiaoxing-right"></span></div>
+    <div class="last-page page" (click)="setCurrentPage(totalPage)">{{'Paginator.Last' | translate}}</div>
+    <div class="current-page"><input type="number" (keydown)="onInputKeyDown($event)" [(ngModel)]="changeCurrentPage"> <span (click)="jumpToChangeCurrentPage()">{{'Paginator.GoTo' | translate}}</span></div>
+    <div class="page-size">{{'Paginator.PerPage' | translate}} <input type="number" [(ngModel)]="changePageSize" (keyup)="setPageSize()" >{{'Paginator.Row' | translate}}</div>
+</div>

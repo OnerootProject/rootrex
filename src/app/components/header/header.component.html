@@ -1,0 +1,52 @@
+<div class="nav">
+    <div class="container">
+        <div class="metamask metamask-color">
+             <span (click)="openSetUpDialog()" class="iconfont icon-shezhi"></span>
+            <span *ngIf="!metamaskService.checkInstall()" (click)="metamaskService.unlogin()">{{'MetaMask.ClickToInstallMetaMask' | translate}} <img
+                    src="./assets/image/metamask.png" alt=""></span>
+            <span *ngIf="metamaskService.checkInstall() && !metamaskService.isLogin()" (click)="metamaskService.unlogin()">{{'MetaMask.ClickToUnlockMetaMask' | translate}} <img
+                    src="./assets/image/metamask.png" alt=""></span>
+            <span *ngIf="metamaskService.checkInstall() && metamaskService.isLogin()" (click)="onMyAccountClick()" title="{{'Header.ClickToCopyAddress' | translate}}">
+                {{ currentNetwork==='Main'?(metamaskService.checkNetwork()?(metamaskService.getDefaultAccount() | account):('Header.ChangeNetworkToMain' | translate)):(metamaskService.checkNetwork()?('Header.ChangeNetworkToKovan' | translate):(metamaskService.getDefaultAccount() | account))}}
+                <img src="./assets/image/metamask.png" alt="">
+            </span>
+        </div>
+        <!-- logo -->
+        <a routerLink="/" class="logo"><img src="./assets/image/logo.png" alt=""></a>
+        <!--<div class="Beta">Beta</div>-->
+
+        <!-- tab -->
+        <ul class="nav-content header-font">
+            <li class="li_home" [ngClass]="{'activated': routerLink === 'home'}"
+                (click)="activated('home','/',$event)">{{'Header.Home' | translate}}</li>
+
+            <li class="li_notice" [ngClass]="{'activated': routerLink === 'notice'}"
+                (click)="activated('notice','notice',$event)">{{'Header.Notice' | translate}}</li>
+            <li class="li_help" [ngClass]="{'activated': routerLink === 'help'}"
+                (click)="activated('help','help/rootrex',$event)">{{'Header.Help' | translate}}
+                <ul class="drop-down header-bg header-font2">
+                    <li (click)="activated('help','help/rootrex',$event)">{{'Header.AboutRootrex' | translate}}</li>
+                    <li (click)="activated('help','help/novice',$event)">{{'Header.Novice' | translate}}</li>
+                    <li (click)="activated('help','help/download',$event)">{{'Header.AppDownload' | translate}}</li>
+                </ul>
+            </li>
+            <li class="li_entrust" [ngClass]="{'activated': routerLink === 'order'}"
+                (click)="activated('order','order',$event)">{{'Header.Order' | translate}}
+                <ul class="drop-down header-bg header-font2">
+                    <li (click)="activated('order','order/pending',$event)">{{'Header.OpenOrders' | translate}}</li>
+                    <li (click)="activated('order','order/finished',$event)">{{'Header.OrderHistory' | translate}}</li>
+                </ul>
+            </li>
+            <li class="li_assets" [ngClass]="{'activated': routerLink === 'asset'}"
+                (click)="activated('asset','asset',$event)">{{'Header.Asset' | translate}}
+                <ul class="drop-down header-bg header-font2">
+                    <li (click)="activated('asset','asset/my',$event)">{{'Header.MyAssets' | translate}}</li>
+                    <li (click)="activated('asset','asset/history',$event)">{{'Header.AssetsHistory' | translate}}</li>
+                </ul>
+            </li>
+            <!--<li class="oneroot_logo">-->
+                <!--<a href="https://www.oneroot.io" target="_blank"><img src="./assets/image/oneroot.png" alt=""></a>-->
+            <!--</li>-->
+        </ul>
+    </div>
+</div>

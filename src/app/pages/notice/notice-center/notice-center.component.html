@@ -1,0 +1,23 @@
+<div class="notice-center">
+    <div class="container">
+        <div class="notice-center-content notice-center-bg  notice-font2">
+            <div class="notice-center-title notice-center-font1">{{'Notice.NoticeCenter' | translate}}</div>
+            <ul class="notice-center-left notice-center-font2">
+                <li class="notice-center-font1">{{'Notice.NewCoinList' | translate}}</li>
+                <li class="notice-center-words notice-center-border" *ngFor="let i of onlineListData" (click)="gotoNoticeDetail(i.pid)" >
+                    <span>{{i.title}}</span>
+                    <span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>
+                </li>
+                <li class="notice-font4" (click)="gotoNoticeCategory(1)" >{{'Notice.ViewAllNewCoinList' | translate}}</li>
+            </ul>
+            <ul class="notice-center-right notice-center-font2"> 
+                <li class="notice-center-font1">{{'Notice.LatestAnnouncement' | translate}}</li>
+                <li class="notice-center-words notice-center-border" *ngFor="let i of noticeListData" (click)="gotoNoticeDetail(i.pid)">
+                    <span>{{i.title}}</span>
+                    <span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>
+                </li>
+                <li class="notice-font4" (click)="gotoNoticeCategory(2)">{{'Notice.ViewAllLatestAnnouncement' | translate}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

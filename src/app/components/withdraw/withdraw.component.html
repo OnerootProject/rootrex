@@ -1,0 +1,30 @@
+<div class="rootrex-dialog dialog_bg" [ngClass]="fadeFlag">
+   <div class="title dialog_font1">
+      <div class="left"><span class="down-color">{{'Asset.Withdraw' | translate}}</span> {{config.tokenName}}</div>
+      <div class="right" (click)="onThisDialogClose()">X</div>
+   </div>
+   <div class="content dialog_font2">
+      <div class="balance">
+         <div class="wallet">
+            <div class="left">{{'Asset.WalletBalance' | translate}}:</div>
+            <div class="right dialog_font3"><span class="dialog_font2">{{balanceMetamask | toFixed:8 | zero}}</span> {{config.tokenName}}</div>
+         </div>
+         <div class="rootrex">
+            <div class="left">{{'Asset.RootrexAvailableBalance' | translate}}:</div>
+            <div class="right dialog_font3"><span class="line_ dialog_font2" *ngIf='loadingFlag'>-</span><span *ngIf='!loadingFlag' (click)="setWithdrawAmount()">{{balanceRootrex | toFixed:8 | zero}}</span> {{config.tokenName}}</div>
+         </div>
+      </div>
+      <div class="withdrawAmount">
+         <input #input type="text" class="input_color" [ngClass]="{'balanceError':balanceError}" placeholder="{{'Asset.EnterWithdrawAmount' | translate}}" [(ngModel)]="withdrawNumber" (keydown)="onInputKeyDown($event)" (keyup)="checkBalance()" (ngModelChange)="onModelChange(input.value)" />
+         <div class="unit" (click)="input.focus()">{{config.tokenName}}</div>
+      </div>
+      <div class="message">
+         <div class="message-list error" *ngIf="balanceError">{{'Asset.InsufficientRootrexFunds' | translate}}</div>
+         <div class="message-list info">{{'Asset.MinWithdrawAmount' | translate}}: {{minWithdrawAmount | toFixed:8:2 | zero}} {{config.tokenName}}</div>
+      </div>
+   </div>
+   <div class="buttons">
+      <button class="down-bgColor white-color" (click)="onWithdrawClick()">{{'Asset.Withdraw' | translate}}</button>
+   </div>
+</div>
+<div class="mask" (click)="onThisDialogClose()"></div>

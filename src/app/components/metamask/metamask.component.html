@@ -1,0 +1,48 @@
+<div class="rootrex-dialog rootrex-dialog-bg" [ngClass]="fadeFlag">
+    <div class="title MetaMask_color1">
+        <div class="left">{{'MetaMask.Install' | translate}}</div>
+        <div class="right" (click)="onThisDialogClose()">X</div>
+    </div>
+    <div class="content">
+        <div class="introduce MetaMask_color1">{{'MetaMask.MetamaskDetails' | translate}}</div>
+        <div class="link MetaMask_color1">{{'MetaMask.Official' | translate}}
+            <a href="https://metamask.io/" target="_blank" class="MetaMask_color3">https://metamask.io/</a>
+        </div>
+        <div class="step-list MetaMask_color1">1.{{'MetaMask.InstallMetaMask' | translate}}</div>
+        <div class="explorer MetaMask_color1">
+            <div class="explorer-list">
+                <div [ngClass]="{'current_color':currentSelectExplorer==='chrome'}" (click)="currentSelectExplorer='chrome'">
+                    <img src="./assets/image/chrome.png" alt="">
+                    <p>Chrome</p>
+                </div>
+                <div [ngClass]="{'current_color':currentSelectExplorer==='firefox'}" (click)="currentSelectExplorer='firefox'">
+                    <img src="./assets/image/firefox.png" alt="">
+                    <p>Firefox</p>
+                </div>
+                <div [ngClass]="{'current_color':currentSelectExplorer==='opera'}" (click)="currentSelectExplorer='opera'">
+                    <img src="./assets/image/opera.png" alt="">
+                    <p>Opera</p>
+                </div>
+            </div>
+            <div class="explorer-detail MetaMask_bg">
+                <div class="download-address clrome_box download-Bg help-font3" *ngIf="currentSelectExplorer==='chrome'">
+                    <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=chrome-ntp-icon" target="_blank" class="gooleplay_a"><img src="./assets/image/gooleplay.png" alt=""></a>
+                    <p>{{'Help.Or' | translate}}</p>
+                    <div>
+                        <p>1.{{'Help.InputClrome' | translate}}</p>
+                        <p>2.{{'Help.Open' | translate}}</p>
+                        <p>3.{{'Help.DragAndDrop' | translate}}</p>
+                        <p [innerHtml] = "'Help.Github' | translate" ></p>
+                    </div>
+                </div>
+                <div class="download-address download-Bg help-font3" *ngIf="currentSelectExplorer==='firefox'" [innerHtml] = "'Help.Firefox' | translate">
+                </div>
+                <div class="download-address download-Bg help-font3" *ngIf="currentSelectExplorer==='opera'" [innerHtml] = "'Help.Opera' | translate">
+                </div>
+            </div>
+        </div>
+        <div class="step-list MetaMask_color1">2.{{'MetaMask.Affter' | translate}}</div>
+        <div class="step-list MetaMask_color1">3.{{'MetaMask.ClickMetaMask' | translate}}</div>
+    </div>
+</div>
+<div class="mask" (click)="onThisDialogClose()"></div>

@@ -1,0 +1,12 @@
+<div class="unlock-metamask unlock-metamask-bg" [ngClass]="fadeFlag">
+    <div class="unlock-metamask-content unlock-metamask-color">
+        <p *ngIf="config.message">{{config.message}}</p>
+        <p>{{'MetaMask.UseMetaMaskToFinish' | translate}} {{config.action}}</p>
+        <p *ngIf="false" class="success">{{'MetaMask.OperateSuccessful' | translate}}</p>
+        <p *ngIf="false" class="error">{{'MetaMask.OperateFailed' | translate}}</p>
+        <img src="./assets/image/metamask.png" alt="">
+        <span class="iconfont icon-duihao" *ngIf="false"></span>
+        <span class="iconfont icon-close" *ngIf="false"></span>
+    </div>
+</div>
+<div class="mask"></div>

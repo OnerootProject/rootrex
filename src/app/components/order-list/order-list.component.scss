@@ -1,0 +1,230 @@
+ // 交易状态
+ .entrust-lists{
+    width: 100%;
+    height: auto;
+    // min-height: 600px;
+    .deal-state-title{
+        height: 40px;
+        padding: 0 20px;
+        border-bottom: 1px solid #000;
+        div{
+            float: left;
+        }
+        span{
+            display: block;
+            float: left;
+            line-height: 38px;
+            font-size: 14px;
+            cursor: pointer;
+            border-bottom: 2px solid rgba(0, 0, 0, 0);
+            &:nth-of-type(1){
+                margin-right: 40px;
+            }
+            &:nth-of-type(3){
+                float: right;
+                font-size: 12px;
+                height: 24px;
+                line-height: 24px;
+                border: 0.5px solid rgba(0, 0, 0, 0);
+                padding: 0 10px;
+                border-radius: 2px;
+                margin-top: 8px;
+                &:hover{
+                    border: 0.5px solid #00CEFF;
+                    color: #00CEFF;
+                }
+            }
+        }
+        .search-box{
+            div{
+                &:nth-of-type(2){
+                    height: 24px;
+                    line-height: 24px;
+                    font-size: 16px;
+                }
+            }
+            margin-left: 150px;
+            margin-top: 8px;
+            .tokenName-search{
+                width: 80px;
+                height: 24px;
+                position: relative;
+                margin-right: 10px;
+                input{
+                    width: 100%;
+                    height: 24px;
+                    background-color: inherit;
+                    border: 0.5px solid rgba(0, 0, 0, 0);
+                    outline: none;
+                    font-size: 12px;
+                    padding: 0 5px 0 20px;
+                }
+                span{
+                    position: absolute;
+                    top: -7px;
+                    left: 5px;
+                    font-size: 12px;
+                }
+            }
+            .select-box{
+                margin-left: 10px;
+                min-width: 80px;
+                height: 24px;
+                line-height: 24px;
+                text-align: center;
+                position: relative;
+                cursor: pointer;
+                span{
+                    position: absolute;
+                    top: -6px;
+                    right: 3px;
+                    margin-right: 0;
+                }
+                .down-box{
+                    display: none;
+                    position: absolute;
+                    top: 30px;
+                    left: 0;
+                    width: 100%;
+                    background-color: inherit;
+                    font-size: 12px;
+                    border-radius: 2px;
+                    p{
+                        margin: 0;
+                        padding: 5px 0;
+                        text-align: center;
+                        cursor: pointer;
+                        transition: background 300ms ease-in-out;
+                        // &:hover{
+                        //     background-color: #222E5D;
+                        // }
+                    }
+                }
+            }
+            .search-btn{
+                height: 24px;
+                line-height: 24px;
+                padding: 0 10px;
+                font-size: 12px;
+                margin-left: 10px;
+                margin-right: 10px;
+                background-color: inherit;
+                border-radius: 2px;
+                cursor: pointer;
+            }
+            .reset-btn{
+                cursor: pointer;
+                height: 24px;
+                line-height: 24px;
+            }
+        }
+    }
+    .deal-state-lists{
+        list-style: none;
+        padding: 0;
+        .orderList{
+            padding: 0 20px;
+            // transition: background 300ms ease-in-out;
+            &:nth-last-of-type(1){
+                padding-bottom: 0.1px;
+            }
+            li{
+                padding: 0;
+                height: 40px;
+                line-height: 40px;
+            }
+        }
+        .deal_state_title{
+            margin: 10px 0;
+        }
+        li{
+            overflow: hidden;
+            height: 40px;
+            line-height: 40px;
+            // margin: 10px 0;
+            cursor: pointer;
+            div{
+                float: left;
+                font-size: 14px;
+                &:nth-of-type(1){
+                    width: 9%;
+                }
+                &:nth-of-type(2){
+                    width: 5%;
+                    font-size: 12px;
+                }
+                &:nth-of-type(3){
+                    width: 8%;
+                    span{
+                        &:nth-of-type(2){
+                            // font-size: 10px;
+                        }
+                    }
+                }
+                &:nth-of-type(4){
+                    width: 11%;
+                }
+                &:nth-of-type(5){
+                    width: 11%;
+                }
+                &:nth-of-type(6){
+                    width: 11%;
+                    padding-right: 10px;
+                }
+                &:nth-of-type(7){
+                    width: 11%;
+                    padding-right: 10px;
+                }
+                &:nth-of-type(8){
+                    width: 11%;
+                }
+                &:nth-of-type(9){
+                    width: 9%;
+                    padding-left: 20px;
+                    font-size: 12px;
+                }
+                &:nth-of-type(10){
+                    width: 14%;
+                    padding-left: 20px;
+                    font-size: 12px;
+                    span{
+                        &:nth-of-type(1){
+                            cursor: pointer;
+                        }
+                        &:nth-of-type(2){
+                            float: right;
+                            cursor: pointer;
+                            display: inline-block;
+                            padding: 0 12px;
+                            height: 24px;
+                            line-height: 23px;
+                            border: 0.5px solid rgba(20, 30, 70, 0);
+                            border-radius: 2px;
+                            margin-top: 8px;
+                            &:hover{
+                                border: 0.5px solid #00CEFF;
+                                color: #00CEFF;
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-of-type(1){
+                height: 30px;
+                line-height: 30px;
+                padding: 0 20px;
+                div{
+                    &:nth-of-type(2){
+                        font-size: 14px;
+                    }
+                    &:nth-of-type(9){
+                        font-size: 14px;
+                    }
+                    &:nth-of-type(10){
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}

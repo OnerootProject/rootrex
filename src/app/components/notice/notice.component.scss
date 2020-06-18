@@ -1,0 +1,55 @@
+.notice{
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    .container{
+        padding: 0 20px;
+        height: 50px;
+        position: relative;
+        overflow: hidden;
+    }
+    div{
+        line-height: 50px;
+        transition: color 300ms ease-in-out;
+        &.notice-left{
+            font-size: 14px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            left: 20px;
+        }
+        &.notice-right{
+            font-size: 14px;
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            right: 20px;
+        }
+    }
+    .notice-center{
+        height: 50px;
+        line-height: 50px;
+        font-size: 14px;
+        overflow: hidden;
+        a{
+            transition: color 300ms ease-in-out;
+            display: inline-block;
+            height: 50px;
+            width: 60%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+
+    .notice_active{
+        height: 50px;
+        overflow: hidden;
+        ul{
+            padding-left: 0; 
+        }
+    }
+    
+    
+      
+}

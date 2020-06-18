@@ -1,0 +1,106 @@
+<div class="entrust-details entrust_details_bg" [ngClass]="fadeFlag">
+    <div class="title entrust_details_title_bg">
+        <div class="left entrust_font3">{{'Rootrex.OrderDetail' | translate}}<span>#{{config?.id}}</span></div>
+        <div class="right entrust_font2" (click)="onThisDialogClose()"><span class="iconfont icon-close"></span></div>
+    </div>
+    <div class="content">
+        <div class="left-content entrust_left_bg">
+            <div class="left-content-title">
+                <div class="entrust_font2">
+            <span [ngClass]="{'up-color':orderDetailData?.type==='0', 'down-color':orderDetailData?.type==='1'}">
+                {{(orderDetailData?.type === '0' ? 'Rootrex.LimitBuy' : orderDetailData?.type === '1' ? 'Rootrex.LimitSell' : '-') | translate}}
+            </span>
+                    {{orderDetailData?.tokenName || '-'}}
+                    <span> / {{orderDetailData?.baseName || '-'}}</span>
+                </div>
+                <div>
+                    <span class="cancel_order entrust_font4"
+                          (click)="onWithdrawalClick(orderDetailData?.orderId,orderDetailData?.tokenName+'_'+orderDetailData?.baseName)"
+                          *ngIf="orderDetailData?.status=='0'">{{'Rootrex.Cancel' | translate}}</span>
+                    <span class="deal_state entrust-font2">
+                {{orderDetailData?.status?(('Rootrex.OrderStatus:'+orderDetailData?.status) | translate):'-'}}
+            </span>
+                </div>
+            </div>
+            <ul>
+                <li>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.OrderDate' | translate}}</p>
+                        <p class="entrust_font2">{{orderDetailData?.created_at | timestamp:'MM/DD HH:mm'}}</p>
+                    </div>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.OrderPrice' | translate}}({{orderDetailData?.baseName}})</p>
+                        <p class="entrust_font2">{{orderDetailData?.calUnitPrice || '-1' | toFixed:8 | zero}}</p>
+                    </div>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.OrderAmount' | translate}}</p>
+                        <p class="entrust_font2">{{orderDetailData?.calTokenAmount || '-1' | toFixed | zero}}</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.TradeVol' | translate}}({{orderDetailData?.baseName}})</p>
+                        <p class="entrust_font2">{{orderDetailData?.calBaseSuccess || '-1' | toFixed:8 | zero}}</p>
+                    </div>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.AvgPrice' | translate}}({{orderDetailData?.baseName}})</p>
+                        <p class="entrust_font2">{{orderDetailData?.avgUnitPrice || '-1' | toFixed:8 | zero}}</p>
+                    </div>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.TradeAmount' | translate}}</p>
+                        <p class="entrust_font2">{{orderDetailData?.calTokenSuccess || '-1' | toFixed | zero}}</p>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <p class="entrust_font1">{{'Rootrex.Fee' | translate}}({{orderDetailData?.feeTokenName}})</p>
+                        <p class="entrust_font2">{{orderDetailData?.serviceTokenFee || '-1' | toFixed:8 | zero}}</p>
+                    </div>
+                    <div>
+                        <p class="entrust_font1">{{'Asset.GasFee' | translate}}({{orderDetailData?.feeTokenName}})</p>
+                        <p class="entrust_font2">{{orderDetailData?.gasTokenFee || '-1' | toFixed:8 | zero}}</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="right-content">
+            <div class="right-content-title entrust_font2">
+                {{'Rootrex.TransactionDetail' | translate}}
+            </div>
+            <div class="scroll-box scroll_color2 scrollBeautiful">
+                <ul class="overflow_y">
+                    <div class="loading order_loading" *ngIf="loadingFlag">
+                        <div class="loading_box"><div class="loading_img"></div>{{'Common.Loading' | translate}}</div>
+                    </div>
+                    <div class="no-data order_noData" *ngIf="!loadingFlag && orderTradeData && orderTradeData.length===0">
+                        {{'Common.NoData' | translate}}
+                    </div>
+                    <li *ngFor="let i of orderTradeData">
+                        <p>
+                            <span class="entrust_font1">Tx: <a href="{{(currentNetwork==='Main'?'https://www.etherscan.io/tx/':'https://kovan.etherscan.io/tx/')+i.tx}}" target="_blank">{{(i.tx || '-') | tx}}</a></span>
+                            <span class="entrust_font3">{{('Rootrex.TradeStatus:'+i.status) | translate}}</span>
+                        </p>
+                        <div class="orderTime">
+                            <p class="entrust_font1">{{'Common.Time' | translate}}</p>
+                            <p class="entrust_font2">{{i.created_at | timestamp}}</p>
+                        </div>
+                        <div>
+                            <p class="entrust_font1">{{'Rootrex.UnitPrice' | translate}}({{i.baseName}})</p>
+                            <p class="entrust_font2">{{i.unitPrice | toFixed:8}}</p>
+                        </div>
+                        <div>
+                            <p class="entrust_font1">{{'Rootrex.TradeAmount' | translate}}</p>
+                            <p class="entrust_font2">{{i.tokenAmount | toFixed}}</p>
+                        </div>
+                        <div>
+                            <p class="entrust_font1">{{'Asset.GasFee' | translate}}({{i.feeTokenName}})</p>
+                            <p class="entrust_font2">{{i.gasTokenFee | toFixed:8}}</p>
+                        </div>
+                    </li>
+                </ul>
+                <span class='scrollBar'></span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask" (click)="onThisDialogClose()"></div>

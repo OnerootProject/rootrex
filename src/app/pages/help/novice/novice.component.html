@@ -1,0 +1,120 @@
+<div class="notice-box">
+        <notice></notice>
+    </div>
+    <div class="newhand">
+        <div class="container ">
+            <div class="newhand-content help-content-bg">
+                <div class="newhand-left help-font4" [ngClass]="{'fixed':fixedClass}" >
+                    <div class="newhand-title help-font1">{{'Help.BeginnerHelp' | translate}}</div>
+                    <div class="scroll_box scroll_color scrollBeautiful" [ngClass]="{'overScroll':overScroll}" (scroll)="scrollForFirefox($event)">
+                        <div class="scroll-y">
+                            <div [ngClass]="{'blue-color': num ===1 }"  (click)="slideTo($event)" class="anchor" anchor='1'>{{'Help.RiskNotice' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===2 }"  (click)="slideTo($event)" class="anchor" anchor='2'>{{'Help.InstallMetaMask' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===3 }"  (click)="slideTo($event)" class="anchor" anchor='3'>{{'Help.Use' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===4 }"  (click)="slideTo($event)" class="anchor" anchor='4'>{{'Help.Sign' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===5 }"  (click)="slideTo($event)" class="anchor" anchor='5'>{{'Help.Deposit' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===6 }"  (click)="slideTo($event)" class="anchor" anchor='6'>{{'Help.Withdraw' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===7 }"  (click)="slideTo($event)" class="anchor" anchor='7'>{{'Help.BuyAndSell' | translate}}</div>
+                            <div [ngClass]="{'blue-color': num ===8 }"  (click)="slideTo($event)" class="anchor" anchor='8'>{{'Help.RateDescription' | translate}}</div>
+                        </div>
+                        <span class='scrollBar'></span>
+                    </div>
+                </div>
+                <div class="newhand-right">
+                    <div class="risk-hints">
+                        <div class="words-module" name='anchor1' role='anchor'>
+                            <p class=" help-font4" style="margin-top: 0px;">{{'Help.RiskNotice' | translate}}</p>
+                            <p class="help-font2">{{'Help.RiskNoticeContent' | translate}}！</p>
+                        </div>
+                        <div class="words-module" name='anchor2' role='anchor'>
+                            <p class=" help-font4">{{'Help.Install' | translate}}</p>
+                            <p class="help-font2">{{'Help.MetaMaskIntroduce' | translate}}</p>
+                            <p class="help-font2">{{'Help.OfficialWebsite' | translate}}: <a href="https://metamask.io/" target="_blank" class="notice-font1">https://metamask.io/</a></p>
+                            <div class="download-title help-font3">1.{{'Help.Install' | translate}}</div>
+                            <div class="download">
+                                <div class="download-icon" [ngClass]="{'download-BgBorder':currentSelectExplorer==='chrome'}" (click)="currentSelectExplorer='chrome'">
+                                    <img src="./assets/image/chrome.png" alt="">
+                                    <span class="help-font3">Chrome</span>
+                                </div>
+                                <div class="download-icon" [ngClass]="{'download-BgBorder':currentSelectExplorer==='firefox'}" (click)="currentSelectExplorer='firefox'">
+                                    <img src="./assets/image/firefox.png" alt="">
+                                    <span class="help-font3">Firefox</span>
+                                </div>
+                                <div class="download-icon" [ngClass]="{'download-BgBorder':currentSelectExplorer==='opera'}" (click)="currentSelectExplorer='opera'">
+                                    <img src="./assets/image/opera.png" alt="">
+                                    <span class="help-font3">Opera</span>
+                                </div>
+                                <div class="download-address clrome_box download-Bg help-font3" *ngIf="currentSelectExplorer==='chrome'">
+                                    <a href="https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?utm_source=chrome-ntp-icon" target="_blank" class="gooleplay_a"><img src="./assets/image/gooleplay.png" alt=""></a>
+                                    <p>{{'Help.Or' | translate}}</p>
+                                    <div>
+                                        <p>1.{{'Help.InputClrome' | translate}}</p>
+                                        <p>2.{{'Help.Open' | translate}}</p>
+                                        <p>3.{{'Help.DragAndDrop' | translate}}</p>
+                                        <p [innerHtml] = "'Help.Github' | translate" ></p>
+                                    </div>
+                                </div>
+                                <div class="download-address download-Bg help-font3" *ngIf="currentSelectExplorer==='firefox'" [innerHtml] = "'Help.Firefox' | translate">
+                                </div>
+                                <div class="download-address download-Bg help-font3" *ngIf="currentSelectExplorer==='opera'" [innerHtml] = "'Help.Opera' | translate">
+                                </div>
+                            </div>
+                            <div class="download-title help-font3">2.{{'Help.InstallEnd' | translate}}</div>
+                            <div class="download-title help-font3">3.{{'Help.SetupMetaMask' | translate}}</div>
+                        </div>
+                        <div class="words-module" name='anchor3' role='anchor'>
+                            <p class="help-font4">{{'Help.Use' | translate}}</p>
+                            <p class="help-font2">{{'Help.OpenMetamask' | translate}}</p>
+                            <div class=" help-img1">
+                                <img src="./assets/image/metamask/mm0.png" alt="">
+                            </div>
+                            <p class="help-font2">{{'Help.NextMetaMask' | translate}}</p>
+                            <div class=" help-img1">
+                                <img src="./assets/image/metamask/mm1.png" alt="">
+                            </div>
+                            <p class="help-font2">{{'Help.NewlyBuild' | translate}}</p>
+                            <div class=" help-img1">
+                                <img src="./assets/image/metamask/mm2.jpeg" alt="">
+                            </div>
+                            <p class="help-font2">{{'Help.InputWallet' | translate}}</p>
+                            <div class=" help-img1">
+                                <img src="./assets/image/metamask/mm3.jpeg" alt="">
+                            </div>
+                            <p class="help-font2">{{'Help.PrivateKey' | translate}}</p>
+                            <div class=" help-img1">
+                                <img src="./assets/image/metamask/mm4.jpeg" alt="">
+                                <br>
+                                <img src="./assets/image/metamask/mm5.jpeg" alt="">
+                            </div>
+                        </div>
+                        <div class="words-module" name='anchor4' role='anchor'>
+                            <p class=" help-font4">{{'Help.Sign' | translate}}</p>
+                            <p class="help-font2" [innerHtml] = "'Help.SignContent' | translate"></p>
+                            <div class="help-img1">
+                                <img src="./assets/image/metamask/mm-sign.jpeg" alt="">
+                            </div>
+                        </div>
+                        <div class="words-module" name='anchor5' role='anchor'>
+                            <p class=" help-font4">{{'Help.Deposit' | translate}}</p>
+                            <p class="help-font2" [innerHtml] = "'Help.DepositContent' | translate"></p>
+                            <div class="help-img3 Deposit_box"></div>
+                        </div>
+                        <div class="words-module" name='anchor6' role='anchor'>
+                            <p class=" help-font4">{{'Help.Withdraw' | translate}}</p>
+                            <p class="help-font2">{{'Help.WithdrawContent' | translate}}</p>
+                            <div class="help-img3 withdraw_box"></div>
+                        </div>
+                        <div class="words-module" name='anchor7' role='anchor'>
+                            <p class=" help-font4">{{'Help.BuyAndSell' | translate}}</p>
+                            <p class="help-font2">{{'Help.BuyAndSellContent' | translate}}</p>
+                            <div class="help-img4 buy-sell_box"></div>
+                        </div>
+                        <div class="words-module" name='anchor8' role='anchor'>
+                            <p class=" help-font4">{{'Help.RateDescription' | translate}}</p>
+                            <p class="help-font2">{{'Help.RateDescriptionContent' | translate}}<a routerLink="/help/rootrex">{{'Help.RateDescriptionContent_Two' | translate}}</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

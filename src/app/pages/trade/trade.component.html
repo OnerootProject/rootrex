@@ -1,0 +1,460 @@
+<div class="notice-box">
+    <notice></notice>
+</div>
+<div class="deal deal-bg">
+    <div class="container">
+        <div class="deal-title">
+            <div class="deal-title-left">
+                <div class="deal_left_container deal-content-bg">
+                    <div class="deal-font1 deaal_left_one">
+                        <span class="iconfont icon-xingxu icon_start" [ngClass]="{'icon-xing1':isFav}"
+                              (click)="setSymbolFav(symbol,!isFav);metamaskService.isLogin()?isFav=!isFav:''"></span>
+                        <div class="taken_name_basename deal-font5"><span class="deal-font1">{{symbolDetail?.tokenName || '-'}}</span> / {{symbolDetail?.baseName
+                            || '-'}}
+                        </div>
+                        <div class="token_currentPrice" [ngClass]="{'up-color': symbolDetail?.price > symbolDetail?.lastPrice, 'down-color': symbolDetail?.price < symbolDetail?.lastPrice, 'normal-color':symbolDetail?.price==symbolDetail?.lastPrice}">{{currentPrice || 0 | toFixed:(symbolDetail?.priceScale || 8)}}</div>
+                        <div class="token_currency deal-font5">{{convertPriceToLegalCurrency(currentPrice, symbol_base) || 0 | toFixed:8 | number: '1.4-4'}} {{currency}}</div>
+                    </div>
+                    <div class="deal_left_two">
+                        <ul>
+                            <li>
+                                <div class="price_up_down" [ngClass]="{'up-color': symbolDetail?.rise > 0, 'down-color': symbolDetail?.rise < 0, 'normal-color': (symbolDetail?.rise == 0 ||!symbolDetail?.rise)}">
+                                    {{symbolDetail?.rise | percent}}
+                                </div>
+                                <div class="price_cny deal-font5">{{ getRisePriceToLegalCurrency() || 0 | toFixed:8 | number: '1.4-4'}} {{currency}}</div>
+                            </li>
+                            <li>
+                                <div class="left_word deal-font3">{{'Symbol.High' | translate}}</div>
+                                <div class="right_number">
+                                    <p class="deal-font3">{{symbolDetail?.highPrice24h || 0 |
+                                        toFixed:symbolDetail?.priceScale || 8}}</p>
+                                    <p class="deal-font5">
+                                        {{convertPriceToLegalCurrency(symbolDetail?.highPrice24h, symbol_base) | toFixed:8 | number: '1.4-4'}} {{currency}}
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="left_word deal-font3">{{'Symbol.Low' | translate}}</div>
+                                <div class="right_number">
+                                    <p class="deal-font3">
+                                        {{symbolDetail?.lowPrice24h || 0 | toFixed:symbolDetail?.priceScale || 8}}</p>
+                                    <p class="deal-font5">
+                                        {{convertPriceToLegalCurrency(symbolDetail?.lowPrice24h, symbol_base) | toFixed:8 | number: '1.4-4'}} {{currency}}
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="left_word deal-font3">{{'Symbol.Volume' | translate}}</div>
+                                <div class="right_number">
+                                    <p class="deal-font3">
+                                        {{symbolDetail?.tradeBaseAmount || 0 | toFixed:4:2 | thousandsSeparated}} {{symbol_base}}
+                                    </p>
+                                    <p class="deal-font5">
+                                        {{convertPriceToLegalCurrency(symbolDetail?.tradeBaseAmount, symbol_base) | toFixed:8 | number: '1.4-4'}} {{currency}}
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="deal-title-right">
+                <div class="download_image" (click)="onDownloadClick()"></div>
+            </div>
+        </div>
+        <div class="deal-content">
+            <div class="deal-kline-box">
+                <div class="deal-kline deal-content-bg " [ngClass]="{'kLineSwitch':kLineNodata}">
+                    <div class="deal-kline-title deal-border-color ">
+                        <div class="deal-font3 selectBox" [hidden]="chartShow!=='k'">
+                            <ng-container *ngFor="let i of supported_resolutions; ">
+                               <span class="iconfont icon-sanjiaoxing-down deal-font3 iconDown" *ngIf="i==kLineDefaultNum && kLineDefaultVal==''">
+                                    <span class="fwBold">
+                                        {{ (i>=60) ? (i/60) :(i == 'D' || i == 'W') ? 1 : i }}
+                                        {{'SelectUnit.'+i+''| translate}}
+                                    </span>
+                                </span>
+                            </ng-container>
+                            <span class="iconfont icon-sanjiaoxing-down deal-font4 iconDown"
+                                  *ngIf="kLineDefaultVal!==''"><span class="fwBold">{{kLineDefaultVal}}</span></span>
+                            <ul class="select deal-font1 deal-content-bg" [ngClass]="{ 'hide':kLineHideTimeSelect }">
+                                <li class="option" (click)=getFavoredOptions($event,0) >{{'Line'| translate}}</li>
+                                <li *ngFor="let i of supported_resolutions; " (click)=getFavoredOptions($event,i)
+                                    class="option" [ngClass]="{ 'selected':i==kLineDefaultNum }">
+                                    {{ (i>=60) ? (i/60) :(i == 'D' || i == 'W') ? 1 : i }}
+                                    {{'SelectUnit.'+i+''| translate}}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="deal-font3" [ngClass]="{'disabledStyle':chartShow==='d'}">
+                            <div class="fullscreenBtn" (click)="chartShow==='k'?onFullScreenClick($event):'';">
+                                {{'Common.FullScreen' | translate}}
+                                <span class="iconfont icon-quanping deal-font4"></span>
+                            </div>
+                        </div>
+                        <ul>
+                            <li class="active_hover deal-font3" [ngClass]="{ 'activated':chartShow==='k' }" (click)="chartShow='k'">
+                                {{'Rootrex.Kline' | translate}}
+                            </li>
+                            <li class="active_hover deal-font3" [ngClass]="{ 'activated':chartShow==='d' }" (click)="chartShow='d'">
+                                {{'Rootrex.Depth' | translate}}
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="deal-kline-content">
+                        <div class="k-line" [ngClass]="{ 'show':chartShow==='k' }" >
+                            <div id="k-line"></div>
+                            <!--<div class="loading loadChart">-->
+                                <!--<div class="loading_box"><div class="loading_img"></div>{{'Common.Loading' |  translate}}-->
+                                <!--</div>-->
+                            <!--</div>-->
+                            <div class="no-data kLineNoData" *ngIf="kLineNodata">
+                                {{'Common.NoData' | translate}}
+                            </div>
+                        </div>
+                        <div class="deep-line" [ngClass]="{ 'show':chartShow==='d', 'nodata':deepLineNodata }">
+                            <div id="container" style="width:1014px;height:380px"></div>
+                            <div *ngIf="deepLineNodata" class="no-data chartNoData" >
+                                {{'Common.NoData' | translate}}
+                            </div>
+                            <div [hidden]="!deepLineLoading" class="loading loadChart" >
+                                <div class="loading_box"><div class="loading_img"></div>{{'Common.Loading' |  translate}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Market -->
+            <div class="deal-market-box">
+                <div class="deal-market deal-content-bg">
+                    <div class="deal-market-title deal-border-color">
+                        <span class="deal-font3">{{'Symbol.Market' | translate}}</span>
+                        <div class="deal-market-search deal-bg">
+                            <span class="iconfont icon-unie036 deal-font2"></span>
+                            <input type="text" placeholder="{{'Common.Search' | translate}}" class="deal-font1" [(ngModel)]="tokenName"
+                                   (keyup)="onTokenNameChange()">
+                        </div>
+                    </div>
+                    <div class="deal-market-price">
+                        <div class="deal-market-price-title deal-font3">
+                            <span class="active_hover" [ngClass]="{'activated':currentActive==='fav'}" (click)="activated('fav')">
+                                <b class="iconfont icon-xing1 icon_start_left"></b>{{'Symbol.Marked' | translate}}</span>
+                            <span class="active_hover" *ngFor="let i of baseTokenListData" [ngClass]="{'activated':currentActive===i}"
+                                  (click)="activated(i)">{{i}}</span>
+                        </div>
+                        <div class="deal-market-price-option price-option deal-font5">
+
+                            <div class="trade_tokenName" (click)="sortBy('tokenName');">
+                                <div>{{'Symbol.Pair' | translate}}
+                                    <span *ngIf="tickerService.getTradeColumn() == 'tokenName'">
+                                        <b class="iconfont icon-down- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getTradeAsc()}"></b>
+                                        <b class="iconfont icon-up-"
+                                           [ngClass]="{'icon-light': tickerService.getTradeAsc()}"></b>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="trade_marketPrice_box" (click)="sortBy('price');">
+                                <div class="trade_marketPrice">{{'Symbol.MarketPrice' | translate}}
+                                    <span *ngIf="tickerService.getTradeColumn() == 'price'">
+                                        <b class="iconfont icon-down-"
+                                           [ngClass]="{'icon-light': !tickerService.getTradeAsc()}"></b>
+                                        <b class="iconfont icon-up-"
+                                           [ngClass]="{'icon-light': tickerService.getTradeAsc()}"></b>
+                                    </span>
+                                </div>
+                            </div>
+                            <div (click)="sortBy('rise');">
+                                <div class="trade_upDown">{{'Symbol.24hChange' | translate}}
+                                    <span *ngIf="tickerService.getTradeColumn() == 'rise'">
+                                        <b class="iconfont icon-down-"
+                                           [ngClass]="{'icon-light': !tickerService.getTradeAsc()}"></b>
+                                        <b class="iconfont icon-up-"
+                                           [ngClass]="{'icon-light': tickerService.getTradeAsc()}"></b>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="deal-market-price-content scroll_color scrollBeautiful" (scroll)="scrollForFirefox($event)">
+                            <nounlockinstall *ngIf="!metamaskService.isLogin() && currentActive==='fav'"></nounlockinstall>
+                            <loading *ngIf="(metamaskService.isLogin() || currentActive!=='fav') && symbolLoadingFlag"></loading>
+                            <nodata *ngIf="(metamaskService.isLogin() || currentActive!=='fav') && !symbolLoadingFlag && symbolListShowData && symbolListShowData.length === 0"></nodata>
+                            <div class="scroll-y">
+                                <div class="symbolListShowData deal-market-price-option"
+                                     [ngClass]="{'active-bg' : symbol == i.symbol}"
+                                     *ngFor="let i of symbolListShowData">
+                                    <span class="iconfont icon-xingxu"
+                                          [ngClass]="{'icon-xing1':i.isFavorite===1||i.isFavorite==='1'}"
+                                          (click)="setSymbolFav(i.tokenName+'_'+i.baseName,1-i.isFavorite); metamaskService.isLogin()?i.isFavorite=1-i.isFavorite:'' ">
+                                    </span>
+                                    <div class="trade_tokenName deal-font1"
+                                         (click)="onSymbolClick(i.tokenName+'_'+i.baseName)">
+                                        <div>
+                                            <span>{{i.tokenName}}</span><span class="deal-font5"> / {{i.baseName}}</span>
+                                        </div>
+                                    </div>
+                                    <div [ngClass]="{'up-color': i.price > i.lastPrice, 'down-color': i.price < i.lastPrice, 'normal-color': i.price == i.lastPrice}"
+                                         (click)="onSymbolClick(i.tokenName+'_'+i.baseName)">
+                                        {{i.price | toFixed:i.priceScale}}
+                                    </div>
+                                    <div [ngClass]="{'up-color': i.rise > 0, 'down-color': i.rise < 0, 'normal-color': i.rise == 0}"
+                                         (click)="onSymbolClick(i.symbol)">
+                                        {{i.rise | percent}}
+                                    </div>
+                                </div>
+                            </div>
+                            <span class='scrollBar'></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Trade -->
+        <div class="deal-sell-buy">
+            <div class="sell-buy-left">
+                <div class="sell-buy-box deal-content-bg">
+                    <div class="sell-buy-title deal-border-color deal-font3">
+                        <span [ngClass]="{'activated': active === 1}" (click)="active=1">{{'Rootrex.LimitTrade' | translate}}</span>
+                        <!--<span [ngClass]="{'activated': active === 2}" (click)="active=2">市价交易</span>-->
+                        <div>
+                            <span>{{'Asset.GasPrice' | translate}}:</span>
+                            <span>{{gasPrice | zero}} GWEI</span>
+                            <span class="min_amount">{{'Asset.MinOrderAmount' | translate}}:</span>
+                            <span>{{minOrderLimit | toFixed:8:2 | zero}} {{symbol_base}}</span>
+                            <div class="iconfont icon-wenhao">
+                                <div class="min_hint">
+                                    <p>{{'AboutRootrex.MakerAmount' | translate}}</p>
+                                    <p>{{'AboutRootrex.SubAmount' | translate : {tradeGas:tradeGas, takerGasRate:takerGasRate, orderLimitCoefficient:orderLimitCoefficient} }}</p>
+                                    <p>{{'AboutRootrex.TailQuantity' | translate}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="deal-buy-box">
+                        <div class="deal-type deal-font8">
+                            <span class="up-color">{{'Rootrex.BuyIn' | translate}}</span> {{symbol_token}}
+                            <button class="deal-bg deal-font4 hoverText" (click)="onDepositClick('base')">
+                                {{'Asset.Deposit' | translate}} {{symbol_base}}
+                            </button>
+                        </div>
+                        <div class="deal-sum deal-font4">
+                            {{symbol_base}} {{'Asset.Balance' | translate}}: <span class="deal-font1">{{balance_base | toFixed:8 | zero}}</span>
+                        </div>
+                        <div class="deal-input deal-bg">
+                            <span class="left-word deal-font4">{{'Rootrex.Price' | translate}}:</span>
+                            <input #pBuy type="text" tabindex="10" class="deal_input" [(ngModel)]="priceBuy"
+                                   (keydown)="onInputKeyDown($event)"
+                                   (ngModelChange)="onModelChange('priceBuy', pBuy.value, symbolDetail?.priceScale)">
+                            <span class="right-unit deal-font4">{{symbol_base}}</span>
+                            <button (click)="onNumberChange('priceBuy','plus',pBuy.value)"><span
+                                    class="iconfont icon-sanjiaoxing-up deal-font5 hoverText"></span></button>
+                            <button (click)="onNumberChange('priceBuy','minus',pBuy.value)"><span
+                                    class="iconfont icon-sanjiaoxing-down deal-font5 hoverText"></span></button>
+                        </div>
+                        <div class="deal-price deal-font4">{{ (convertPriceToLegalCurrency(priceBuy, symbol_base) || 0) | toFixed:8 | number: '1.4-4'}} {{currency}}
+                        </div>
+                        <div class="deal-input deal-bg">
+                            <span class="left-word deal-font4">{{'Rootrex.Amount' | translate}}:</span>
+                            <input #vBuy type="text" tabindex="20" class="deal_input" [(ngModel)]="volumeBuy"
+                                   (keydown)="onInputKeyDown($event)"
+                                   (ngModelChange)="onModelChange('volumeBuy', vBuy.value, symbolDetail?.amountScale)">
+                            <span class="right-unit deal-font4">{{symbol_token}}</span>
+                            <button class="btn_hover" (click)="onNumberChange('volumeBuy','plus',vBuy.value)"><span
+                                    class="iconfont icon-sanjiaoxing-up deal-font5 hoverText"></span></button>
+                            <button class="btn_hover" (click)="onNumberChange('volumeBuy','minus',vBuy.value)"><span
+                                    class="iconfont icon-sanjiaoxing-down deal-font5 hoverText"></span></button>
+                        </div>
+                        <div class="deal-column deal-font4">
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('buy',0.25)">25%</span>
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('buy',0.5)">50%</span>
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('buy',0.75)">75%</span>
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('buy',1)">100%</span>
+                        </div>
+                        <div class="deal-amount deal-font4">
+                            {{'Rootrex.Total' | translate}}: <span class="deal-font3">
+                                {{calculatorTotalPrice(priceBuy, volumeBuy) || 0}} {{symbol_base}}
+                            </span>
+                        </div>
+                        <button class="deal-btn white-color up-bgColor" (click)="onBuyClick()">
+                            {{'Rootrex.BuyIn' | translate}}
+                        </button>
+                    </div>
+                    <div class="deal-sell-box">
+                        <div class="deal-type deal-font8">
+                            <span class="down-color">{{'Rootrex.SellOut' | translate}}</span> {{symbol_token}}
+                            <button class="deal-bg deal-font4 hoverText" (click)="onDepositClick('token')">{{'Asset.Deposit' | translate}}
+                                {{symbol_token}}
+                            </button>
+                        </div>
+                        <div class="deal-sum deal-font4">
+                            {{symbol_token}} {{'Asset.Balance' | translate}}: <span class="deal-font1">{{balance_token | toFixed:8 | zero}}</span>
+                        </div>
+                        <div class="deal-input deal-bg">
+                            <span class="left-word deal-font4">{{'Rootrex.Price' | translate}}:</span>
+                            <input #pSell type="text" tabindex="30" class="deal_input" [(ngModel)]="priceSell"
+                                   (keydown)="onInputKeyDown($event)"
+                                   (ngModelChange)="onModelChange('priceSell', pSell.value, symbolDetail?.priceScale)">
+                            <span class="right-unit deal-font4">{{symbol_base}}</span>
+                            <button class="btn_hover" (click)="onNumberChange('priceSell','plus',pSell.value)"><span
+                                    class="iconfont icon-sanjiaoxing-up deal-font5 hoverText"></span></button>
+                            <button class="btn_hover" (click)="onNumberChange('priceSell','minus',pSell.value)"><span
+                                    class="iconfont icon-sanjiaoxing-down deal-font5 hoverText"></span></button>
+                        </div>
+                        <div class="deal-price deal-font4">{{ convertPriceToLegalCurrency(priceSell, symbol_base) || 0 | toFixed:8 | number: '1.4-4'}} {{currency}}
+                        </div>
+                        <div class="deal-input deal-bg">
+                            <span class="left-word deal-font4">{{'Rootrex.Amount' | translate}}:</span>
+                            <input #vSell type="text" tabindex="40" class="deal_input" [(ngModel)]="volumeSell"
+                                   (keydown)="onInputKeyDown($event)"
+                                   (ngModelChange)="onModelChange('volumeSell', vSell.value, symbolDetail?.amountScale)">
+                            <span class="right-unit deal-font4">{{symbol_token}}</span>
+                            <button class="btn_hover" (click)="onNumberChange('volumeSell','plus',vSell.value)"><span
+                                    class="iconfont icon-sanjiaoxing-up deal-font5 hoverText"></span></button>
+                            <button class="btn_hover" (click)="onNumberChange('volumeSell','minus',vSell.value)"><span
+                                    class="iconfont icon-sanjiaoxing-down deal-font5 hoverText"></span></button>
+                        </div>
+                        <div class="deal-column deal-font4">
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('sell',0.25)">25%</span>
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('sell',0.5)">50%</span>
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('sell',0.75)">75%</span>
+                            <span class="deal-bg hoverText" (click)="calculatorVolume('sell',1)">100%</span>
+                        </div>
+                        <div class="deal-amount deal-font4">
+                            {{'Rootrex.Total' | translate}}: <span class="deal-font3">
+                                {{calculatorTotalPrice(priceSell, volumeSell) || 0}} {{symbol_base}}
+                            </span>
+                        </div>
+                        <button class="deal-btn white-color down-bgColor" (click)="onSellClick()">
+                            {{'Rootrex.SellOut' | translate}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sell-buy-center">
+                <div class="deal-business deal-content-bg">
+                    <div class="interrupt" *ngIf="dealSocketFlag">
+                        <div class="table_cell">
+                            <div class="interrupt_img"></div>
+                            <div>{{'Rootrex.Interrupt' | translate}}</div>
+                        </div>
+                    </div>
+                    <div class="deal-business-title deal-border-color">
+                        <span class="active_hover deal-font4" [ngClass]="{'activated':depthListType === 'buysell'}"
+                              (click)="showPendingTrade('buysell')">{{'Rootrex.BuyAndSell' | translate}}</span>
+                        <span class="active_hover deal-font4" [ngClass]="{'activated':depthListType === 'buy'}"
+                              (click)="showPendingTrade('buy')">&nbsp;&nbsp;{{'Rootrex.Buy' | translate}}&nbsp;&nbsp;</span>
+                        <span class="active_hover deal-font4" [ngClass]="{'activated':depthListType === 'sell'}"
+                              (click)="showPendingTrade('sell')">&nbsp;&nbsp;{{'Rootrex.Sell' | translate}}&nbsp;&nbsp;</span>
+                        <div class="business-title-right">
+                            <span class="deal-font5">{{'Rootrex.Groups' | translate}}</span>
+                            <div class="deal-font9" (click)="slideDownDecimal()">{{mergeLevel | deepMerge}}<span
+                                    class="iconfont icon-sanjiaoxing-down icon-down deal-font5"></span>
+                                <div class="down-bottom entrust-contentBg">
+                                    <p (click)="setDeepMerge(i)" *ngFor="let i of symbolDetail?.depthRule.split(',')">
+                                        {{i | deepMerge }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lists-title deal-font5">
+                        <div></div>
+                        <div>{{'Rootrex.Price' | translate}}({{symbol_base}})</div>
+                        <div>{{'Rootrex.Amount' | translate}}</div>
+                        <div>{{'Rootrex.TotalVolume' | translate}}</div>
+                    </div>
+                    <div class="sell-container scroll_color" [ngStyle]="{'height':sellListHeight, 'overflow-y': sellListHidden}">
+                        <loading *ngIf="dealLoadingFlag"></loading>
+                        <nodata *ngIf="!dealLoadingFlag && pendingOrderListOriginData.sale && pendingOrderListOriginData.sale.length === 0"></nodata>
+                        <ul class="deal-business-lists" [ngStyle]="{'bottom': sellButtom, 'padding-right': sellPadding}">
+                            <div class="listData_box" *ngFor="let i of sellPendingOrderListData; let index = index">
+                                <div class="my_deal down-color-bg" *ngIf="false"></div>
+                                <li class="down-color"
+                                    (click)="setBuyAndSellPrice(i.price); setBuyAndSellVolume(i.amount)"
+                                    [ngStyle]="{ 'background':'linear-gradient(to left, rgba(216,25,90,0.2), rgba(216,25,90,0.2) '+i.percent*100+'%, rgba(0, 0, 0, 0)'+i.percent*100+'%, rgba(0, 0, 0, 0)' }">
+                                    <div class="deal_start">{{'Rootrex.Sell' | translate}} {{sellPendingOrderListData.length-index}}</div>
+                                    <div class="deal_price">{{i.price | toFixed:(-mergeLevel || 8) | zero}}</div>
+                                    <div class="deal_volume">{{i.volume | toFixed:saleFixed:2 | kilo | zero }}</div>
+                                    <div class="deal_amount">{{i.amount | toFixed:saleTotalFixed:2 | kilo | zero}}</div>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                    <div class="rise-fall deal-font2">
+                        <div>
+                            <span [ngClass]="{'up-color': symbolDetail?.price > symbolDetail?.lastPrice, 'down-color': symbolDetail?.price < symbolDetail?.lastPrice, 'normal-color':symbolDetail?.price==symbolDetail?.lastPrice}"
+                                  (click)="setBuyAndSellPrice(currentPrice); setBuyAndSellVolume('')" style="cursor:pointer;">
+                                {{currentPrice | toFixed:symbolDetail?.priceScale || 8}}
+                            </span>
+                            {{convertPriceToLegalCurrency(currentPrice, symbol_base) | toFixed:8 | number: '1.4-4'}} {{currency}}
+                        </div>
+                        <div [ngClass]="{'up-color': symbolDetail?.rise > 0, 'down-color': symbolDetail?.rise < 0, 'normal-color': symbolDetail?.rise == 0}">
+                            {{ currentRise | percent}}
+                        </div>
+                    </div>
+                    <div class="buy-container scroll_color" [ngStyle]="{'height':buyListHeight, 'overflow-y': buyListHidden}">
+                        <ul class="deal-business-lists" [ngStyle]="{'padding-right': buyPadding}">
+                            <loading *ngIf="dealLoadingFlag"></loading>
+                            <nodata *ngIf="!dealLoadingFlag && pendingOrderListOriginData.buy && pendingOrderListOriginData.buy.length === 0"></nodata>
+                            <div class="listData_box" *ngFor="let i of buyPendingOrderListData; let index = index">
+                                <div class="my_deal up-color-bg" *ngIf="false"></div>
+                                <li class="up-color" (click)="setBuyAndSellPrice(i.price); setBuyAndSellVolume(i.amount)"
+                                    [ngStyle]="{ 'background':'linear-gradient(to left, rgba(1,197,123,0.2), rgba(1,197,123,0.2) '+i.percent*100+'%, rgba(0, 0, 0, 0)'+i.percent*100+'%, rgba(0, 0, 0, 0)' }">
+                                    <div class="deal_start">{{'Rootrex.Buy' | translate}} {{index+1}}</div>
+                                    <div class="deal_price">{{i.price | toFixed:(-mergeLevel || 8) | zero}}</div>
+                                    <div class="deal_volume">{{i.volume | toFixed:buyFixed:2 | kilo | zero }}</div>
+                                    <div class="deal_amount">{{i.amount | toFixed:buyTotalFixed:2 | kilo | zero}}</div>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 实时成交 -->
+            <div class="sell-buy-right">
+                <div class="deal-realTime deal-content-bg">
+                    <div class="deal-realTime-title deal-border-color deal-font3">
+                        {{'Rootrex.Trades' | translate}}
+                    </div>
+                    <ul class="clinch-lists">
+                        <li class="deal-font5">
+                            <!--<div>{{'Rootrex.OrderDate' | translate}}</div>-->
+                            <div>Tx</div>
+                            <div>{{'Rootrex.Type' | translate}}</div>
+                            <div>{{'Rootrex.Price' | translate}}({{symbol_base}})</div>
+                            <div>{{'Rootrex.Amount' | translate}}</div>
+                        </li>
+                        <loading *ngIf="finishLoadingFlag"></loading>
+                        <nodata *ngIf="!finishLoadingFlag && finishedOrderListData && finishedOrderListData.length === 0"></nodata>
+                        <div class="overflow-container scroll_color scrollBeautiful" (scroll)="scrollForFirefox($event)">
+                            <div class="overflow_y">
+                                <li class="deal-font4" *ngFor="let i of finishedOrderListData">
+                                    <!--<div>{{ i.datetime | timestamp:'MM/DD HH:mm' }}</div>-->
+                                    <div><a href="{{(currentNetwork==='Main'?'https://www.etherscan.io/tx/':'https://kovan.etherscan.io/tx/')+i.tx}}" target="_blank">{{(i.tx || '-') | tx:2}}</a></div>
+                                    <div [ngClass]="{'up-color':i.type === 0, 'down-color':i.type === 1}">
+                                        {{i.type===0?translate.instant('Rootrex.Buy'):i.type===1?translate.instant('Rootrex.Sell'):'??'}}
+                                    </div>
+                                    <div>{{i.price_finished}}</div>
+                                    <div>{{i.volume_finished | zero}}</div>
+                                </li>
+                            </div>
+                            <span class='scrollBar'></span>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 交易状态 -->
+        <div class="deal-state">
+            <order-list [orderList]="orderData" [loadingFlag]="orderLoadingFlag" [symbol]="symbol"
+                        (onTypeChange)="onMyOrderTypeChange($event)"></order-list>
+        </div>
+        <div class="page-box">
+            <paginator [currentPage]="currentPage" [pageSize]="pageSize" [totalRow]="totalRow"
+                       (onCurrentPageChange)="onPageChange($event)" (onPageSizeChange)="onSizeChange($event)"
+                       *ngIf="totalRow"></paginator>
+        </div>
+    </div>
+</div>
