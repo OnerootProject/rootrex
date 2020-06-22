@@ -23,6 +23,7 @@ import {ThemeService} from "./service/theme.service";
 import {TickerService} from "./service/ticker.service";
 import {MetamaskService} from "./service/metamask.service";
 import {SymbolService} from "./service/symbol.service";
+import {SystemService} from "./service/system.service";
 import {NoticeService} from "./service/notice.service";
 import {RootrexService} from "./service/rootrex.service";
 import {AssetService} from "./service/asset.service";
@@ -139,6 +140,7 @@ export function createTranslateLoader(http: HttpClient) {
         MetamaskService,//METAMASK服务
         Api,//Api集合
         SymbolService,//交易对相关Service
+        SystemService,
         RootrexService,//交易相关Service
         AssetService,//资产相关Service
         NoticeService,//公告相关Service

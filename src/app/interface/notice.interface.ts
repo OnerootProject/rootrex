@@ -1,6 +1,8 @@
 export interface BannerInterface{
     link:string,
     cover:string
+    link_type:any
+    link_blank:string
 }
 
 export interface NoticeInterface{

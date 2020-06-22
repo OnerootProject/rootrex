@@ -4,7 +4,7 @@
         <div class="swiper-container"*ngIf="bannerListData&&bannerListData.length>0">
             <div class="swiper-wrapper">
                 <div class="swiper-slide banner" [ngClass]="{'swiper-no-swiping':bannerListData.length <2 }" *ngFor="let i of bannerListData" [style.background-image]="'url('+i.cover+')'">
-                    <a href="{{i.link}}" target="_blank"></a>
+                    <a href="{{i.link_type==1?('/notice/detail/'+i.link):i.link_blank}}" target="_blank"></a>
                 </div>
             </div>
             <!-- Add Pagination -->

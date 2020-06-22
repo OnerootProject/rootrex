@@ -13,9 +13,12 @@ import {sha3} from 'ethereumjs-util'
 import {environment} from "../../environments/environment";
 import {UnlockMetamaskComponent} from "../components/unlock-metamask/unlock-metamask.component";
 import {MetamaskComponent} from "../components/metamask/metamask.component";
+import {SystemService} from "./system.service";
 
 @Injectable()
 export class MetamaskService {
+
+    // TODO 整个Service特别是在init的时候需要做同步和回调处理,否则会有坑,之后考虑重写吧
 
     /*-----Data Part-----*/
 
@@ -27,11 +30,11 @@ export class MetamaskService {
     // R1_CONTRACT_ADDRESS: string = '0x466eAEd25b91AF487A08Ea8Dfe12701E22DCB035'; //old for test
     // R1_CONTRACT_ADDRESS: string = '0x49e0aa9f3697cA6Cc93De80098640AE4B1071962';
 
-    R1_CONTRACT_ADDRESS = environment.config.contract;
-    R1_CONTRACT_PATH: string = 'assets/r1ABI.json';
+    R1_CONTRACT_ADDRESS = '';
+    R1_CONTRACT_PATH: string = 'assets/r1ABI.json?v=' + environment.config.resourceVersion;
     R1: any;//R1协议对象
 
-    ERC20_CONTRACT_PATH: string = 'assets/erc20ABI.json';
+    ERC20_CONTRACT_PATH: string = 'assets/erc20ABI.json?v=' + environment.config.resourceVersion;
 
     /*-----Constructor Part-----*/
 
@@ -39,7 +42,8 @@ export class MetamaskService {
         private translate: TranslateService,
         private http: HttpClient,
         private popupCtrl: PopupController,
-        private dialogCtrl: DialogController
+        private dialogCtrl: DialogController,
+        private systemService: SystemService
     ) {
         this.init();
     }
@@ -49,9 +53,6 @@ export class MetamaskService {
     init() {
         if (this.checkInstall()) {
             this.initWeb3();
-            return true;
-        } else {
-            return false;
         }
     }
 
@@ -61,23 +62,25 @@ export class MetamaskService {
     }
 
     //初始化Web3对象
-    initWeb3() {
-        if(!this.web3){
-            if(window['ethereum']){
+    async initWeb3() {
+        if (!this.web3) {
+            if (window['ethereum']) {
                 this.web3 = new window['Web3'](window['ethereum']);
-                window['ethereum'].enable();
-            }else{
+                await window['ethereum'].enable();
+                this.checkAccountChange();
+            } else {
                 this.web3 = new window['Web3'](window['web3'].currentProvider);
             }
-        }else{
+        } else {
             // console.log('web3已存在');
         }
         // this.web3 = new window['Web3'](window['web3'].currentProvider);
+
     }
 
     //验证是否登录:boolean
     isLogin() {
-        if (this.init()) {
+        if (this.checkInstall()) {
             return this.web3.eth.accounts && this.web3.eth.accounts.length !== 0;
         } else {
             return false;
@@ -118,11 +121,14 @@ export class MetamaskService {
 
     //获取R1协议对象
     getR1(callback: Function) {
-        if (this.init()) {
+        if (this.checkInstall()) {
             this.http.get(this.R1_CONTRACT_PATH).subscribe((res) => {
                 let abi = JSON.parse(JSON.stringify(res));
-                this.R1 = this.web3.eth.contract(abi).at(this.R1_CONTRACT_ADDRESS);
-                callback(this.R1);
+                this.systemService.fetchSystemSetting().subscribe(res => {
+                    this.R1_CONTRACT_ADDRESS = res.data.contractAddress;
+                    this.R1 = this.web3.eth.contract(abi).at(this.R1_CONTRACT_ADDRESS);
+                    callback(this.R1);
+                });
             });
         } else {
 
@@ -167,7 +173,6 @@ export class MetamaskService {
         if (this.isLogin()) {
             this.web3.eth.getBalance(address, (err, balance) => {
                 if (err) {
-                    console.log('error', err, err.message);
                     callback('');
                 } else {
                     callback(this.web3.fromWei(balance, 'ether').toString())
@@ -184,14 +189,16 @@ export class MetamaskService {
         // let hash_sign;
         if (type === 'withdraw') {//提现
             opts.amount = new BigNumber(opts.amount).shiftedBy(opts.wei).toFixed();
-            hash_origin = soliditySha3(opts.r1contract, opts.user, opts.token, opts.amount, opts.nonce);
+            hash_origin = soliditySha3(opts.r1contract, opts.user, opts.token, opts.amount, opts.nonce, opts.channelFeeAccount, opts.channelId);
         } else if (type === 'order') {//下单
             opts.amountBuy = new BigNumber(opts.amountBuy).shiftedBy(opts.tokenBuy.wei).toFixed();
             opts.amountSell = new BigNumber(opts.amountSell).shiftedBy(opts.tokenSell.wei).toFixed();
-            hash_origin = soliditySha3(opts.r1contract, opts.tokenBuy.address, opts.amountBuy, opts.tokenSell.address, opts.amountSell, opts.baseToken, opts.expires, opts.nonce, opts.feeToken)
+            hash_origin = soliditySha3(opts.r1contract, opts.tokenBuy.address, opts.amountBuy, opts.tokenSell.address, opts.amountSell, opts.baseToken, opts.expires, opts.nonce, opts.feeToken, opts.channelFeeAccount, opts.channelId)
         } else if (type === 'cancel') {
             hash_origin = soliditySha3(opts.nonce);
         } else if (type === 'cancelAll') {
+            hash_origin = soliditySha3(opts.nonce);
+        } else if (type === 'bindEmail') {
             hash_origin = soliditySha3(opts.nonce);
         } else {
             hash_origin = '';
@@ -294,6 +301,7 @@ export class MetamaskService {
     unlogin() {
         if (this.checkInstall()) {
             this.showMetaMaskLogin();
+            window['ethereum'].enable();
         } else {
             this.showMetaMaskIntroduce();
         }
@@ -313,6 +321,14 @@ export class MetamaskService {
                 this.dialogCtrl.destroy(loginMetamaskDialog);
             }
         }, 1000)
+    }
+
+    // 账号切换检测dc
+    checkAccountChange() {
+        ethereum.on('accountsChanged', function (accounts) {
+            location.reload();
+
+        })
     }
 
     //TODO 转账 ?是否需要在metamask里实现转账方法?

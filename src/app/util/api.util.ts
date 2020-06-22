@@ -7,15 +7,15 @@ export class Api {
 
     notice = {
         //获取最新公告列表
-        'getLatestList': '/notice/latest/list?lang={lang}',
+        'getLatestList': '/notice/latest/list',
         //获取Banner列表
-        'getBannerList': '/notice/banner/list?device=2&lang={lang}',//1:mobile 2:pc
+        'getBannerList': '/notice/banner/list?device=2',//1:mobile 2:pc
         //获取公告中心列表
-        'getNoticeCenterList': '/notice/center/list?type={type}&lang={lang}',
+        'getNoticeCenterList': '/notice/center/list?type={type}',
         //获取公告列表
-        'getNoticeList': '/notice/list?classify={classify}&limit={limit}&offset={offset}&lang={lang}',
+        'getNoticeList': '/notice/list?classify={classify}&limit={limit}&offset={offset}',
         //获取公告详情
-        'getNoticeDetail': '/notice/detail?pid={pid}&lang={lang}',
+        'getNoticeDetail': '/notice/detail?pid={pid}',
     };
 
     symbol = {
