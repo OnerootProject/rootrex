@@ -8,6 +8,7 @@ import {BannerInterface, NoticeInterface} from "../interface/notice.interface";
 import {PaginatorApiInterface, PaginatorInterface} from "../interface/paginator.interface";
 import {PaginatorService} from "./paginator.service";
 import {LanguageService} from "./langulage.service";
+import {WindowDialogConfigInterface} from "../controller/dialog.controller";
 
 @Injectable()
 export class NoticeService {
@@ -38,7 +39,7 @@ export class NoticeService {
 
     //获取公告中心列表
     fetchNoticeCenterList(){
-        return this.http.get<ResponseInterface<any>>(this.api.notice.getNoticeCenterList.replace("{type}","1,2"));
+        return this.http.get<ResponseInterface<any>>(this.api.notice.getNoticeCenterList);
     }
 
     //获取公告列表
@@ -56,6 +57,11 @@ export class NoticeService {
     //获取公告详情
     fetchNoticeDetail(pid:number){
         return this.http.get<ResponseInterface<NoticeInterface>>(this.api.notice.getNoticeDetail.replace("{pid}",pid.toString()));
+    }
+
+    // 获取弹窗信息
+    fetchWindowList(){
+        return this.http.get<ResponseArrayInterface<WindowDialogConfigInterface>>(this.api.notice.getWindowList);
     }
 
 

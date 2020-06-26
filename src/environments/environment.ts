@@ -6,7 +6,8 @@
 export const environment = {
     production: false,
     config: {
-        apiUrl: 'https://dev-bithumb-api.rex.plus',
+        apiUrl: 'https://uat-api.oneroot.one',
+        // apiUrl: 'https://dev-bithumb-api.rex.plus',
         wsUrl: 'wss://dev-bithumb-wss.rex.plus',
         version: 'v0.1.2',
         resourceVersion: '1',

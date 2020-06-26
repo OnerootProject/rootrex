@@ -115,12 +115,14 @@ export class HeaderComponent implements OnInit {
         let path = window.location.pathname;
         if (path.indexOf('/notice') !== -1) {
             this.routerLink = 'notice';
-        } else if (path.indexOf('/help') !== -1 || path.indexOf('/about') !== -1) {
-            this.routerLink = 'help';
+        } else if (path.indexOf('/rootrex') !== -1 || path.indexOf('/about') !== -1) {
+            this.routerLink = 'rootrex';
         } else if (path.indexOf('/order') !== -1) {
             this.routerLink = 'order';
         } else if (path.indexOf('/asset') !== -1) {
             this.routerLink = 'asset';
+        } else if (path.indexOf('/novice') !== -1) {
+            this.routerLink = 'novice';
         } else {
             this.routerLink = 'home';
         }

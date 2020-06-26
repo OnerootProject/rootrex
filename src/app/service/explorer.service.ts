@@ -22,7 +22,6 @@ export class ExplorerService {
     /*-----Methods Part-----*/
 
     send(title,options={}){
-        console.log(window['Notification'])
         if(window['Notification']['permission']==='granted'){
             this.sendNotification(title,options);
         }else{

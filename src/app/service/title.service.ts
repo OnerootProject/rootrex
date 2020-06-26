@@ -12,7 +12,7 @@ export class TitleService {
 
     setDefaultTitle() {
         if (this.router.url.indexOf('trade') == -1) {
-            this.setTitle(this.translate.instant('Common.Title'));
+            this.setTitle(this.translate.instant('Title'));
         }
     }
 

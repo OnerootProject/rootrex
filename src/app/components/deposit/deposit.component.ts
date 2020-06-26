@@ -130,9 +130,15 @@ export class DepositComponent implements OnInit {
         });
     }
 
-    //计算Gas价格
+    //计算Gas价格 公式与获取Gas费用相反
     calculatorPrice() {
-        return new BigNumber(this.rangeValue).multipliedBy(100).toFixed(0, 2);
+        if(this.rangeValue<=0.3){
+            return parseInt(new BigNumber(this.rangeValue).multipliedBy(100).toFixed(0, 2));
+        }else if(this.rangeValue<=0.5){
+            return parseInt(new BigNumber(this.rangeValue).multipliedBy(350).minus(75).toFixed(0,2));
+        }else{
+            return parseInt(new BigNumber(this.rangeValue).multipliedBy(2000).minus(900).toFixed(0,2));
+        }
     }
 
     //计算Gas费

@@ -323,7 +323,7 @@ export class MetamaskService {
         }, 1000)
     }
 
-    // 账号切换检测dc
+    // 账号切换检测
     checkAccountChange() {
         ethereum.on('accountsChanged', function (accounts) {
             location.reload();

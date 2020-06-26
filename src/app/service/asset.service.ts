@@ -39,11 +39,34 @@ export class AssetService {
         return this.currency.asObservable();
     }
 
-    //获取当前货币
+    //获取系统语言判断当前货币
     getCurrency(){
+        let explorer = navigator.language || navigator['userLanguage'];
+        let langExplorer = explorer.substr(0,2);
         let currency = localStorage.getItem('current-currency');
-        return currency ? currency : 'CNY';
+        if(langExplorer == 'zh'){
+            return currency ? currency : 'CNY';
+        }else if(langExplorer == 'en'){
+            return currency ? currency : 'USD';
+        }else if(langExplorer == 'ko'){
+            return currency ? currency : 'KRW';
+        }else{
+            return currency ? currency : 'USD';
+        }
     }
+    //获取当前货币符号
+    getSymbolCurrency(){
+        if(this.getCurrency()== 'KRW'){
+            return this.currency ? '₩' : this.currency;
+        }else if(this.getCurrency() == 'USD'){
+            return this.currency ? '$' : this.currency;
+        }else if(this.getCurrency() == 'CNY'){
+            return this.currency ? '¥' : this.currency;
+        }else{
+            return this.currency ? '$' : this.currency;
+        }
+    }
+
 
     // 查看我的所有币种资产列表
     fetchMyAssetList(account: string): Observable<ResponseArrayInterface<AssetInterface>> {

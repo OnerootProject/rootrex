@@ -4,19 +4,20 @@ import {HttpClient} from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {Api} from "../util/api.util";
 
-import {ResponseArrayInterface, ResponseInterface} from "../interface/response.interface";
-import {
-    OrderInterface, OrderTradeInterface, PendingOrderInterface,
-    PendingOrderResponseInterface, OrderDetailInterface, PendingOrderShowInterface
-} from "../interface/rootrex.interface";
-import {PaginatorInterface, PaginatorApiInterface} from "../interface/paginator.interface";
-
 import {PopupController} from "../controller/popup.controller";
 import {DialogController} from "../controller/dialog.controller";
 
 import {PaginatorService} from "./paginator.service";
 import {MetamaskService} from "./metamask.service";
 import {LanguageService} from "./langulage.service";
+import {SystemService} from "./system.service";
+
+import {ResponseArrayInterface, ResponseInterface} from "../interface/response.interface";
+import {
+    OrderInterface, OrderTradeInterface, PendingOrderInterface,
+    PendingOrderResponseInterface, OrderDetailInterface, PendingOrderShowInterface
+} from "../interface/rootrex.interface";
+import {PaginatorInterface, PaginatorApiInterface} from "../interface/paginator.interface";
 
 import {MetamaskAuthorizeComponent} from "../components/metamask-authorize/metamask-authorize.component";
 
@@ -31,12 +32,15 @@ export class RootrexService {
     webSocketPendingOrder: any;
     webSocketFinishedOrder: any;
     webSocketGasPrice: any;
-    webSocketUser:any;
+    webSocketUser: any;
 
     //metamask-auth dialog
     metamaskAuthorizeDialog: any;
 
     R1: any;//从metamask.service获取的R1对象
+
+    // 提现和交易签名用的channelFeeAccount
+    channelFeeAccount: string = '';
 
     /*-----Constructor Part-----*/
 
@@ -47,10 +51,15 @@ export class RootrexService {
                 private popupCtrl: PopupController,
                 private dialogCtrl: DialogController,
                 private translate: TranslateService,
-                private languageService: LanguageService) {
+                private languageService: LanguageService,
+                private systemService: SystemService) {
         this.metamaskService.getR1((res) => {
             this.R1 = res;
         });
+
+        this.systemService.fetchSystemSetting().subscribe(res=>{
+            this.channelFeeAccount = res.data.channelFeeAccount;
+        })
     }
 
     /*-----Methods Part-----*/
@@ -61,9 +70,9 @@ export class RootrexService {
     }
 
     //获取买卖单数据和深度图增量数据 打开并监听深度数据websocket,买入及卖出页面使用数据也是使用此接口数据
-    fetchIncrementPendingOrderBySymbol(symbol: string,callbackOnOpen: Function, callbackOnMessage: Function, callbackOnClose: Function) {
+    fetchIncrementPendingOrderBySymbol(symbol: string, callbackOnOpen: Function, callbackOnMessage: Function, callbackOnClose: Function) {
         this.webSocketPendingOrder = new WebSocket(this.api.ws.getPendingOrderBySymbol.replace("{symbol}", symbol));
-        this.webSocketPendingOrder.onopen = function(evt){
+        this.webSocketPendingOrder.onopen = function (evt) {
             callbackOnOpen(true);
         };
         this.webSocketPendingOrder.onmessage = function (evt) {
@@ -75,7 +84,7 @@ export class RootrexService {
                 version: data.v
             };
             //处理pending买卖单数据
-            if(data && data.b && data.s){
+            if (data && data.b && data.s) {
                 depthFormatData.buy = data.b.map(data => {
                     return {price: parseFloat(data.p), volume: parseFloat(data.ta), amount: 0, percent: 0}
                 });
@@ -85,7 +94,7 @@ export class RootrexService {
                 callbackOnMessage(depthFormatData);
             }
         };
-        this.webSocketPendingOrder.onclose = function(evt){
+        this.webSocketPendingOrder.onclose = function (evt) {
             callbackOnClose(true);
         }
     }
@@ -96,8 +105,8 @@ export class RootrexService {
     }
 
     //获取pending订单片量数据
-    fetchPendingOrderBySymbol(symbol:string): Observable<ResponseInterface<PendingOrderResponseInterface<any>>>{
-        return this.http.get<ResponseInterface<PendingOrderResponseInterface<any>>>(this.api.rootrex.getPendingOrderBySymbol.replace('{symbol}',symbol));
+    fetchPendingOrderBySymbol(symbol: string): Observable<ResponseInterface<PendingOrderResponseInterface<any>>> {
+        return this.http.get<ResponseInterface<PendingOrderResponseInterface<any>>>(this.api.rootrex.getPendingOrderBySymbol.replace('{symbol}', symbol));
     }
 
     //获取当前交易对历史成交数据
@@ -115,30 +124,30 @@ export class RootrexService {
     }
 
     //获取订单状态及资产更新数据
-    fetchOrderStatusOrAssetUpdate(account:string, callback: Function){
-        this.webSocketUser = new WebSocket(this.api.ws.getOrderStatusOrAssetUpdate.replace('{account}',account));
-        this.webSocketUser.onmessage = function(evt){
+    fetchOrderStatusOrAssetUpdate(account: string, callback: Function) {
+        this.webSocketUser = new WebSocket(this.api.ws.getOrderStatusOrAssetUpdate.replace('{account}', account));
+        this.webSocketUser.onmessage = function (evt) {
             let data = JSON.parse(evt.data);
             callback(data);
         }
     }
 
     //关闭订单状态及资产更新socket
-    closeUserSocket(){
+    closeUserSocket() {
         this.webSocketUser && this.webSocketUser.close && this.webSocketUser.close();//如果已经打开连接，则关闭
     }
 
     //获取GasPrice和MinOrderLimit
-    fetchGasPriceAndMinOrderLimit(callback:Function){
+    fetchGasPriceAndMinOrderLimit(callback: Function) {
         this.webSocketGasPrice = new WebSocket(this.api.ws.getGasPriceAndMinOrderLimit);
-        this.webSocketGasPrice.onmessage = function(evt){
+        this.webSocketGasPrice.onmessage = function (evt) {
             let data = JSON.parse(evt.data);
             callback(data);
         }
     }
 
     //关闭GasPrice和MinOrderLimit和socket
-    closeGasPriceAndMinOrderLimitSocket(){
+    closeGasPriceAndMinOrderLimitSocket() {
         this.webSocketGasPrice && this.webSocketGasPrice.close && this.webSocketGasPrice.close();
     }
 
@@ -184,14 +193,14 @@ export class RootrexService {
     }
 
     //充值
-    deposit(account: string, value: number, tokenName: string, limitApprove:string, wei: number, contract: string, gas: string, callback: Function) {
+    deposit(account: string, value: number, tokenName: string, limitApprove: string, wei: number, contract: string, gas: number, callback: Function) {
         if (tokenName === 'ETH') {//充值ETH
-            let data = this.R1.deposit.getData({from: account, value: value});
+            let data = this.R1.deposit.getData(environment.config.appID, {from: account, value: value});
             this.metamaskAuthorizeDialog = this.dialogCtrl.createFromComponent(MetamaskAuthorizeComponent, {
                 message: this.translate.instant('Asset.NowDeposit').replace('{value}', value).replace('{token}', tokenName),
                 action: this.translate.instant('Asset.DepositTransaction')
             });
-            this.metamaskService.sendTransaction('DepositETH',{
+            this.metamaskService.sendTransaction('DepositETH', {
                 from: account,
                 to: this.R1.address,
                 value: this.metamaskService.toWei(value),
@@ -215,8 +224,8 @@ export class RootrexService {
                     let dialog = this.dialogCtrl.create({
                         title: tokenName + this.translate.instant('Asset.Approve'),
                         content: this.translate.instant('Asset.ApproveDialog1') + '\n' +
-                        this.translate.instant('Asset.ApproveDialog2').replace('{token}', tokenName).replace('{token}', tokenName) + '\n' +
-                        this.translate.instant('Asset.ApproveDialog3'),
+                            this.translate.instant('Asset.ApproveDialog2').replace('{token}', tokenName).replace('{token}', tokenName) + '\n' +
+                            this.translate.instant('Asset.ApproveDialog3'),
                         buttons: [
                             {
                                 text: this.translate.instant('Asset.DenyAuth'),
@@ -231,13 +240,13 @@ export class RootrexService {
                                 color: 'normal',
                                 handle: () => {
                                     this.dialogCtrl.destroy(dialog);
-                                    this.metamaskService.getTokenApproveData(this.metamaskService.getDefaultAccount(), contract, limitApprove=='0'?100000000000000:value, wei, res => {
+                                    this.metamaskService.getTokenApproveData(this.metamaskService.getDefaultAccount(), contract, limitApprove == '0' ? 100000000000000 : value, wei, res => {
                                         // this.metamaskService.getTokenApproveData(this.metamaskService.getDefaultAccount(), contract, 0, wei, res => {//赋予1的额度
                                         this.metamaskAuthorizeDialog = this.dialogCtrl.createFromComponent(MetamaskAuthorizeComponent, {
-                                            message: this.translate.instant('Asset.ApproveMessage').replace('{token}',tokenName),
+                                            message: this.translate.instant('Asset.ApproveMessage').replace('{token}', tokenName),
                                             action: this.translate.instant('Asset.ApproveTransaction')
                                         });
-                                        this.metamaskService.sendTransaction('ApproveDepositToken',{
+                                        this.metamaskService.sendTransaction('ApproveDepositToken', {
                                             from: account,
                                             to: contract,
                                             value: 0,
@@ -266,13 +275,13 @@ export class RootrexService {
     }
 
     //充值Token
-    depositToken(account: string, value: number, tokenName: string, wei: number, contract: string, gas: string, callback: Function) {
-        let data = this.R1.depositToken.getData(contract, new BigNumber(value).multipliedBy(Math.pow(10, wei)).toString(), {from: account});
+    depositToken(account: string, value: number, tokenName: string, wei: number, contract: string, gas: number, callback: Function) {
+        let data = this.R1.depositToken.getData(contract, new BigNumber(value).multipliedBy(Math.pow(10, wei)).toString(), environment.config.appID, {from: account});
         this.metamaskAuthorizeDialog = this.dialogCtrl.createFromComponent(MetamaskAuthorizeComponent, {
-            message: this.translate.instant('Asset.NowDeposit').replace('{value}',value).replace('{token}',tokenName),
+            message: this.translate.instant('Asset.NowDeposit').replace('{value}', value).replace('{token}', tokenName),
             action: this.translate.instant('Asset.DepositTransaction')
         });
-        this.metamaskService.sendTransaction('DepositToken',{
+        this.metamaskService.sendTransaction('DepositToken', {
             from: account,
             to: this.R1.address,
             value: 0,
@@ -292,12 +301,14 @@ export class RootrexService {
     withdraw(account: string, value: string, tokenInfo: any, callback: Function) {
         let nonce = new Date().getTime();
         let opts = {
-            r1contract: environment.config.contract,
+            r1contract: this.metamaskService.R1_CONTRACT_ADDRESS,
             user: account,
             token: tokenInfo.tokenContract,
             amount: value,
             nonce: nonce,
-            wei: tokenInfo.tokenWei
+            wei: tokenInfo.tokenWei,
+            channelFeeAccount: this.channelFeeAccount,
+            channelId: environment.config.appID
         };
         let hash = this.metamaskService.soliditySha3(opts, 'withdraw');
         this.metamaskService.sign(account, hash.hash_sign, data => {
@@ -328,7 +339,7 @@ export class RootrexService {
     order(account: string, tokenInfo: any, baseInfo: any, symbol: string, price: number, amount: number, type: number, callback: Function) {
         let nonce = new Date().getTime();
         let opts = {
-            r1contract: environment.config.contract,
+            r1contract: this.metamaskService.R1_CONTRACT_ADDRESS,
             tokenBuy: type === 0 ? tokenInfo : baseInfo,
             amountBuy: type === 0 ? new BigNumber(amount) : new BigNumber(price).multipliedBy(new BigNumber(amount)),
             tokenSell: type === 0 ? baseInfo : tokenInfo,
@@ -337,7 +348,9 @@ export class RootrexService {
             expires: 99999999,
             nonce: nonce,
             // feeToken: baseInfo.address
-            feeToken: '0x0000000000000000000000000000000000000000'
+            feeToken: '0x0000000000000000000000000000000000000000',
+            channelFeeAccount: this.channelFeeAccount,
+            channelId: environment.config.appID
         };
         let hash = this.metamaskService.soliditySha3(opts, 'order');
         this.metamaskService.sign(account, hash.hash_sign, data => {
@@ -435,6 +448,5 @@ export class RootrexService {
             this.dialogCtrl.destoryFromComponent(this.metamaskAuthorizeDialog);
         })
     }
-
 
 }

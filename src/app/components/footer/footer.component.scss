@@ -1,108 +1,111 @@
-.footer{
-	.container{
-		padding: 0 20px;
-		ul{
-			list-style: none;
-			padding-left: 0;
-			border-bottom: 0.5px solid #000;
-			width: 100%;
-			height: 90px;
-			line-height: 90px;
-			li{
-				float: left;
-				margin-right: 50px;
-				font-size: 16px;
-				&:hover{
-					color: #00CEFF;
-				}
-			}
-			div{
-                float: right;
-                position: relative;
-                width: 40px;
-                padding-top: 15px;
-                margin: 10px 66px 0;
-                &:hover{
-                    .icon-weixin{
-                        background-color: #48C43E;
-                    }
-                    .top_box{
-                        display: block;
-                    }
-                }
-                .icon-weixin{
-                    display: block;
-                    width: 40px;
-                    height: 40px;
-                    cursor: pointer;
-                    border-radius: 50%;
-                    background-color: #141E46;
-                    color: #fff;
-                    text-align: center;
-                    line-height: 40px;
-                    font-size: 18px;
-                    margin-top: 0;
-                }
-                .top_box{
-                    display: none;
-                    position: absolute;
-                    bottom: 50px;
-                    right: calc(100% - 264%);
-                    min-width: 170px;
-                    background-color: #222E5D;
-                    margin: 0;
-                    z-index: 2;
-                    div{
-                        float: none;
-                        width: 100%;
-                        margin: 0;
-                        text-align: center;
-                        padding: 20px 0;
-                        line-height: 20px;
-                        p{
-                            line-height: 0;
-                            font-size: 14px;
-                            color: #fff;
-                        }
-                    }
-                }
+.footer {
+  .container {
+    padding: 0 20px;
+    ul {
+      list-style: none;
+      padding-left: 0;
+      border-bottom: 0.5px solid #000;
+      width: 100%;
+      height: 90px;
+      line-height: 90px;
+      li {
+        float: left;
+        margin-right: 50px;
+        font-size: 16px;
+        &:hover {
+          color: #00CEFF;
+        }
+      }
+      .icon-telegram:hover {
+        background-color: #336fcc;
+      }
+      div {
+        float: right;
+        position: relative;
+        width: 40px;
+        padding-top: 15px;
+        margin: 10px 66px 0;
+        &:hover {
+          .icon-weixin {
+            background-color: #48C43E;
+          }
+          .top_box {
+            display: block;
+          }
+        }
+        .icon-weixin {
+          display: block;
+          width: 40px;
+          height: 40px;
+          cursor: pointer;
+          border-radius: 50%;
+          background-color: #141E46;
+          color: #fff;
+          text-align: center;
+          line-height: 40px;
+          font-size: 18px;
+          margin-top: 0;
+        }
+        .top_box {
+          display: none;
+          position: absolute;
+          bottom: 50px;
+          right: calc(100% - 264%);
+          min-width: 170px;
+          background-color: #222E5D;
+          margin: 0;
+          z-index: 2;
+          div {
+            float: none;
+            width: 100%;
+            margin: 0;
+            text-align: center;
+            padding: 20px 0;
+            line-height: 20px;
+            p {
+              line-height: 0;
+              font-size: 14px;
+              color: #fff;
             }
-            .iconfont{
-                float: right;
-                display: block;
-                width: 40px;
-                height: 40px;
-                margin-top: 25px;
-                cursor: pointer;
-                border-radius: 50%;
-                background-color: #141E46;
-                color: #fff;
-                text-align: center;
-                line-height: 40px;
-                font-size: 20px;
-            }
-            .icon-twitter:hover{
-                background-color: #53B2E4;
-            }
-            .icon-weibo{
-                margin-right: 66px;
-                &:hover{
-                    background-color: #EB5D5C;
-                }
-            }
-		}
-		.footer-state{
-			height: 70px;
-			font-size: 14px;
-			line-height: 70px;
-			div{
-				float: right;
-				font-size: 14px;
-				span{
-                    padding-left: 50px;
-					padding-right: 50px;
-				}
-			}
-		}
-	}
+          }
+        }
+      }
+      .iconfont {
+        float: right;
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-top: 25px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #141E46;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        font-size: 20px;
+      }
+      .icon-twitter:hover {
+        background-color: #53B2E4;
+      }
+      .icon-weibo {
+        margin-right: 66px;
+        &:hover {
+          background-color: #EB5D5C;
+        }
+      }
+    }
+    .footer-state {
+      height: 70px;
+      font-size: 14px;
+      line-height: 70px;
+      div {
+        float: right;
+        font-size: 14px;
+        span {
+          padding-left: 50px;
+          padding-right: 50px;
+        }
+      }
+    }
+  }
 }

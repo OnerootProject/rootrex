@@ -16,6 +16,8 @@ export class Api {
         'getNoticeList': '/notice/list?classify={classify}&limit={limit}&offset={offset}',
         //获取公告详情
         'getNoticeDetail': '/notice/detail?pid={pid}',
+        // 弹窗信息
+        'getWindowList': '/popup/list'
     };
 
     symbol = {

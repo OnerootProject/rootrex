@@ -3,52 +3,46 @@
 </div>
 <div class="rootrex">
     <div class="container">
-        <div class="rootrex-content rootrex-content-bg">
-            <h3 class="rootrex-font1">{{'AboutRootrex.Introduction' | translate}}</h3>
-            <h4 class="rootrex-font2">{{'AboutRootrex.Update' | translate}}</h4>
-            <h5 class="rootrex-font1">1. {{'AboutRootrex.Overview' | translate}}</h5>
-            <h6 class="rootrex-font3">{{'AboutRootrex.OverviewDetails' | translate}}</h6>
-            <h5 class="rootrex-font1">2. {{'AboutRootrex.WorkingMechanism' | translate}}</h5>
-            <div class="rootrex-font3">
-                <h6>2.1 {{'AboutRootrex.Deposit' | translate}}</h6>
-                <h6>{{'AboutRootrex.DepositSteps' | translate}}</h6>
-                <h6>2.2 {{'AboutRootrex.Transaction' | translate}}</h6>
-                <h6>{{'AboutRootrex.TransactionSteps' | translate}}</h6>
-                <h6>2.3 {{'AboutRootrex.Withdrawal' | translate}}</h6>
-                <h6>{{'AboutRootrex.WithdrawalSteps' | translate}}</h6>
-            </div>
-            <h5 class="rootrex-font1">3. {{'AboutRootrex.AssetsSecurity' | translate}}</h5>
-            <h6 class="rootrex-font3">{{'AboutRootrex.AssetsSecurityIntroduce' | translate}}</h6>
-            <h5 class="rootrex-font1">4. {{'AboutRootrex.Fees' | translate}}</h5>
-            <div class="rootrex-font3">
-                <h6>4.1 {{'AboutRootrex.CommissionFee' | translate}}</h6>
-                <h6>{{'AboutRootrex.FeesDetails' | translate}}</h6>
-                <h6>4.2 {{'AboutRootrex.TransactionFee' | translate}}</h6>
-                <h6>{{'AboutRootrex.Maker' | translate : {feeRate:feeRate,makerGasRate:makerGasRate} }}<br>{{'AboutRootrex.Taker' | translate : {feeRate:feeRate,takerGasRate:takerGasRate} }}</h6>
-                <h6>{{'AboutRootrex.TokenValue' | translate}}</h6>
-                <h6>{{'AboutRootrex.Popularize' | translate : {feeRate:feeRate} }}</h6>
-                <h6>4.3 {{'AboutRootrex.WithdrawalFee' | translate}}</h6>
-                <h6>{{'AboutRootrex.WithdrawalDetails' | translate}}</h6>
-            </div>
-            <h5 class="rootrex-font1">5. {{'AboutRootrex.GasWhat' | translate}}</h5>
-            <div class="rootrex-font3">
-                <h6 [innerHtml]="'AboutRootrex.GasDetails' | translate"></h6>
-                <h6>{{'AboutRootrex.GasFee' | translate}}</h6>
-                <h6>{{'AboutRootrex.Gas' | translate}}</h6>
-                <h6>{{'AboutRootrex.GasPrice' | translate}}</h6>
-            </div>
-            <h5 class="rootrex-font1">6. {{'AboutRootrex.EntrustAmount' | translate}}</h5>
-            <h6 class="rootrex-font3">{{'AboutRootrex.MakerAmount' | translate}}</h6>
-            <h6 class="rootrex-font3">{{'AboutRootrex.SubAmount' | translate : {tradeGas:tradeGas, takerGasRate:takerGasRate, orderLimitCoefficient:orderLimitCoefficient} }}</h6>
-            <h6 class="rootrex-font3">{{'AboutRootrex.TailQuantity' | translate}}</h6>
-            <h5 class="rootrex-font1">7. {{'AboutRootrex.WithdrawalAmount' | translate}}</h5>
-            <h6 class="rootrex-font3">{{'AboutRootrex.WithdrawalAmountDetails' | translate : {withdrawGas:withdrawGas,tokenValue:tokenValue} }}</h6>
-            <h5 class="rootrex-font1">8. {{'AboutRootrex.PrivateKey' | translate}}</h5>
-            <h6 class="rootrex-font3">{{'AboutRootrex.PrivateKeyIntroduction' | translate}}</h6>
-            <h5 class="rootrex-font1">9. {{'AboutRootrex.ROOTREXAPP' | translate}}</h5>
-            <h6 class="rootrex-font3"><a href="help/download">{{'AboutRootrex.ComingSoo' | translate}}</a></h6>
-            <h5 class="rootrex-font1">10. {{'AboutRootrex.ContactUs' | translate}}</h5>
-            <h6 class="rootrex-font3"><a href="mailto:support@rootrex.com" target="_blank">{{'AboutRootrex.email' | translate}}</a></h6>
+        <div class="rootrex-content rootrex-content-bg rootrex-font1 bor_color2">
+            <h3 class="title">{{'Gas.AboutGas' | translate}} </h3>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.Title' | translate"></h6>
+            <h6 class="blank_line rootrex-font3">&nbsp;</h6>
+            <h5>{{'Gas.DealFee' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.DealFeeDetails1' | translate"></h6>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.DealFeeDetails2' | translate"></h6>
+            <!--<h6 [innerHtml] = "'Gas.DealFeeDetails3' | translate"></h6>-->
+            <!--<h6 [innerHtml] = "'Gas.DealFeeDetails4' | translate"></h6>-->
+            <h6 class="blank_line">&nbsp;</h6>
+            <h5>{{'Gas.GasFee' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.GasFeeDetails1' | translate"></h6>
+            <h6>{{'Gas.GasFeeDetails2' | translate}}</h6>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.GasFeeDetails3' | translate"></h6>
+            <h6>{{'Gas.GasFeeDetails4' | translate}}</h6>
+            <h6>{{'Gas.GasFeeDetails5' | translate}}</h6>
+            <h6 class="blank_line">&nbsp;</h6>
+            <h5>{{'Gas.DepositGasFee' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.DepositGasFeeDetails' | translate"></h6>
+            <h6 class="blank_line">&nbsp;</h6>
+            <h5>{{'Gas.DealGasFee' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.DealGasFeeDetails1' | translate"></h6>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.DealGasFeeDetails2' | translate"></h6>
+            <h6>{{'Gas.DealGasFeeDetails3' | translate}}</h6>
+            <h6 class="blank_line">&nbsp;</h6>
+            <h5>{{'Gas.withdrawGasFee' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.withdrawGasFeeDetails1' | translate"></h6>
+            <h6 class="rootrex-font3">{{'Gas.withdrawGasFeeDetails2' | translate}}</h6>
+            <!--<h6 [innerHtml] = "'Gas.withdrawGasFeeDetails3' | translate"></h6>-->
+            <h6 class="blank_line">&nbsp;</h6>
+            <h5>{{'Gas.SumOrderAmount' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.SumOrderAmountDetails1' | translate"></h6>
+            <h6 class="rootrex-font3">{{'Gas.SumOrderAmountDetails2' | translate}}</h6>
+            <h6 class="rootrex-font3">{{'Gas.SumOrderAmountDetails3' | translate}}</h6>
+            <h6 class="rootrex-font3">{{'Gas.SumOrderAmountDetails4' | translate}}</h6>
+            <h6 class="blank_line">&nbsp;</h6>
+            <h5>{{'Gas.SumWithdrawAmount' | translate}}</h5>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.SumWithdrawAmountDetails1' | translate"></h6>
+            <h6 class="rootrex-font3" [innerHtml]="'Gas.SumWithdrawAmountDetails2' | translate"></h6>
+
         </div>
     </div>
 </div>

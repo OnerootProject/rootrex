@@ -34,6 +34,17 @@ export interface WithdrawDialogConfigInterface {
 
 }
 
+export interface WindowDialogConfigInterface{
+    pid: number, // 弹窗id 唯一标识
+    img: string, // 图片地址
+    link_type: number, // 0:无链接 1:链接到公告 2:外链
+    link_blank?: string, // 当link_type为2时，外链地址
+    link?: string, // 当link_type为1时，公告id
+    link_open?: number,  // 打开方式 1:站内打开 2:站外打开
+    isShow?: boolean, // 是否显示（被用户关闭
+    notOpen?: boolean // 是否不再显示
+}
+
 //Metamask授权Interface
 export interface MetamaskAuthorizeInterface {
     message: string,

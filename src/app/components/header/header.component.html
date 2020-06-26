@@ -22,13 +22,8 @@
 
             <li class="li_notice" [ngClass]="{'activated': routerLink === 'notice'}"
                 (click)="activated('notice','notice',$event)">{{'Header.Notice' | translate}}</li>
-            <li class="li_help" [ngClass]="{'activated': routerLink === 'help'}"
+            <li class="li_help" [ngClass]="{'activated': routerLink === 'rootrex'}"
                 (click)="activated('help','help/rootrex',$event)">{{'Header.Help' | translate}}
-                <ul class="drop-down header-bg header-font2">
-                    <li (click)="activated('help','help/rootrex',$event)">{{'Header.AboutRootrex' | translate}}</li>
-                    <li (click)="activated('help','help/novice',$event)">{{'Header.Novice' | translate}}</li>
-                    <li (click)="activated('help','help/download',$event)">{{'Header.AppDownload' | translate}}</li>
-                </ul>
             </li>
             <li class="li_entrust" [ngClass]="{'activated': routerLink === 'order'}"
                 (click)="activated('order','order',$event)">{{'Header.Order' | translate}}
@@ -43,6 +38,9 @@
                     <li (click)="activated('asset','asset/my',$event)">{{'Header.MyAssets' | translate}}</li>
                     <li (click)="activated('asset','asset/history',$event)">{{'Header.AssetsHistory' | translate}}</li>
                 </ul>
+            </li>
+            <li class="li_assets" [ngClass]="{'activated': routerLink === 'novice'}"
+                (click)="activated('help','help/novice',$event)">{{'Header.Novice' | translate}}
             </li>
             <!--<li class="oneroot_logo">-->
                 <!--<a href="https://www.oneroot.io" target="_blank"><img src="./assets/image/oneroot.png" alt=""></a>-->

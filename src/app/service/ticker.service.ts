@@ -35,7 +35,7 @@ export class TickerService {
 
     //获得首页的Column的排序
     getMarketAsc(){
-        let marketAsc = localStorage.getItem('TickerMarketAsc');
+        let marketAsc = localStorage.getItem('TickerMarketAsc') || 'yes';
         return marketAsc == 'yes'
     }
 

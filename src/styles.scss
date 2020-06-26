@@ -2,52 +2,52 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~assets/scss/px2rem';
 
-*{
+* {
   font-family: Helvetica, Tahoma, Arial, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, sans-serif;
   font-weight: 300;
-  font-style: normal;    outline: none;
+  font-style: normal;
+  outline: none;
   box-sizing: border-box
 }
-html,body{
+
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
 }
-ul{
+
+ul {
   margin: 0;
   list-style: none;
 }
-a{
+
+a {
   color: inherit;
   text-decoration: none;
 }
-.mat-progress-spinner svg{
+
+.mat-progress-spinner svg {
   width: 50px !important;
   height: 50px !important;
 }
 
-
-
-.scrollBeautiful{
-  &::-webkit-scrollbar-track
-  {
+.scrollBeautiful {
+  &::-webkit-scrollbar-track {
     background-color: #141E46;
   }
-  &::-webkit-scrollbar
-  {
+  &::-webkit-scrollbar {
     width: 5px;
     background-color: #141E46;
   }
-  &::-webkit-scrollbar-thumb
-  {
+  &::-webkit-scrollbar-thumb {
     background-color: #222E5D;
   }
   @-moz-document url-prefix() {
-    &{
+    & {
       position: relative;
-      width: calc(100% + 17px)!important;
+      width: calc(100% + 17px) !important;
       padding-right: 17px;
-      .scrollBar{
+      .scrollBar {
         width: 3px;
         background: #222E5D;
         border-radius: 2px;
@@ -65,9 +65,9 @@ a{
 input[type='checkbox'], input[type='radio'] {
   -webkit-appearance: none;
   -moz-appearance: none;
-  -ms-appearance: none;
-  -o-appearance: none;
-  appearance: none;
+  -ms-appearance:  none;
+  -o-appearance:  none;
+  appearance:  none;
   width: rem(15);
   height: rem(15);
   background: #fff;
@@ -76,26 +76,25 @@ input[type='checkbox'], input[type='radio'] {
   outline: none;
   position: relative;
   margin: 0 .5rem;
-  border-radius:.2rem;
+  border-radius: .2rem;
 }
 
-
 // 英文和数字的字体
-@font-face{
+@font-face {
   font-family: Effra-bold;
   src: url('/assets/fonts/EffraBold.ttf');
 }
 
-@font-face{
+@font-face {
   font-family: Effra;
   src: url('/assets/fonts/Effra.ttf');
 }
 
 // 等宽字体
-@font-face{
-    font-family: Myriad;
-    src: url('/assets/fonts/LucidaConsole.ttf');
-  }
+@font-face {
+  font-family: Myriad;
+  src: url('/assets/fonts/LucidaConsole.ttf');
+}
 
 @-webkit-keyframes fadeIn {
   from {
@@ -105,6 +104,7 @@ input[type='checkbox'], input[type='radio'] {
     opacity: 1;
   }
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -115,111 +115,122 @@ input[type='checkbox'], input[type='radio'] {
 }
 
 // input number 右边的上下箭头
-input{
+input {
   &::-webkit-outer-spin-button,
   &::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
 }
-input[type="number"]{
+
+input[type="number"] {
   -moz-appearance: textfield;
 }
 
-.dark{
-  .loading_img,.break_box{
+.dark {
+  .loading_img, .break_box {
     background-image: url('assets/image/refresh-dark.png') !important;
   }
-  .interrupt_img{
-      background-image: url('assets/image/nodata-dark.png') !important;
-  }
-  input[type='checkbox']:checked, input[type='radio']:checked {
-    background : url(../src/assets/icon/checked.png) no-repeat center; background-size: 100% auto;
-    border: 1px solid #00CEFF;
-  }
-  .router-content[lang='en'],.router-content[lang='kr']{
-    .Deposit_box{
-      background-image: url('assets/image/recharge-dark-en.png') !important;
-    }
-    .withdraw_box{
-      background-image: url('assets/image/put-dark-en.png') !important;
-    }
-    .buy-sell_box{
-      background-image: url('assets/image/buy-sell-dark-en.png') !important;
-    }
-    .download_image{
-        background-image: url('./assets/image/download-en.png') !important;
-    }
-    .slide_table{
-      background-image: url('./assets/img/page1-en.png') !important;
-    }
-  }
-  .router-content[lang='zh']{
-    .Deposit_box{
-      background-image: url('assets/image/recharge-dark-ch.png') !important;
-    }
-    .withdraw_box{
-      background-image: url('assets/image/put-dark-ch.png') !important;
-    }
-    .buy-sell_box{
-      background-image: url('assets/image/buy-sell-dark-ch.png') !important;
-    }
-    .download_image{
-        background-image: url('./assets/image/download-ch.png') !important;
-    }
-    .slide_table{
-      background-image: url('./assets/img/page1-ch.png') !important;
-    }
-  }
-}
-
-.light{
-  .loading_img,.break_box{
-    background-image: url('assets/image/refresh-light.png') !important;
-  }
-  .interrupt_img{
+  .interrupt_img {
     background-image: url('assets/image/nodata-dark.png') !important;
   }
   input[type='checkbox']:checked, input[type='radio']:checked {
-    background : url(../src/assets/icon/checked-light.png) no-repeat center; background-size: 100% auto;
-    border: 1px solid #0064FF;
+    background: url(../src/assets/icon/checked.png) no-repeat center;
+    background-size: 100% auto;
+    border: 1px solid #00CEFF;
   }
-  .router-content[lang='en'],.router-content[lang='kr']{
-    .Deposit_box{
-      background-image: url('assets/image/recharge-light-en.png') !important;
+  .router-content[lang='en'], .router-content[lang='ko'] {
+    .Deposit_box {
+      background-image: url('assets/image/recharge-dark-en.png') !important;
     }
-    .withdraw_box{
-      background-image: url('assets/image/put-light-en.png') !important;
+    .withdraw_box {
+      background-image: url('assets/image/put-dark-en.png') !important;
     }
-    .buy-sell_box{
-      background-image: url('assets/image/buy-sell-light-en.png') !important;
+    .buy-sell_box {
+      background-image: url('assets/image/buy-sell-dark-en.png') !important;
     }
-    .download_image{
-        background-image: url('./assets/image/download-en.png') !important;
-    }
-    .slide_table{
+    .slide_table {
       background-image: url('./assets/img/page1-en.png') !important;
     }
   }
-  .router-content[lang='zh']{
-    .Deposit_box{
-      background-image: url('assets/image/recharge-light-ch.png') !important;
+
+  .router-content[lang='en'] {
+    .download_image {
+      background-image: url('./assets/image/download-en.png') !important;
     }
-    .withdraw_box{
-      background-image: url('assets/image/put-light-ch.png') !important;
+  }
+  .router-content[lang='ko'] {
+    .download_image {
+      background-image: url('./assets/image/download-ko.png') !important;
     }
-    .buy-sell_box{
-      background-image: url('assets/image/buy-sell-light-ch.png') !important;
+  }
+  .router-content[lang='zh'] {
+    .Deposit_box {
+      background-image: url('assets/image/recharge-dark-ch.png') !important;
     }
-    .download_image{
-        background-image: url('./assets/image/download-ch.png') !important;
+    .withdraw_box {
+      background-image: url('assets/image/put-dark-ch.png') !important;
     }
-    .slide_table{
+    .buy-sell_box {
+      background-image: url('assets/image/buy-sell-dark-ch.png') !important;
+    }
+    .download_image {
+      background-image: url('./assets/image/download-ch.png') !important;
+    }
+    .slide_table {
       background-image: url('./assets/img/page1-ch.png') !important;
     }
   }
 }
 
-// 媒体查询 
+.light {
+  .loading_img, .break_box {
+    background-image: url('assets/image/refresh-light.png') !important;
+  }
+  .interrupt_img {
+    background-image: url('assets/image/nodata-dark.png') !important;
+  }
+  input[type='checkbox']:checked, input[type='radio']:checked {
+    background: url(../src/assets/icon/checked-light.png) no-repeat center;
+    background-size: 100% auto;
+    border: 1px solid #0064FF;
+  }
+  .router-content[lang='en'], .router-content[lang='ko'] {
+    .Deposit_box {
+      background-image: url('assets/image/recharge-light-en.png') !important;
+    }
+    .withdraw_box {
+      background-image: url('assets/image/put-light-en.png') !important;
+    }
+    .buy-sell_box {
+      background-image: url('assets/image/buy-sell-light-en.png') !important;
+    }
+    .download_image {
+      background-image: url('./assets/image/download-en.png') !important;
+    }
+    .slide_table {
+      background-image: url('./assets/img/page1-en.png') !important;
+    }
+  }
+  .router-content[lang='zh'] {
+    .Deposit_box {
+      background-image: url('assets/image/recharge-light-ch.png') !important;
+    }
+    .withdraw_box {
+      background-image: url('assets/image/put-light-ch.png') !important;
+    }
+    .buy-sell_box {
+      background-image: url('assets/image/buy-sell-light-ch.png') !important;
+    }
+    .download_image {
+      background-image: url('./assets/image/download-ch.png') !important;
+    }
+    .slide_table {
+      background-image: url('./assets/img/page1-ch.png') !important;
+    }
+  }
+}
+
+// 媒体查询
 // @media(min-width: 0) and (max-width: 1199px){
 //   html,body{
 //     width: 1199px;
@@ -236,17 +247,18 @@ input[type="number"]{
 //     margin: 0 auto;
 //   }
 // }
-@media(min-width: 0) and (max-width: 1388px){
-    html,body{
-        width: 1400px;
-      }
-  .container{
+@media(min-width: 0) and (max-width: 1388px) {
+  html, body {
+    width: 1400px;
+  }
+  .container {
     width: 1366px;
     margin: 0 auto;
   }
 }
-@media(min-width: 1389px){
-  .container{
+
+@media(min-width: 1389px) {
+  .container {
     width: 1366px;
     margin: 0 auto;
   }

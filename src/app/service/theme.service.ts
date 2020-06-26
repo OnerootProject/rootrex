@@ -37,7 +37,7 @@ export class ThemeService {
 
     get(){
         let theme = localStorage.getItem('theme');
-        return theme ? theme : 'dark';
+        return theme ? theme : 'light';
     }
 
     set(theme:string){
