@@ -67,20 +67,20 @@ export class OrderDetailComponent implements OnInit {
 
     //init
     init() {
-        this.getOrderDetailById(this.config.id,this.config.symbol);
+        this.getOrderDetailById();
 
     }
 
     //通过OrderId获取订单详情
-    getOrderDetailById(id:string,symbol:string){
+    getOrderDetailById(){
         this.loadingFlag = true;
-        this.rootrexService.fetchOrderDetailById(id,symbol).subscribe(res=>{
+        this.rootrexService.fetchOrderDetailById(this.config.id,this.config.symbol).subscribe(res=>{
             this.loadingFlag = false;
             this.orderDetailData = res.data;
             this.orderDetailData.avgGasPrice = new BigNumber(this.orderDetailData.avgGasPrice).shiftedBy(-9).toString();
             this.orderDetailData.totalGasFee = new BigNumber(this.orderDetailData.totalGasFee).shiftedBy(-18).toString();
             let symbol = this.orderDetailData.tokenName+'_'+this.orderDetailData.baseName;
-            this.getOrderTradeById(this.config.id,this.orderDetailData.type,symbol,this.currentPage,this.pageSize);
+            this.getOrderTradeById(this.config.orderId,this.orderDetailData.type,symbol,this.currentPage,this.pageSize);
         })
     }
 

@@ -53,6 +53,7 @@ export interface MetamaskAuthorizeInterface {
 
 export interface OrderDetailConfigInterface {
     id: string,
+    orderId: string,
     symbol: string,
     closeFunction: Function
 }

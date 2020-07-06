@@ -7,6 +7,6 @@ export const environment = {
         resourceVersion: '1',
         ethNetwork: 'Kovan',
         contract: '0x046D814Bfe996E14907Dd465287a5e8c9a041188',
-        appID: 1
+        appID: 2
     }
 };

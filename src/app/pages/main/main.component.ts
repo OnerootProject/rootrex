@@ -93,6 +93,7 @@ export class MainComponent implements OnInit {
         this.getBaseTokenList();
         this.subscribeCurrency();
         this.subscribeLanguage();
+        console.log('v0.3')
     }
 
     //获取Banner列表

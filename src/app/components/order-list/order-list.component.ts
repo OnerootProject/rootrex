@@ -83,10 +83,11 @@ export class OrderListComponent implements OnInit {
         })
     }
     
-    onOrderDetailClick(id: string, symbol: string) {
+    onOrderDetailClick(item) {
         this.dialogCtrl.createFromComponent(OrderDetailComponent, {
-            id: id,
-            symbol: symbol,
+            id: item.id,
+            orderId: item.orderId,
+            symbol: item.symbol,
             closeFunction: ()=>{
                 this.onTypeChange.next(this.type);
             }

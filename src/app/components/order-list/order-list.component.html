@@ -52,7 +52,7 @@
                 <div>{{i.calBaseSuccess | toFixed:8}} {{i.baseName}}</div>
                 <div>{{('Rootrex.OrderStatus:'+i.status) | translate}}</div>
                 <div>
-                    <span class="entrust-font4" (click)="onOrderDetailClick(i.id,i.symbol)">{{'Common.Detail' | translate}}</span>
+                    <span class="entrust-font4" (click)="onOrderDetailClick(i)">{{'Common.Detail' | translate}}</span>
                     <span (click)="onWithdrawalClick(i.orderId,i.symbol)" *ngIf="!type&&i.status=='0'">{{'Rootrex.Cancel' | translate}}</span>
                 </div>
             </li>
