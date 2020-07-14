@@ -1,4 +1,4 @@
-$color_blue : #00CEFF;
+$color_blue: #00CEFF;
 select {
   outline: none;
 }
@@ -12,135 +12,134 @@ select {
   padding-top: 20px;
   padding-bottom: 20px;
   .deal-title {
-        overflow: hidden;
+    overflow: hidden;
+    height: 70px;
+    .deal-title-left {
+      width: 75%;
+      padding-right: 10px;
+      float: left;
+      .deal_left_container {
+        width: 100%;
         height: 70px;
-        .deal-title-left {
-            width: 75%;
-            padding-right: 10px;
+        overflow: hidden;
+      }
+      .deaal_left_one {
+        float: left;
+        height: 70px;
+        line-height: 70px;
+        padding: 0 25px 0 20px;
+        font-size: 12px;
+        box-shadow: none;
+        overflow: hidden;
+        .taken_name_basename {
+          height: 100%;
+          float: left;
+          font-size: 22px;
+          font-family: Effra !important;
+          margin-right: 15px;
+          span {
+            padding-left: 20px;
+            font-family: Effra !important;
+          }
+        }
+        .icon_start {
+          float: left;
+          font-size: 16px;
+          cursor: pointer;
+        }
+        .token_currentPrice {
+          font-family: Effra !important;
+          float: left;
+          height: 100%;
+          font-size: 22px;
+          margin-right: 15px;
+        }
+        .token_currency {
+          font-family: Effra !important;
+          float: left;
+          height: 100%;
+          font-size: 14px;
+        }
+      }
+      .deal_left_two {
+        float: left;
+        height: 70px;
+        ul {
+          list-style: none;
+          padding: 0;
+          overflow: hidden;
+          height: 100%;
+          li {
             float: left;
-            .deal_left_container{
-                width: 100%;
-                height: 70px;
-                overflow: hidden;
-            }
-            .deaal_left_one{
+            height: 100%;
+            margin-right: 25px;
+            &:nth-of-type(1) {
+              margin-right: 0;
+              & > div {
                 float: left;
                 height: 70px;
                 line-height: 70px;
-                padding: 0 25px 0 20px;
-                font-size: 12px;
-        		box-shadow: none;
-        		overflow: hidden;
-		        .taken_name_basename{
-                    height: 100%;
-        			float: left;
-        			font-size: 22px;
-                    font-family: Effra !important;
-                    margin-right: 15px;
-        			span{
-                        padding-left: 20px;
-                        font-family: Effra !important;
-        			}
-        		}
-                .icon_start{
-        			float: left;
-                	font-size: 16px;
-        			cursor: pointer;
+                &.price_up_down {
+                  font-size: 22px;
+                  margin-right: 15px;
+                  font-family: Effra !important;
                 }
-                .token_currentPrice{
-                    font-family: Effra !important;
-                    float: left;
-                    height: 100%;
-                    font-size: 22px;
-                    margin-right: 15px;
+                &.price_cny {
+                  font-size: 14px;
+                  margin-right: 35px;
+                  font-family: Effra !important;
                 }
-                .token_currency{
-                    font-family: Effra !important;
-                    float: left;
-                    height: 100%;
-                    font-size: 14px;
-                }
+              }
             }
-            .deal_left_two {
-                float: left;
-                height: 70px;
-                ul {
-                    list-style: none;
-                    padding: 0;
-                    overflow: hidden;
-                    height: 100%;
-                    li {
-                        float: left;
-                        height: 100%;
-                        margin-right: 25px;
-                        &:nth-of-type(1){
-                            margin-right: 0;
-                            &>div{
-                                float: left;
-                                height: 70px;
-                                line-height: 70px;
-                                &.price_up_down{
-                                    font-size: 22px;
-                                    margin-right: 15px;
-                                    font-family: Effra !important;
-                                }
-                                &.price_cny{
-                                    font-size: 14px;
-                                    margin-right: 35px;
-                                    font-family: Effra !important;
-                                }
-                            }
-                        }
-                        &:nth-last-of-type(1){
-                            margin-right: 0;
-                        }
-                        .left_word{
-                            height: 70px;
-                            float: left;
-                            overflow: hidden;
-                            padding-top: 20px;
-                            padding-right: 10px;
-                            font-size: 12px;
-                        }
-                        .right_number{
-                            height: 70px;
-                            overflow: hidden;
-                            p {
-                                margin: 0;
-                                &:nth-of-type(1) {
-                                    font-size: 14px;
-                                    font-family: Effra !important;
-                                    padding-top: 19px;
-                                }
-                                &:nth-of-type(2){
-                                    font-size: 12px;
-                                    padding-top: 4px;
-                                    font-family: Effra !important;
-                                }
-                            }
-                        }  
-                    }
-                }
+            &:nth-last-of-type(1) {
+              margin-right: 0;
             }
-        }
-
-
-
-      .deal-title-right {
-        width: 25%;
-        height: 70px;
-        box-shadow: none;
-        padding-left: 10px;
-        float: right;
-        div {
-          width: 100%;
-          height: 100%;
-          background-size: cover;
-          background-position: 100% 100%;
-          background-repeat: no-repeat;
-          cursor: pointer;
+            .left_word {
+              height: 70px;
+              float: left;
+              overflow: hidden;
+              padding-top: 20px;
+              padding-right: 10px;
+              font-size: 12px;
+            }
+            .right_number {
+              height: 70px;
+              overflow: hidden;
+              p {
+                margin: 0;
+                &:nth-of-type(1) {
+                  font-size: 14px;
+                  font-family: Effra !important;
+                  padding-top: 19px;
+                }
+                &:nth-of-type(2) {
+                  font-size: 12px;
+                  padding-top: 4px;
+                  font-family: Effra !important;
+                }
+              }
+            }
+          }
         }
       }
+
+    }
+
+    .deal-title-right {
+      width: 25%;
+      height: 70px;
+      box-shadow: none;
+      padding-left: 10px;
+      float: right;
+      div {
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+        cursor: pointer;
+      }
+    }
     // }
   }
   // kx线图
@@ -160,7 +159,7 @@ select {
           line-height: 39px;
           border-bottom: 1px solid #000;
           padding: 0 20px;
-          &>div {
+          & > div {
             font-size: 12px;
 
             &:nth-of-type(1) {
@@ -174,18 +173,18 @@ select {
               cursor: pointer;
               position: relative;
               padding-right: 20px;
-              .iconfont{
-                  position: absolute;
-                  top: 0;
-                  right: 0;
+              .iconfont {
+                position: absolute;
+                top: 0;
+                right: 0;
               }
             }
           }
-          &>ul {
+          & > ul {
             float: right;
             list-style: none;
             padding-left: 0;
-            &>li {
+            & > li {
               float: left;
               font-size: 14px;
               margin-right: 50px;
@@ -249,7 +248,7 @@ select {
               outline: none;
               background-color: inherit;
               padding: 0 10px 0 26px;
-              &:focus{
+              &:focus {
                 border-color: $color_blue;
               }
             }
@@ -259,7 +258,7 @@ select {
           .deal-market-price-title {
             height: 40px;
             padding: 0 20px;
-            
+
             span {
               display: inline-block;
               line-height: 38px;
@@ -268,15 +267,15 @@ select {
               cursor: pointer;
               overflow: hidden;
               border-bottom: 2px solid rgba(13, 21, 57, 0);
-              &:nth-last-of-type(1){
-                  margin-right: 0;
+              &:nth-last-of-type(1) {
+                margin-right: 0;
               }
-              .icon_start_left{
-                    float: left;
-                    margin-right: 10px;
-                    font-size: 14px;
-                    margin-top: -1.1px;
-                }
+              .icon_start_left {
+                float: left;
+                margin-right: 10px;
+                font-size: 14px;
+                margin-top: -1.1px;
+              }
             }
           }
           .deal-market-price-option {
@@ -296,24 +295,22 @@ select {
               font-size: 12px;
               height: 30px;
               line-height: 30px;
-              -moz-user-select:none;/*火狐*/
-                -webkit-user-select:none;/*webkit浏览器*/
-                -ms-user-select:none;/*IE10*/
-                user-select:none;
-              &.trade_tokenName{
+              -moz-user-select: none; /*火狐*/
+              -webkit-user-select: none; /*webkit浏览器*/
+              -ms-user-select: none; /*IE10*/
+              user-select: none;
+              &.trade_tokenName {
                 width: 35%;
-				cursor: pointer;
-				&>div{
-                    position: relative;
-                    height: 30px;
-					span {
-						font-size: 14px;
-					  }
-				}
+                cursor: pointer;
+                & > div {
+                  position: relative;
+                  height: 30px;
+                  span {
+                    font-size: 14px;
+                  }
+                }
 
-			  }
-
-
+              }
 
               &:nth-of-type(2) {
                 font-family: Effra !important;
@@ -323,7 +320,7 @@ select {
               &:nth-of-type(3) {
                 float: right;
                 text-align: right;
-				font-family: Effra !important;
+                font-family: Effra !important;
                 padding-right: 15px;
                 height: 30px;
                 line-height: 30px;
@@ -332,66 +329,66 @@ select {
           }
           .price-option {
             div {
-			  div{
-				position: relative;
-				cursor: pointer;
-				display: block;
-				width: 100%;
-				b {
-                    font-size: 16px;
-                    font-weight: 600;
-					position: absolute;
-					top: 0;
-					&:nth-of-type(1) {
-					  margin-left: -6px;
-					}
-					&:nth-of-type(2) {
-					  margin-left: 0;
-					}
-				  }
-				  &.trade_marketPrice{
-					  b{
-						  top: 1px;
-						  &:nth-of-type(1) {
-							margin-left: -3px;
-						  }
-						  &:nth-of-type(2) {
-							margin-left: 3px;
-						  }
-					  }
-				  }
-				  &.trade_upDown {
-					padding-right: 13px;
-					b {
-					  &:nth-of-type(1) {
-						margin-left: -1px;
-					  }
-					  &:nth-of-type(2) {
-						margin-left: 5px;
-					  }
-					}
-				  }
-			  }
-			  &:nth-of-type(3){
-				  padding-right: 7px;
-			  }
-            }
-		  }
-		  .trade_marketPrice_box{
-			  width: 25%;
-		  }
-          .deal-market-price-content {
-			  	height: 305px;
-				overflow-y: scroll;
-				padding-left: 5px;
-			.scroll-y{
-				.symbolListShowData{
-                    padding-left: 41px;
-                    .trade_tokenName div span{
-                        font-family: Effra !important;
+              div {
+                position: relative;
+                cursor: pointer;
+                display: block;
+                width: 100%;
+                b {
+                  font-size: 16px;
+                  font-weight: 600;
+                  position: absolute;
+                  top: 0;
+                  &:nth-of-type(1) {
+                    margin-left: -6px;
+                  }
+                  &:nth-of-type(2) {
+                    margin-left: 0;
+                  }
+                }
+                &.trade_marketPrice {
+                  b {
+                    top: 1px;
+                    &:nth-of-type(1) {
+                      margin-left: -3px;
                     }
-				}
-			}
+                    &:nth-of-type(2) {
+                      margin-left: 3px;
+                    }
+                  }
+                }
+                &.trade_upDown {
+                  padding-right: 13px;
+                  b {
+                    &:nth-of-type(1) {
+                      margin-left: -1px;
+                    }
+                    &:nth-of-type(2) {
+                      margin-left: 5px;
+                    }
+                  }
+                }
+              }
+              &:nth-of-type(3) {
+                padding-right: 7px;
+              }
+            }
+          }
+          .trade_marketPrice_box {
+            width: 25%;
+          }
+          .deal-market-price-content {
+            height: 305px;
+            overflow-y: scroll;
+            padding-left: 5px;
+            .scroll-y {
+              .symbolListShowData {
+                padding-left: 41px;
+                .trade_tokenName div span {
+                  font-family: Effra !important;
+                }
+              }
+            }
           }
         }
       }
@@ -437,40 +434,40 @@ select {
         &:nth-of-type(1) {
           margin-right: 10px;
         }
-        &.min_amount{
-            margin-left: 30px;
-            margin-right: 10px;
+        &.min_amount {
+          margin-left: 30px;
+          margin-right: 10px;
         }
       }
-      .icon-wenhao{
-          float: right;
-          line-height: 40px;
-          margin-left: 5px;
-          cursor: pointer;
-          position: relative;
-          &:hover{
-              .min_hint{
-                  display: block;
-              }
+      .icon-wenhao {
+        float: right;
+        line-height: 40px;
+        margin-left: 5px;
+        cursor: pointer;
+        position: relative;
+        &:hover {
+          .min_hint {
+            display: block;
           }
+        }
       }
-      .min_hint{
-          display: none;
-          position: absolute;
-          right: 0;
-          width: 300px;
-          padding: 10px;
-          z-index: 2;
-          cursor: auto;
-          p{
-              font-size: 12px;
-              line-height: 20px;
-              margin: 0;
-              padding-bottom: 10px;
-              &:nth-last-of-type(1){
-                  padding-bottom: 0;
-              }
+      .min_hint {
+        display: none;
+        position: absolute;
+        right: 0;
+        width: 300px;
+        padding: 10px;
+        z-index: 2;
+        cursor: auto;
+        p {
+          font-size: 12px;
+          line-height: 20px;
+          margin: 0;
+          padding-bottom: 10px;
+          &:nth-last-of-type(1) {
+            padding-bottom: 0;
           }
+        }
       }
     }
   }
@@ -493,18 +490,18 @@ select {
     font-weight: bold;
     padding-top: 13px;
     height: 37px;
-	button {
-		float: right;
-		display: block;
-		padding: 0 12px;
-		height: 24px;
-		line-height: 24px;
-		font-size: 12px;
-		border: none;
-		outline: none;
-		margin-top: -2px;
-		cursor: pointer;
-	  }
+    button {
+      float: right;
+      display: block;
+      padding: 0 12px;
+      height: 24px;
+      line-height: 24px;
+      font-size: 12px;
+      border: none;
+      outline: none;
+      margin-top: -2px;
+      cursor: pointer;
+    }
   }
   .deal-sum {
     font-size: 14px;
@@ -541,7 +538,7 @@ select {
       height: 39px;
       margin-top: 0.5px;
       background-color: inherit;
-      border: 1px solid rgba(255,255,255,0);
+      border: 1px solid rgba(255, 255, 255, 0);
       outline: none;
       padding: 0 70px 0 70px;
       overflow: hidden;
@@ -631,7 +628,7 @@ select {
   }
 
   // 买卖
-  .interrupt{
+  .interrupt {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -640,39 +637,39 @@ select {
     text-align: center;
     z-index: 2;
     display: table;
-    .table_cell{
-        display: table-cell;
-        vertical-align: middle;
-        .interrupt_img{
-            display: inline-block;
-            width: 75px;
-            height: 70px;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-position: 100% 100%;
-        }
-        div{
-            font-size: 14px;
-            margin-top: 10px;
-        }
+    .table_cell {
+      display: table-cell;
+      vertical-align: middle;
+      .interrupt_img {
+        display: inline-block;
+        width: 75px;
+        height: 70px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+      }
+      div {
+        font-size: 14px;
+        margin-top: 10px;
+      }
     }
-}
+  }
   .sell-container {
     height: 155px;
     overflow: hidden;
     position: relative;
     transition: height 300ms ease-in-out;
-    nodata,loading{
-        position: absolute;
-        bottom: 0;
-		left: 0;
-		width: 100%;
+    nodata, loading {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
     }
     .deal-business-lists {
       width: 100%;
       min-height: 40px;
       position: absolute;
-    //   bottom: 0;
+      //   bottom: 0;
       left: 0;
     }
   }
@@ -687,12 +684,12 @@ select {
       position: absolute;
       top: 0;
       left: 0;
-	  nodata,loading{
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		}
+      nodata, loading {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
     }
   }
   .sell-buy-center {
@@ -710,12 +707,12 @@ select {
         border-bottom: 1px solid #000;
         padding: 0 20px;
         span {
-		  display: block;
-		  float: left;
+          display: block;
+          float: left;
           line-height: 38px;
           font-size: 12px;
-		  margin-right: 15px;
-		  text-align: center;
+          margin-right: 15px;
+          text-align: center;
           cursor: pointer;
           &:nth-of-type(3) {
             margin-right: 0;
@@ -725,10 +722,10 @@ select {
           float: right;
           font-size: 12px;
           span {
-			margin-right: 0;
-			display: inline-block;
-			width: auto;
-			float: none;
+            margin-right: 0;
+            display: inline-block;
+            width: auto;
+            float: none;
           }
           div {
             margin-left: 10px;
@@ -755,9 +752,9 @@ select {
               p {
                 margin: 0;
                 padding: 5px 10px;
-				white-space: nowrap;
-				text-align: left;
-				transition: background 300ms ease-in-out;
+                white-space: nowrap;
+                text-align: left;
+                transition: background 300ms ease-in-out;
               }
             }
           }
@@ -792,55 +789,55 @@ select {
       .deal-business-lists {
         list-style: none;
         padding: 0 20px 0 10px;
-		overflow: hidden;
-        .listData_box{
+        overflow: hidden;
+        .listData_box {
+          overflow: hidden;
+          margin-bottom: 5px;
+          position: relative;
+          &:nth-last-child(1) {
+            margin-bottom: 0;
+          }
+          .my_deal {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+          }
+          li {
+            float: right;
+            width: calc(100% - 10px);
             overflow: hidden;
-            margin-bottom: 5px;
-            position: relative;
-            &:nth-last-child(1){
-                margin-bottom: 0;
+            cursor: pointer;
+            &:nth-last-of-type(1) {
+              margin-bottom: 0;
             }
-            .my_deal{
-                position: absolute;
-                top: 5px;
-                left: 0;
-                width: 5px;
-                height: 5px;
-                border-radius: 50%;
-            }
-            li {
-                float: right;
-                width: calc(100% - 10px);
-              overflow: hidden;
-              cursor: pointer;
-              &:nth-last-of-type(1) {
-                margin-bottom: 0;
+            div {
+              float: left;
+              font-size: 12px;
+              height: 15px;
+              line-height: 15px;
+              &.deal_start {
+                width: 14%;
               }
-              div {
-                float: left;
-    			font-size: 12px;
-    			height: 15px;
-              	line-height: 15px;
-                &.deal_start {
-                  width: 14%;
-                }
-                &.deal_price {
-                  width: 29%;
-                  padding-left: 10px;
-    			  font-family: Effra !important;
-                }
-                &.deal_volume {
-                  width: 28%;
-    			  text-align: right;
-    			  font-family: Effra !important;
-                }
-                &.deal_amount {
-                  width: 29%;
-    			  text-align: right;
-    			  font-family: Effra !important;
-                }
+              &.deal_price {
+                width: 29%;
+                padding-left: 10px;
+                font-family: Effra !important;
+              }
+              &.deal_volume {
+                width: 28%;
+                text-align: right;
+                font-family: Effra !important;
+              }
+              &.deal_amount {
+                width: 29%;
+                text-align: right;
+                font-family: Effra !important;
               }
             }
+          }
         }
 
       }
@@ -851,7 +848,7 @@ select {
         line-height: 20px;
         padding: 0 20px;
         div {
-			font-family: Effra !important;
+          font-family: Effra !important;
           &:nth-of-type(1) {
             float: left;
             font-size: 12px;
@@ -893,8 +890,8 @@ select {
         padding: 0;
         li {
           overflow: hidden;
-		  line-height: 20px;
-		  padding: 0 20px;
+          line-height: 20px;
+          padding: 0 20px;
           div {
             float: left;
             font-size: 12px;
@@ -903,51 +900,51 @@ select {
               padding-right: 5PX;
               font-family: Myriad;
               overflow: hidden;
-              text-overflow:ellipsis;
+              text-overflow: ellipsis;
               white-space: nowrap;
-              a{
-                  font-family: Myriad;
+              a {
+                font-family: Myriad;
               }
             }
             &:nth-of-type(2) {
               width: 15%;
             }
             &:nth-of-type(3) {
-			  width: 28%;
-			  font-family: Effra !important;
+              width: 28%;
+              font-family: Effra !important;
             }
             &:nth-of-type(4) {
               width: 27%;
               // float: right;
-			  text-align: right;
-			  font-family: Effra !important;
+              text-align: right;
+              font-family: Effra !important;
             }
           }
           &:nth-of-type(1) {
             height: 30px;
             line-height: 30px;
           }
-		}
-		.overflow-container{
-			width: 100%;
-			height: 360px;
-			overflow-y: scroll;
-			.overflow_y{
-				li{
-                    padding-right: 15px;
-					&:nth-of-type(1){
-						height: 20px;
-						line-height: 20px;
-					}
-				}
-			}
-		}
+        }
+        .overflow-container {
+          width: 100%;
+          height: 360px;
+          overflow-y: scroll;
+          .overflow_y {
+            li {
+              padding-right: 15px;
+              &:nth-of-type(1) {
+                height: 20px;
+                line-height: 20px;
+              }
+            }
+          }
+        }
       }
     }
   }
 
-  .over_scroll{
-      overflow-y: scroll !important;
+  .over_scroll {
+    overflow-y: scroll !important;
   }
 
   // 交易状态
@@ -966,31 +963,33 @@ select {
   position: relative;
   width: auto;
   height: 100%;
-  .fwBold{
+  .fwBold {
     font-weight: bold;
     padding-right: 2px;
   }
   .iconDown {
     display: block;
     width: auto;
-    position: initial!important;
+    position: initial !important;
     font-size: 12px;
-    &.icon-sanjiaoxing-down:after {  color: #60698D;}
+    &.icon-sanjiaoxing-down:after {
+      color: #60698D;
+    }
   }
-  input{
+  input {
     position: absolute;
     height: 100%;
     top: 0;
     left: 0;
     opacity: 0;
   }
-  &:hover{
-    .select{
+  &:hover {
+    .select {
       display: block;
     }
   }
-  .select{
-    &.hide{
+  .select {
+    &.hide {
       display: none;
     }
     display: none;
@@ -1007,17 +1006,17 @@ select {
     list-style: none;
     padding-left: 0;
     z-index: 2;
-    .option{
+    .option {
       width: 61px;
       line-height: initial;
       display: inline-block;
       padding-bottom: 2px;
       cursor: pointer;
-      overflow:hidden;
-      text-overflow:ellipsis;
-      word-break:break-all;
-      white-space:nowrap;
-      &:hover{
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-all;
+      white-space: nowrap;
+      &:hover {
         color: $color_blue;
       }
     }
@@ -1035,7 +1034,7 @@ select {
       color: transparent;
       text-shadow: 0 0 0 #fff;
     }
-    &:disabled{
+    &:disabled {
       color: #999;
     }
   }
@@ -1046,43 +1045,49 @@ select {
   }
 }
 
-.disabledStyle{
+.disabledStyle {
   opacity: .5;
-  cursor: no-drop!important;
+  cursor: no-drop !important;
 }
-.k-line {
-   position: relative;
-   .loadChart{
-     display: none;
-     background: transparent !important;
-     color: rgba(255, 255, 255, .1) !important;
-     position: absolute;
-     top: 45%;
-     left: 0;
-     .loading_img {
-       opacity: .5
-     }
-     animation: fadeInOut 2.5s ease 2s 1 both;
-   }
 
-   .chartNoData {
-     display: none;
-     background: transparent !important;
-     color: rgba(255, 255, 255, .1) !important;
-     position: absolute;
-     top: 45%;
-     left: 0;
-     animation: fadeIn 0.5s ease 5s 1 both;
-   }
- }
-.kLineNoData{
+.k-line {
+  position: relative;
+  .loadChart {
+    display: none;
+    background: transparent !important;
+    color: rgba(255, 255, 255, .1) !important;
+    position: absolute;
+    top: 45%;
+    left: 0;
+    .loading_img {
+      opacity: .5
+    }
+    animation: fadeInOut 2.5s ease 2s 1 both;
+  }
+
+  .chartNoData {
+    display: none;
+    background: transparent !important;
+    color: rgba(255, 255, 255, .1) !important;
+    position: absolute;
+    top: 45%;
+    left: 0;
+    animation: fadeIn 0.5s ease 5s 1 both;
+  }
+}
+
+.kLineNoData {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: transparent!important;
+  background-color: transparent !important;
   opacity: .6;
 }
-#k-line{height: 100%}
+
+#k-line {
+  height: 100%
+}
+
 .kLineSwitch {
   .selectBox {
     display: none;
@@ -1123,7 +1128,7 @@ select {
     left: 0;
     animation: fadeIn 0.5s ease 0s 1 both;
     z-index: 22;
-    & + .loadChart{
+    & + .loadChart {
       display: none;
     }
   }
@@ -1139,6 +1144,7 @@ select {
     opacity: 1
   }
 }
+
 @-webkit-keyframes fadeInOut {
   0% {
     opacity: 0
@@ -1151,7 +1157,6 @@ select {
     opacity: 0
   }
 }
-
 
 // @media(min-width: 0) and (max-width: 1299px){
 // 	.deal-title-left {
@@ -1178,3 +1183,36 @@ select {
 //         margin-right: 5px;
 //     }
 // }
+
+::ng-deep {
+
+  .idex {
+    float: left;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    a {
+      margin-right: 15px;
+      display: block;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  .dark {
+    .idex {
+      a {
+        background: url("../../../assets/image/idex/etherscan_dark.png") no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+
+  .light {
+    .idex {
+      a {
+        background: url("../../../assets/image/idex/etherscan_light.png") no-repeat;
+        background-size: 100% 100%;
+      }
+    }
+  }
+}

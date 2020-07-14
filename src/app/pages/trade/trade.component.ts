@@ -31,7 +31,7 @@ import * as echarts from "echarts";
 import {Subscription} from "rxjs/Subscription";
 import {MetamaskAuthorizeComponent} from "../../components/metamask-authorize/metamask-authorize.component";
 import {environment} from "../../../environments/environment";
-import { AmountService } from '../../service/amount.service';
+import {AmountService} from '../../service/amount.service';
 import {PercentPipe} from '../../pipes/percent.pipe';
 
 declare var TradingView;
@@ -193,7 +193,7 @@ export class TradeComponent implements OnInit {
     dealSocketFlag: boolean = false;
 
     //当前网络
-    currentNetwork:string = environment.config.ethNetwork;
+    currentNetwork: string = environment.config.ethNetwork;
     //k线图暂无数据
     kLineNodata = window['kLineNodata'];
     //获取手续费
@@ -424,7 +424,7 @@ export class TradeComponent implements OnInit {
     //获取交易对收藏列表
     getSymbolFavoriteList(loadingFlag: boolean = true) {
         this.symbolFavorite = [];
-        if(loadingFlag){
+        if (loadingFlag) {
             this.symbolListShowData = [];
             this.symbolLoadingFlag = true;
         }
@@ -459,7 +459,7 @@ export class TradeComponent implements OnInit {
     getSymbolList() {
         let baseToken = this.currentActive;
         this.symbolService.fetchSymbolList(baseToken).subscribe(res => {
-            if(this.currentActive === baseToken){
+            if (this.currentActive === baseToken) {
                 this.symbolLoadingFlag = false;
                 this.symbolListData = res.data.result;
                 this.symbolListShowData = res.data.result;
@@ -929,7 +929,7 @@ export class TradeComponent implements OnInit {
         if (new BigNumber(this.currentPrice).isGreaterThan(new BigNumber(this.lastDayPrice))) {
             flag = '+';
         }
-        return flag + risePrice.toFixed(4,1);
+        return flag + risePrice.toFixed(4, 1);
     }
 
     //转换价格
@@ -1776,11 +1776,13 @@ export class TradeComponent implements OnInit {
     scrollForFirefox(ele) {
         this.ScrollService.scrollForFirefox(ele);
     }
+
     // 交易页面买卖单列表切换滚动条处理
     scrolly() {
         var sellScroll = document.getElementsByClassName("sell-container")[0];
         sellScroll.scrollTop = sellScroll.scrollHeight;
     }
+
     //点击下载按钮时
     onDownloadClick() {
         this.router.navigateByUrl('/help/download');
@@ -1792,7 +1794,7 @@ export class TradeComponent implements OnInit {
             // console.log(res)
             this.takerGasRate = new PercentPipe().transform((100 - res.data.helpData['makerGasRate']), 0, false);
             this.tradeGas = res.data.helpData['tradeGas'];
-            this.orderLimitCoefficient = new PercentPipe().transform((res.data.helpData['orderLimitCoefficient']/2), 0, false);
+            this.orderLimitCoefficient = new PercentPipe().transform((res.data.helpData['orderLimitCoefficient'] / 2), 0, false);
         })
     }
 

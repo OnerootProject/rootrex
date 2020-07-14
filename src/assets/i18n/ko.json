@@ -1,5 +1,5 @@
 {
-  "Title": "루트렉스 - 안정성과 전문성을 갖춘 분산화 거래소입니다",
+  "Title": "ONEROOT DEX - 안정성과 전문성을 갖춘 분산화 거래소입니다",
   "Line": "차트 선",
   "SelectUnit": {
     "1": "분",
@@ -88,8 +88,8 @@
     "DepositGasFeeDetails": "사용자의 지갑 계정에서 ONEROOT DEX로 입금하는 작업이 블록체인에서 진행되며 이때 사용자는 소량의 ETH를 Gas 수수료로 부담해야 합니다. 입금 시 사용자의 지갑에 Gas 수수료를 지급하기 위해 소량의 ETH를 보유해야 하는 점을 유의하시기 바랍니다.",
     "DealGasFee": "2. 거래 Gas 수수료",
     "DealGasFeeDetails1": "구매자와 판매자 사이의 실제 자산의 이동은 블록체인에서 진행되며 R1 스마트 컨트랙트의 집행에서 이더리움 네트워크에 올릴 때 거래 Gas 수수료가 발생합니다. 이 Gas 수수료는 Taker와 Maker가 공동 부담하며 받을 자산에서 차감합니다. Maker가 거래의 유동성을 제공하는 주체인 것을 고려하여 Maker는 30%, Taker는 70%의 비율로 Gas 수수료를 부담합니다.",
-    "DealGasFeeDetails2": "Maker ：거래 Gas 수수료 * 30% * 받을 자산의 Gas 수수료 환산율<br>Taker ：거래 Gas 수수료 * 70% * 받을 자산의 Gas 수수료 환산율",
-    "DealGasFeeDetails3": "Gas 수수료 환산율은 코인의 가격 변동성에 따라 다르며 현재 기준으로 ETH 및 기타 토큰은 모두 1.5로 적용되어 있습니다.",
+    "DealGasFeeDetails2": "Maker ：거래 Gas 수수료 * 30%/ 받을 자산의 Gas 수수료 환산율<br>Taker ：거래 Gas 수수료 * 70%/ 받을 자산의 Gas 수수료 환산율",
+    "DealGasFeeDetails3": "Gas 수수료 환산율은 코인의 가격 변동성에 따라 다르며 현재 기준으로 ETH는 100%, 기타 토큰은 50%로 적용되어 있습니다.",
     "DealGasFeeDetails4": "",
     "DealGasFeeDetails5": "",
     "DealGasFeeDetails6": "",

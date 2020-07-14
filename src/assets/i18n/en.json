@@ -89,7 +89,7 @@
         "DealGasFee": "2. Transaction Gas Fee",
         "DealGasFeeDetails1": "The actual delivery of assets between buyers and sellers is conducted on the chain, executed by R1 contract and submitted to Ethereum network, thus generating Transaction Gas Fee. The gas fee is shared by Taker and Maker, deducted from the assets received. Considering that Maker is the provider of liquidity, Maker assumes 30% and Taker 70%.",
         "DealGasFeeDetails2": "Maker : Transaction Gas Fee * 30% / Gas fee conversion rate（asset received)<br>Taker : Transaction Gas Fee * 70% / Gas fee conversion rate（asset received）",
-        "DealGasFeeDetails3": "Gas fee conversion rate depends on fluctuation of tokens, currently it is 1.5 for both ETH and other tokens.",
+        "DealGasFeeDetails3": "Gas fee conversion rate depends on fluctuation of tokens, current rate : ETH is 100%, and other tokens are 50%.",
         "DealGasFeeDetails4": "",
         "DealGasFeeDetails5": "",
         "DealGasFeeDetails6": "",
