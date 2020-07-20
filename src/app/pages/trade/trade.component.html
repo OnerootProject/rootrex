@@ -249,6 +249,7 @@
                         <!--<span [ngClass]="{'activated': active === 2}" (click)="active=2">市价交易</span>-->
                         <div>
                             <span>{{'Asset.GasPrice' | translate}}:</span>
+                            <input type="hidden" id="test111">
                             <span>{{gasPrice | zero}} GWEI</span>
                             <span class="min_amount">{{'Asset.MinOrderAmount' | translate}}:</span>
                             <span>{{minOrderLimit | toFixed:8:2 | zero}} {{symbol_base}}</span>

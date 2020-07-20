@@ -4,15 +4,14 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-    production: false,
+    production: true,
     config: {
-        apiUrl: 'https://uat-api.oneroot.one',
-        // apiUrl: 'https://dev-bithumb-api.rex.plus',
-        wsUrl: 'wss://dev-bithumb-wss.rex.plus',
+        apiUrl: 'https://api.oneroot.one',
+        wsUrl: 'wss://wss.oneroot.one',
         version: 'v0.1.2',
         resourceVersion: '1',
         ethNetwork: 'Kovan',
         contract: '0x046D814Bfe996E14907Dd465287a5e8c9a041188',
-        appID: 2
+        appID: 1
     }
 };
