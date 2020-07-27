@@ -68,7 +68,7 @@ export class MainComponent implements OnInit {
 
     //After Mounted
     ngAfterViewInit() {
-        
+
     }
 
     //Update
@@ -298,9 +298,9 @@ export class MainComponent implements OnInit {
                 result = new BigNumber(pre[column]).isGreaterThan(new BigNumber(next[column])) || (new BigNumber(pre[column]).isEqualTo(new BigNumber(next[column])) && pre['tokenName'] > next['tokenName']);
             }
             if (result) {
-                return this.tickerService.getMarketAsc() ? 1 : -1;
-            } else {
                 return this.tickerService.getMarketAsc() ? -1 : 1;
+            } else {
+                return this.tickerService.getMarketAsc() ? 1 : -1;
             }
         })
     }

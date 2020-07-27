@@ -53,9 +53,9 @@
                                 <span>{{'Symbol.Pair' | translate}}
                                     <span *ngIf="tickerService.getColumn() == 'tokenName'">
                                         <b class="iconfont icon-down- index-market-font"
-                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
-                                        <b class="iconfont icon-up- index-market-font"
                                            [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
                                     </span>
                                 </span>
                             </div>
@@ -63,9 +63,9 @@
                                 <span class="home_market_price_words" (click)="sortBy('price');">{{'Symbol.MarketPrice' | translate}}
                                     <span *ngIf="tickerService.getColumn() == 'price'">
                                         <b class="iconfont icon-down- index-market-font"
-                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
-                                        <b class="iconfont icon-up- index-market-font"
                                            [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
                                     </span>
                                 </span>
                             </div>
@@ -73,9 +73,9 @@
                                 <span (click)="sortBy('rise');">{{'Symbol.24hChange' | translate}}
                                     <span *ngIf="tickerService.getColumn() == 'rise'">
                                         <b class="iconfont icon-down- index-market-font"
-                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
-                                        <b class="iconfont icon-up- index-market-font"
                                            [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
                                     </span>
                                 </span>
                             </div>
@@ -83,9 +83,9 @@
                                 <span class="home_height_price_words" (click)="sortBy('highPrice24h');">{{'Symbol.24hHigh' | translate}}{{tickerService.getTab()==='fav'?'':'('+tickerService.getTab()+')'}}
                                     <span *ngIf="tickerService.getColumn() == 'highPrice24h'">
                                         <b class="iconfont icon-down- index-market-font"
-                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
-                                        <b class="iconfont icon-up- index-market-font"
                                            [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
                                     </span>
                                 </span>
                             </div>
@@ -93,9 +93,9 @@
                                 <span class="home_low_price_words" (click)="sortBy('lowPrice24h');">{{'Symbol.24hLow' | translate}}{{tickerService.getTab()==='fav'?'':'('+tickerService.getTab()+')'}}
                                     <span *ngIf="tickerService.getColumn() == 'lowPrice24h'">
                                         <b class="iconfont icon-down- index-market-font"
-                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
-                                        <b class="iconfont icon-up- index-market-font"
                                            [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
                                     </span>
                                 </span>
                             </div>
@@ -103,9 +103,9 @@
                                 <span (click)="sortBy('tradeBaseAmount');">{{'Symbol.24hVolume' | translate}}{{tickerService.getTab()==='fav'?'':'('+tickerService.getTab()+')'}}
                                     <span *ngIf="tickerService.getColumn() == 'tradeBaseAmount'">
                                         <b class="iconfont icon-down- index-market-font"
-                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
-                                        <b class="iconfont icon-up- index-market-font"
                                            [ngClass]="{'icon-light': tickerService.getMarketAsc()}"></b>
+                                        <b class="iconfont icon-up- index-market-font"
+                                           [ngClass]="{'icon-light': !tickerService.getMarketAsc()}"></b>
                                     </span>
                                 </span>
                             </div>

@@ -113,9 +113,9 @@ export class HeaderComponent implements OnInit {
     //设置顶部导航当前选中状态
     setHeaderActive() {
         let path = window.location.pathname;
-        if (path.indexOf('/notice') !== -1) {
+        if (path.indexOf('/notice') !== -1 || path.indexOf('/about') !== -1) {
             this.routerLink = 'notice';
-        } else if (path.indexOf('/rootrex') !== -1 || path.indexOf('/about') !== -1) {
+        } else if (path.indexOf('/rootrex') !== -1 ) {
             this.routerLink = 'rootrex';
         } else if (path.indexOf('/order') !== -1) {
             this.routerLink = 'order';

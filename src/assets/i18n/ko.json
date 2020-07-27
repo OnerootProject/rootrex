@@ -196,7 +196,8 @@
     "ApplyToList": "상장 요청",
     "DataSource": "자료 출처",
     "CustomerSupport": "고객 지원(1)",
-    "CustomerSupports": "고객 지원(2)"
+    "CustomerSupports": "고객 지원(2)",
+    "Inves":"암호화폐는 위험성이 큰 투자자산임을 충분히 인지하시고 신중히 투자결정을 해 주시기 바랍니다"
   },
   "Header": {
     "AboutRootrex": "루트렉스에 대하여",
@@ -431,5 +432,9 @@
     "InformationDisclosureDetails": "ONEROOT DEX respects and protects the individual privacy rights of all users of ONEROOT DEX services. To provide you with accurate, more personalized services, ONEROOT DEX will use and disclose your personal information in accordance with the provisions of this right of privacy policy, and ONEROOT DEX is obliged to treat this information with a high level of diligence and caution. Except when otherwise stipulated in this right of privacy policy, in situations in which your prior consent has not been obtained, ONEROOT DEX will not externally disclose this information or provide it to a third party.",
     "InformationDisclosureDetails_One": "In the following situations, ONEROOT DEX will partially or fully disclose your personal information in accordance with your individual wishes or legal provisions:",
     "InformationDisclosureDetails_Two": "a) Disclosure to a third party having gained your prior consent;<br>b) Information must be shared with a third party in order to provide you with products and services you have requested;<br>c) Disclosure to a third party or to an administrative or judicial authority in accordance with provisions of laws, or the requirements of an administrative or judicial authority;<br>d) If a situation arises in which relevant laws, regulations, or the ONEROOT DEX services agreement are contravened, it will be necessary to make disclosures to a third party;<br>e) If you are a qualified intellectual property complainant and have already filed a complaint, disclosure will be made to the respondent at the respondent’s request to facilitate the handling two of the possible rights dispute by the two side;<br>f) In other situations, disclosure should be on the basis of laws, regulations, or that which is considered appropriate disclosure according to website policy."
+  },
+  "AboutUs":{
+    "DEX":"ONEROOT DEX",
+    "Oneroot":"ONEROOT DEX는 R1 프로토콜을 기반으로 개발된 탈중앙화 거래소로서 사용자의 자산 안전을 보장하는 동시에 중앙화 거래소 못지않는 거래 속도와 경험을 제공합니다. R1 프로토콜의 특성을 기반으로, ONEROOT DEX는 Bithumb DEX를 비롯한 여러 탈중앙화 거래소와 주문 데이터 및 유동성을 공유하고 사용자에게 더 나은 거래 깊이를 제공해 드립니다."
   }
 }

@@ -197,7 +197,8 @@
         "ApplyToList": "上币申请",
         "DataSource": "数据来源",
         "CustomerSupport": "ONEROOT DEX客服一",
-        "CustomerSupports": "ONEROOT DEX客服二"
+        "CustomerSupports": "ONEROOT DEX客服二",
+        "Inves":"投资有风险 交易需谨慎"
     },
     "Header": {
         "AboutRootrex": "关于 ONEROOT DEX",
@@ -432,5 +433,9 @@
         "InformationDisclosureDetails": "ONEROOT DEX尊重并保护所有使用ONEROOT DEX服务用户的个人隐私权。为了给您提供更准确、更个性化的服务，ONEROOT DEX会按照本隐私权政策的规定使用和披露您的个人信息，并且ONEROOT DEX会以高度的勤勉、审慎义务对待这些信息。除本隐私权政策另有规定外，在未征得您事先许可的情况下，ONEROOT DEX不会将这些信息对外披露或向第三方提供。",
         "InformationDisclosureDetails_One": "在如下情况下，ONEROOT DEX将依据您的个人意愿或法律的规定全部或部分的披露您的个人信息：",
         "InformationDisclosureDetails_Two": "a)经您事先同意，向第三方披露；<br>b)为提供您所要求的产品和服务，而必须向第三方分享您的个人信息；<br>c)根据法律的有关规定，或者行政或司法机构的要求，向第三方或者行政、司法机构披露；<br>d)如您出现违反有关法律、法规、ONEROOT DEX服务协议或相关规则的情况，需要向第三方披露；<br>e)如您是适格的知识产权投诉人并已提起投诉，应被投诉人要求，向被投诉人披露，以便双方处理可能的权利纠纷；<br>f)其它本应用根据法律、法规或者网站政策认为合适的披露。"
+    },
+    "AboutUs":{
+        "DEX":"ONEROOT DEX",
+        "Oneroot":"ONEROOT DEX是基于R1协议的去中心化交易所，在保证用户资产安全的同时，提供了媲美中心化交易所的交易速度和体验。基于R1的特性，ONEROOT DEX能够与以Bithumb DEX为代表的多家去中心化交易所共享订单数据和流动性，从而为用户提供更好的交易深度。"
     }
 }

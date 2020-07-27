@@ -197,7 +197,8 @@
         "ApplyToList": "APPLY TO LIST",
         "DataSource": "Data Source",
         "CustomerSupport": "Customer Support(1)",
-        "CustomerSupports": "Customer Support(2)"
+        "CustomerSupports": "Customer Support(2)",
+        "Inves":"Investment involves risks   Be cautious when conducting transactions"
     },
     "Header": {
         "AboutRootrex": "About ONEROOT DEX",
@@ -432,5 +433,9 @@
         "InformationDisclosureDetails": "ONEROOT DEX respects and protects the individual privacy rights of all users of ONEROOT DEX services. To provide you with accurate, more personalized services, ONEROOT DEX will use and disclose your personal information in accordance with the provisions of this right of privacy policy, and ONEROOT DEX is obliged to treat this information with a high level of diligence and caution. Except when otherwise stipulated in this right of privacy policy, in situations in which your prior consent has not been obtained, ONEROOT DEX will not externally disclose this information or provide it to a third party.",
         "InformationDisclosureDetails_One": "In the following situations, ONEROOT DEX will partially or fully disclose your personal information in accordance with your individual wishes or legal provisions:",
         "InformationDisclosureDetails_Two": "a) Disclosure to a third party having gained your prior consent;<br>b) Information must be shared with a third party in order to provide you with products and services you have requested;<br>c) Disclosure to a third party or to an administrative or judicial authority in accordance with provisions of laws, or the requirements of an administrative or judicial authority;<br>d) If a situation arises in which relevant laws, regulations, or the ONEROOT DEX services agreement are contravened, it will be necessary to make disclosures to a third party;<br>e) If you are a qualified intellectual property complainant and have already filed a complaint, disclosure will be made to the respondent at the respondent’s request to facilitate the handling two of the possible rights dispute by the two side;<br>f) In other situations, disclosure should be on the basis of laws, regulations, or that which is considered appropriate disclosure according to website policy."
+    },
+    "AboutUs":{
+        "DEX":"ONEROOT DEX",
+        "Oneroot":"ONEROOT DEX is a decentralized exchange based on the R1 protocol, which is guaranteeing the security of user assets while providing the transaction speed and experiences comparable to the centralized exchange. Due to the sharing feature of R1, ONEROOT DEX can share order data and liquidity with all decentralized exchanges accessing R1, such as Bithumb DEX, thus providing users with better trading depth."
     }
 }

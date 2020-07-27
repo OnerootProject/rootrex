@@ -3,6 +3,16 @@
 }
 .about-us{
     width: 100%;
-    padding-top: 20px;
     padding-bottom: 20px;
+    padding-top:20px;
+    .rootrex-content {
+        width: 100%;
+        height: auto;
+        padding: 30px 40px;
+        h3 {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 0;
+        }
+    }
 }
