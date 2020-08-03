@@ -1,7 +1,10 @@
 <div class="notice-center">
     <div class="container">
         <div class="notice-center-content notice-center-bg">
-            <div class="notice-center-title notice-center-font1">{{(noticeType == 1?'Notice.NewCoinList':'Notice.LatestAnnouncement') | translate}}</div>
+            <div class="notice-center-title notice-center-font1" *ngIf="noticeType == 1">{{'Notice.NewCoinList' | translate}}</div>
+            <div class="notice-center-title notice-center-font1" *ngIf="noticeType == 2">{{'Notice.LatestAnnouncement' | translate}}</div>
+            <div class="notice-center-title notice-center-font1" *ngIf="noticeType == 3">{{'Notice.KongList' | translate}}</div>
+            <div class="notice-center-title notice-center-font1" *ngIf="noticeType == 4">{{'Notice.Other' | translate}}</div>
             <ul class="notice-center-container">
                 <li class="notice-center-border notice-center-words" (click)="goToNoticeDetail(i.pid)" *ngFor="let i of noticeListData">
                     <span class="notice-center-font1">{{i.title}}</span>

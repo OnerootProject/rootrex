@@ -275,7 +275,11 @@
         "NewCoinList": "New Coin Listing",
         "NoticeCenter": "Announcement",
         "ViewAllLatestAnnouncement": "View All Latest Announcement",
-        "ViewAllNewCoinList": "View All New Coin List"
+        "ViewAllNewCoinList": "View All New Coin List",
+        "KongList":"Announcement of air drop activity",
+        "Other":"Other announcements",
+        "ViewKongList":"Check out all the airdrop announcements",
+        "ViewOther":"View all other bulletin articles"
     },
     "Paginator": {
         "First": "First",

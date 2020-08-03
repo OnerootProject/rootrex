@@ -274,7 +274,11 @@
     "NewCoinList": "새로운 코인 상장",
     "NoticeCenter": "공지사항",
     "ViewAllLatestAnnouncement": "최근 공지사항 모두 보기",
-    "ViewAllNewCoinList": "최근 상장 코인 목록 모두 보기"
+    "ViewAllNewCoinList": "최근 상장 코인 목록 모두 보기",
+    "KongList":"공중투하활동 공고",
+    "Other":"기타 공고",
+    "ViewKongList":"모든 공중투하활동 공고문 보기",
+    "ViewOther":"다른 공고문 보기"
   },
   "Paginator": {
     "First": "처음",

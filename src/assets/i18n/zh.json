@@ -275,7 +275,11 @@
         "NewCoinList": "新币上线",
         "NoticeCenter": "公告中心",
         "ViewAllLatestAnnouncement": "查看所有最新公告文章",
-        "ViewAllNewCoinList": "查看所有新币上线文章"
+        "ViewAllNewCoinList": "查看所有新币上线文章",
+        "KongList":"空投活动公告",
+        "Other":"其他公告",
+        "ViewKongList":"查看所有空投活动公告文章",
+        "ViewOther":"查看所有其他公告文章"
     },
     "Paginator": {
         "First": "首页",

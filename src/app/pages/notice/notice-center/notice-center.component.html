@@ -6,17 +6,33 @@
                 <li class="notice-center-font1">{{'Notice.NewCoinList' | translate}}</li>
                 <li class="notice-center-words notice-center-border" *ngFor="let i of onlineListData" (click)="gotoNoticeDetail(i.pid)" >
                     <span>{{i.title}}</span>
-                    <span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>
+                    <!--<span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>-->
                 </li>
-                <li class="notice-font4" (click)="gotoNoticeCategory(1)" >{{'Notice.ViewAllNewCoinList' | translate}}</li>
+                <li class="notice-font4" (click)="gotoNoticeCategory(1)" *ngIf="onlineListData.length>0">{{'Notice.ViewAllNewCoinList' | translate}}</li>
             </ul>
-            <ul class="notice-center-right notice-center-font2"> 
+            <ul class="notice-center-right notice-center-font2">
                 <li class="notice-center-font1">{{'Notice.LatestAnnouncement' | translate}}</li>
                 <li class="notice-center-words notice-center-border" *ngFor="let i of noticeListData" (click)="gotoNoticeDetail(i.pid)">
                     <span>{{i.title}}</span>
-                    <span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>
+                    <!--<span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>-->
                 </li>
-                <li class="notice-font4" (click)="gotoNoticeCategory(2)">{{'Notice.ViewAllLatestAnnouncement' | translate}}</li>
+                <li class="notice-font4" (click)="gotoNoticeCategory(2)" *ngIf="noticeListData.length>0">{{'Notice.ViewAllLatestAnnouncement' | translate}}</li>
+            </ul>
+            <ul class="notice-center-left notice-center-font2">
+                <li class="notice-center-font1">{{'Notice.KongList' | translate}}</li>
+                <li class="notice-center-words notice-center-border" *ngFor="let i of onlineListDataone" (click)="gotoNoticeDetail(i.pid)" >
+                    <span>{{i.title}}</span>
+                    <!--<span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>-->
+                </li>
+                <li class="notice-font4" (click)="gotoNoticeCategory(3)" *ngIf="onlineListDataone.length>0">{{'Notice.ViewKongList' | translate}}</li>
+            </ul>
+            <ul class="notice-center-right notice-center-font2">
+                <li class="notice-center-font1">{{'Notice.Other' | translate}}</li>
+                <li class="notice-center-words notice-center-border" *ngFor="let i of noticeListDataone" (click)="gotoNoticeDetail(i.pid)">
+                    <span>{{i.title}}</span>
+                    <!--<span>{{i.created_at | timestamp:'YYYY.MM.DD'}}</span>-->
+                </li>
+                <li class="notice-font4" (click)="gotoNoticeCategory(4)" *ngIf="noticeListDataone.length>0">{{'Notice.ViewOther' | translate}}</li>
             </ul>
         </div>
     </div>

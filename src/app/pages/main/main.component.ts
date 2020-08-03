@@ -45,6 +45,10 @@ export class MainComponent implements OnInit {
     intervalFlag: boolean = true;
     legalInterval: any;
 
+    currentPage: number = 1;
+    pageSize: number = 10;
+    totalRow: number = 0;
+
     /*-----Constructor Part-----*/
 
     constructor(private router: Router,
@@ -163,12 +167,25 @@ export class MainComponent implements OnInit {
 
     //获取交易对列表
     getSymbolList() {
-        this.symbolService.fetchSymbolList(this.tickerService.getTab()).subscribe(res => {
+        this.symbolService.fetchSymbolList(this.tickerService.getTab(),this.currentPage, this.pageSize).subscribe(res => {
             this.loadingFlag = false;
             this.symbolListData = res.data.result;
             this.symbolListShowData = res.data.result;
+            this.totalRow = res.data.total;
             this.setSymbolData();
         });
+    }
+
+    //切换页面方法
+    onPageChange(currentPage:number){
+        this.currentPage = currentPage;
+        this.getSymbolFavoriteList();
+    }
+
+    //切换pageSize方法
+    onSizeChange(pageSize:number){
+        this.pageSize = pageSize;
+        this.getSymbolFavoriteList();
     }
 
     //交易对数据获取后续处理
@@ -279,6 +296,7 @@ export class MainComponent implements OnInit {
         }).filter(data => {
             return this.tickerService.getTab() === 'fav' ? true : data.baseName = this.tickerService.getTab();
         });
+
     }
 
     //排序

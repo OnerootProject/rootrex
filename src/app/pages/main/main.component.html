@@ -151,6 +151,9 @@
                             </div>
                         </li>
                     </div>
+                    <div class="page-box">
+                        <paginator [currentPage]="currentPage" [pageSize]="pageSize" [totalRow]="totalRow" (onCurrentPageChange)="onPageChange($event)" (onPageSizeChange)="onSizeChange($event)" ></paginator>
+                    </div>
                 </ul>
             </div>
         </div>

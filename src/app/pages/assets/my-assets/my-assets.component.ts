@@ -98,7 +98,7 @@ export class AssetsComponent implements OnInit {
 
     //获取交易对列表
     getSymbolList() {
-        this.symbolService.fetchSymbolList('').subscribe(res => {
+        this.symbolService.fetchSymbolList('',0,10).subscribe(res => {
             this.symbolListData = res.data.result;
             this.symbolListTradeData = res.data.result;
             this.getMyAssetList();

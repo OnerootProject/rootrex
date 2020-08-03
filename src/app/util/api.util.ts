@@ -22,7 +22,7 @@ export class Api {
 
     symbol = {
         //获取交易对列表 GET
-        'getSymbolList': '/ticker/list?baseToken={baseToken}',
+        'getSymbolList': '/ticker/list?baseToken={baseToken}&limit={limit}&offset={offset}',
         //获取交易对收藏列表 GET
         'getSymbolFavoriteList': '/ticker/favorite/list?address={account}',
         //获取baseToken列表 GET

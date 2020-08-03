@@ -14,10 +14,15 @@ export class NoticeCenterComponent implements OnInit {
     /*-----Data Part-----*/
 
     //main
-    noticeListData:Array<NoticeInterface>;
-    onlineListData:Array<NoticeInterface>;
+    noticeListData:Array<NoticeInterface>=[];
+    onlineListData:Array<NoticeInterface>=[];
+    noticeListDataone:Array<NoticeInterface>=[];
+    onlineListDataone:Array<NoticeInterface>=[];
     //language subscribe对象
     languageSubscribe: Subscription;
+
+    currentPage: number = 1;
+    pageSize: number = 5;
 
     /*-----Constructor Part-----*/
 
@@ -55,14 +60,36 @@ export class NoticeCenterComponent implements OnInit {
     //init
     init() {
         this.getNoticeCenterList();
+        this.getNoticeCenterListone();
+        this.getNoticeCenterListtwo();
+        this.getNoticeCenterListthree();
         this.subscribeLanguage();
     }
 
     //获取公告列表
     getNoticeCenterList(){
-        this.noticeService.fetchNoticeCenterList().subscribe(res=>{
-            this.noticeListData = res.data.result.latestNotice;
-            this.onlineListData = res.data.result.newCoin;
+        this.noticeService.fetchNoticeList(1,this.currentPage, this.pageSize).subscribe(res=>{
+
+            this.onlineListData = res.data.result;
+        })
+    }
+    //获取公告列表
+    getNoticeCenterListone(){
+        this.noticeService.fetchNoticeList(2,this.currentPage, this.pageSize).subscribe(res=>{
+            this.noticeListData = res.data.result;
+        })
+    }
+    //获取公告列表
+    getNoticeCenterListtwo(){
+        this.noticeService.fetchNoticeList(3,this.currentPage, this.pageSize).subscribe(res=>{
+            this.onlineListDataone = res.data.result;
+        })
+    }
+    //获取公告列表
+    getNoticeCenterListthree(){
+        this.noticeService.fetchNoticeList(4,this.currentPage, this.pageSize).subscribe(res=>{
+
+            this.noticeListDataone = res.data.result;
         })
     }
 

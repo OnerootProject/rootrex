@@ -458,7 +458,7 @@ export class TradeComponent implements OnInit {
     //获取交易对列表
     getSymbolList() {
         let baseToken = this.currentActive;
-        this.symbolService.fetchSymbolList(baseToken).subscribe(res => {
+        this.symbolService.fetchSymbolList(baseToken,0,10).subscribe(res => {
             if (this.currentActive === baseToken) {
                 this.symbolLoadingFlag = false;
                 this.symbolListData = res.data.result;
