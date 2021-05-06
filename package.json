@@ -34,7 +34,7 @@
     "echarts": "4.1.0",
     "echarts-gl": "1.1.0",
     "ethereumjs-util": "5.2.0",
-    "highcharts": "6.1.0",
+    "highcharts": "9.0.0",
     "moment": "2.22.1",
     "ngx-echarts": "2.1.0",
     "rxjs": "5.5.8",
